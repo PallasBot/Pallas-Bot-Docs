@@ -1,0 +1,23 @@
+/* Custom styles */
+:root {
+  --vp-c-brand-1: #5bbad5;
+  --vp-c-brand-2: #4ea5c4;
+  --vp-c-brand-3: #3d91b3;
+}
+
+.VPHome {
+  padding-bottom: 0;
+}
+
+.VPHero {
+  padding-top: 80px;
+}
+
+.VPFeature {
+  transition: all 0.3s;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(91, 186, 213, 0.15);
+}

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+src/.vitepress/dist/
+src/.vitepress/cache/
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# Testing
+coverage/
+
+.claude/
+
