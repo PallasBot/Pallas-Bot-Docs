@@ -15,7 +15,7 @@ import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-i
 
 export const shared = defineConfig({
   title: 'Pallas-Bot',
-  base: '/Pallas-Bot-docs/',
+  base: '/Pallas-Bot-docs',
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
