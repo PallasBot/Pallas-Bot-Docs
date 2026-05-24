@@ -26,6 +26,7 @@ import '@nolebase/vitepress-plugin-page-properties/client/style.css'
 import 'vitepress-markdown-timeline/dist/theme/index.css'
 
 import './custom.css'
+import PallasFooter from './PallasFooter.vue'
 
 export default {
   extends: DefaultTheme,
@@ -35,6 +36,8 @@ export default {
       'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
       'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
       'layout-top': () => [h(NolebaseHighlightTargetedHeading)],
+      'layout-bottom': () => h(PallasFooter),
+      'home-footer': () => h(PallasFooter),
     })
   },
   enhanceApp(ctx: EnhanceAppContext) {
