@@ -103,7 +103,7 @@ if not await satisfies_command_permission(bot, event, "my_plugin.do_something"):
 
 与 cmd_perm **无关**的业务前提（例如须**本 Bot 账号**为 QQ 群管）：写在 `detail_des` 或 `docs/plugins/<name>/README.md`。
 
-`docs/plugins/*/README.md` 面向维护者，结构见 [插件文档模板](../../plugins/TEMPLATE.md)；可用表格列出**代码默认等级**，并注明实际以 WebUI 为准。
+`docs/plugins/*/README.md` 面向维护者，结构见 [插件文档模板](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/plugins/TEMPLATE.md)；可用表格列出**代码默认等级**，并注明实际以 WebUI 为准。
 
 `PluginMetadata` 共用常量：`src/common/cmd_perm/metadata_defaults.py`（`PLUGIN_HOMEPAGE`、`PLUGIN_EXTRA_VERSION`、`PLUGIN_MENU_TEMPLATE`）。
 

@@ -20,10 +20,10 @@
 
 | 主题 | 文档 |
 | --- | --- |
-| 目录与分层 | [项目结构](../architecture/project-structure.md) |
-| 插件组织 | [插件目录约定](../architecture/plugin-convention.md) |
+| 目录与分层 | [项目结构](/architecture/project-structure) |
+| 插件组织 | [插件目录约定](/architecture/plugin-convention) |
 | 命令权限 | [cmd_perm](/common/cmd_perm) |
-| 配置落盘 | [配置存储](../architecture/settings-storage.md) |
+| 配置落盘 | [配置存储](/architecture/settings-storage) |
 
 ## 提交前自检
 
@@ -63,9 +63,9 @@ chore(scope): …
 
 ## 文档改动
 
-- 用户向插件说明：`docs/plugins/<name>/README.md`（可复制 [TEMPLATE.md](../plugins/TEMPLATE.md)）
+- 用户向插件说明：`docs/plugins/<name>/README.md`（可复制 [TEMPLATE.md](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/plugins/TEMPLATE.md)）
 - 架构与开发约定：`docs/architecture/`、`docs/develop/`
-- 在线站由 CI 将主仓 `docs/` 同步至 [Pallas-Bot-Docs](https://github.com/PallasBot/Pallas-Bot-Docs)（见 [docs/README.md](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md#同步-web-文档)）
+- 在线站由 CI 将主仓 `docs/` 同步至 [Pallas-Bot-Docs](https://github.com/PallasBot/Pallas-Bot-Docs)（见 [docs/README.md](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/README.md#同步-web-文档)）
 
 本地预览同步结果：
 

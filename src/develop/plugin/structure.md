@@ -1,6 +1,6 @@
 # 插件结构与约定
 
-本文是 [插件目录约定](../architecture/plugin-convention.md) 的**开发向**说明：新建或改动插件时如何组织文件与数据。
+本文是 [插件目录约定](/architecture/plugin-convention) 的**开发向**说明：新建或改动插件时如何组织文件与数据。
 
 ## 最小结构
 
@@ -68,7 +68,7 @@ my_plugin/
 
 - 用户向：`docs/plugins/<name>/README.md`
 - 开发者默认权限可在文档表格列出，并注明以 WebUI / cmd_perm 为准
-- 模板：[TEMPLATE.md](../../plugins/TEMPLATE.md)
+- 模板：[TEMPLATE.md](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/plugins/TEMPLATE.md)
 
 ## 迁移策略
 

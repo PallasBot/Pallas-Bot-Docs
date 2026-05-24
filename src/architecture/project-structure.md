@@ -63,7 +63,7 @@
 - 每个插件使用独立目录：`docs/plugins/<plugin_name>/README.md`
 - 插件文档总索引：`docs/plugins/README.md`
 
-当前已迁移的插件文档见 [plugins/README.md](../plugins/README.md)（21 个用户向插件 + 通用能力文档）。
+当前已迁移的插件文档见 [plugins/README.md](/plugins/index)（21 个用户向插件 + 通用能力文档）。
 
 ## tools 目录约定
 

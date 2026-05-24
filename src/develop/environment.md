@@ -35,7 +35,7 @@ cp config/pallas.example.toml config/pallas.toml
 
 3. 插件与通用项可在启动后于 Web 控制台保存，落盘 **`data/pallas_config/webui.json`**（优先级高于 `pallas.toml` 与遗留 `.env`）。
 
-合并顺序与读取 API 见 [配置存储](../architecture/settings-storage.md)。从旧 `.env` 一次性迁移：
+合并顺序与读取 API 见 [配置存储](/architecture/settings-storage)。从旧 `.env` 一次性迁移：
 
 ```bash
 uv run python tools/migrate_env_to_pallas.py
@@ -55,7 +55,7 @@ uv run nb run
 
 ### 分片模式（可选）
 
-生产或多进程场景见 [多进程分片](../architecture/bot_process_sharding.md)。本地若需验证分片：
+生产或多进程场景见 [多进程分片](/architecture/bot-process-sharding)。本地若需验证分片：
 
 - 在 `pallas.toml` 的 `[env]` 配置 `REDIS_URL`（需 `uv sync --extra coord-redis`）
 - 使用 `./scripts/run_sharded_bot.sh start`（脚本会探测 Redis）
@@ -69,7 +69,7 @@ uv run nb run
 extra_plugin_dirs = ["local/plugins"]
 ```
 
-详见 [站点定制与更新](../architecture/site-customization-and-updates.md)。
+详见 [站点定制与更新](/architecture/site-customization-and-updates)。
 
 ## 质量检查（与 CI 一致）
 

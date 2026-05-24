@@ -1,6 +1,6 @@
 # 插件开发入门
 
-Pallas-Bot 基于 **NoneBot2** + **OneBot v11**。业务插件位于 `src/plugins/<包名>/`；站点定制可放在 `local/plugins/`（见 [站点定制](../architecture/site-customization-and-updates.md)）。
+Pallas-Bot 基于 **NoneBot2** + **OneBot v11**。业务插件位于 `src/plugins/<包名>/`；站点定制可放在 `local/plugins/`（见 [站点定制](/architecture/site-customization-and-updates)）。
 
 ## 两种参与方式
 
@@ -109,7 +109,7 @@ get_my_config = plugin_webui.get
 
 ## 插件文档
 
-新增用户向插件时，在 `docs/plugins/<name>/README.md` 补充说明（可复制 [TEMPLATE.md](../plugins/TEMPLATE.md)），并在 [plugins/README.md](../plugins/README.md) 索引中登记。
+新增用户向插件时，在 `docs/plugins/<name>/README.md` 补充说明（可复制 [TEMPLATE.md](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/plugins/TEMPLATE.md)），并在 [plugins/README.md](/plugins/index) 索引中登记。
 
 ## 测试
 
@@ -123,7 +123,7 @@ uv run pytest tests/plugins/my_plugin/
 
 - 目录拆分与路径约定：[插件结构与约定](structure.md)
 - cmd_perm、热重载、消息审查、跨插件能力：[插件进阶能力](advanced.md)
-- 规范总览：[插件目录约定](../architecture/plugin-convention.md)
+- 规范总览：[插件目录约定](/architecture/plugin-convention)
 
 ## 外部参考
 

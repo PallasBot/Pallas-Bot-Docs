@@ -79,7 +79,7 @@ get_config = plugin_webui.get
 | 整包替换主仓同名插件 | `local/plugins/<原名>/`（加载优先于 `src/plugins/`） |
 | 只改主仓少量核心文件 | `local/patches/*.patch` 或提 PR |
 
-见 [站点定制与更新](../../architecture/site-customization-and-updates.md)
+见 [站点定制与更新](/architecture/site-customization-and-updates)
 
 ## 分片部署注意
 
@@ -87,7 +87,7 @@ get_config = plugin_webui.get
 - worker 侧 `get_*_config()` 可按磁盘 mtime 拾取新配置
 - 涉及 Bot 连接、presence 时使用 `src/common/shard/` 提供的 API，勿假设单进程内存全局状态
 
-见 [多进程分片](../../architecture/bot_process_sharding.md)
+见 [多进程分片](/architecture/bot-process-sharding)
 
 ## 日志
 
