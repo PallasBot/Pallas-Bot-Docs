@@ -1,8 +1,40 @@
-/* Custom styles */
+/* Brand */
 :root {
   --vp-c-brand-1: #5bbad5;
   --vp-c-brand-2: #4ea5c4;
   --vp-c-brand-3: #3d91b3;
+  /* 行内代码/路径：不用品牌蓝，提高正文对比度 */
+  --vp-code-color: var(--vp-c-text-1);
+  --vp-code-bg: var(--vp-c-bg-soft);
+}
+
+.dark {
+  --vp-code-color: var(--vp-c-text-1);
+  --vp-code-bg: var(--vp-c-bg-alt);
+}
+
+/* 正文中的 `path/`、`config.toml` 等 */
+.vp-doc :not(pre) > code {
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-code-bg);
+  border: 1px solid var(--vp-c-divider);
+  padding: 0.12em 0.35em;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.92em;
+}
+
+.vp-doc :not(pre) > code .vp-copy-ignore,
+.vp-doc :not(pre) > code .twoslash-hover {
+  color: inherit;
+}
+
+.vp-doc a > code {
+  color: var(--vp-c-brand-1);
+}
+
+.vp-doc a:hover > code {
+  color: var(--vp-c-brand-2);
 }
 
 .VPHome {

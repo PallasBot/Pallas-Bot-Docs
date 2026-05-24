@@ -38,13 +38,14 @@
 | `maa_attach_screenshot` | true | 指令后附加截图 |
 | `maa_combat_auto_prepare` | true | 作战前自动排队关卡设置 |
 
-完整键见 [`config.py`](https://github.com/PallasBot/Pallas-Bot/blob/main/src/plugins/maa/config.py)。改 `maa_get_task_path` 等会重挂路由并清帮助缓存。
+完整键见 [`config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/plugins/maa/config.py)。改 `maa_get_task_path` 等会重挂路由并清帮助缓存。
 
 ## 排障
 
 | 现象 | 处理 |
 | --- | --- |
-| 未检测到轮询 | MAA 端点不可达或 URL 错误 |
+| 未检测到轮询 | MAA 端点不可达或 URL 错误；分片须 hub `maa_public_base_url` 且各 worker 共用 `data/` |
+| 状态有待拉取、MAA 无任务 | 分片时队列在 `data/pallas_shard/coord/maa_pending/`；须 hub 能访问各 worker 端口 |
 | 下发后无任务 | 未绑定或用户标识符非 QQ；查 `牛牛MAA状态` |
 | 队列有、MAA 无 | 设备 id 与「当前选用」不一致；可清空队列重试 |
 | 截图失败 | 调大反代 `client_max_body_size` |
@@ -75,6 +76,10 @@
 
 - `牛牛设置关卡`：最多 4 候选，仅下发 `Settings-Stage1`
 - `maa_combat_auto_prepare`：作战前可自动排队已保存主关卡
+
+### 多 Bot 同群
+
+群内远控口令与 `牛牛MAA状态` 等命令经 `claim_group_handler("maa", …)`（`src.common.multi_bot.group`），同一条群消息仅一只牛响应。私聊绑定/切换设备不受影响。
 
 ### 代码索引
 

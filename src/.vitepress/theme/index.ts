@@ -17,14 +17,12 @@ import {
 import { NolebaseHighlightTargetedHeading } from '@nolebase/vitepress-plugin-highlight-targeted-heading/client'
 import { NolebaseInlineLinkPreviewPlugin } from '@nolebase/vitepress-plugin-inline-link-preview/client'
 import { NolebasePagePropertiesPlugin } from '@nolebase/vitepress-plugin-page-properties'
-import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 
 import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css'
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 import '@nolebase/vitepress-plugin-inline-link-preview/client/style.css'
 import '@nolebase/vitepress-plugin-page-properties/client/style.css'
-import '@shikijs/vitepress-twoslash/style.css'
 import 'vitepress-markdown-timeline/dist/theme/index.css'
 
 import './custom.css'
@@ -48,15 +46,16 @@ export default {
         defaultToggle: true,
       },
     } as Options)
-    app.use(TwoslashFloatingVue)
-    app.use(NolebaseGitChangelogPlugin)
-    app.provide(InjectionKey, {
-      hideChangelogNoChangesText: true,
-      commitsRelativeTime: true,
-      displayAuthorsInsideCommitLine: true,
-      hideContributorsHeader: true,
-      hideChangelogHeader: true,
-    })
+    if (import.meta.env.PROD) {
+      app.use(NolebaseGitChangelogPlugin)
+      app.provide(InjectionKey, {
+        hideChangelogNoChangesText: true,
+        commitsRelativeTime: true,
+        displayAuthorsInsideCommitLine: true,
+        hideContributorsHeader: true,
+        hideChangelogHeader: true,
+      })
+    }
     app.use(NolebaseInlineLinkPreviewPlugin as Plugin)
     app.use(
       NolebasePagePropertiesPlugin<{

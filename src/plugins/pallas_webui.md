@@ -1,12 +1,26 @@
 # pallas_webui（Web 控制台）
 
-Web 控制台，提供可视化管理界面。
+浏览器运维：实例、日志、插件配置、数据库概览等。
 
-## 访问
+## 用户命令
 
-- 地址：`http://<HOST>:<PORT>/pallas/`
-- 登录口令：首次启动时在日志中打印
+无。入口：`http://<HOST>:<PORT>/pallas/`（`help_audience: maintainer`）。
+
+## 命令权限
+
+无。
 
 ## 配置
 
-见 [Web 控制台文档](/common/webui)。
+控制台口令在 `data/pallas_console/`；前端静态资源启动时下载。详见插件 `config` 与 [FAQ · 部署排障](/deploy/faq#部署排障)。
+
+## 排障
+
+| 现象 | 处理 |
+| --- | --- |
+| 无法登录 | 查启动日志初始口令 |
+| 插件配置未生效 | 确认热重载插件已 `install_hot_reload_config` |
+
+## 实现
+
+[`src/plugins/pallas_webui/`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/plugins/pallas_webui/)

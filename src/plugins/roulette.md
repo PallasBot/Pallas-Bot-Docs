@@ -1,3 +1,31 @@
-# roulette（轮盘）
+# roulette（牛牛轮盘）
 
-提供踢人/禁言轮盘玩法，支持「牛牛救一下」与「牛牛补一枪」。
+踢人/禁言轮盘；救援与补枪；醉酒时行为更随机。
+
+## 用户命令
+
+| 口令 | 场景 | 说明 |
+| --- | --- | --- |
+| 牛牛轮盘 / 牛牛轮盘踢人 / 牛牛轮盘禁言 | 群内 | 启动游戏（需牛牛为群管） |
+| 牛牛开枪 | 群内 | 参与轮盘 |
+| 牛牛救一下 [@用户] | 群内 | 解禁 |
+| 牛牛补一枪 [@用户] | 群内 | 追加禁言 |
+
+## 命令权限
+
+见 [`registry`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/common/cmd_perm/registry.py) 与 WebUI；轮盘相关 ID 以代码为准。
+
+## 配置
+
+[`config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/plugins/roulette/config.py)。
+
+## 排障
+
+| 现象 | 处理 |
+| --- | --- |
+| 无法启动 | 确认牛牛为群管理员 |
+| 炸膛 | 设计内随机；醉酒概率更高 |
+
+## 实现
+
+[`src/plugins/roulette/`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/plugins/roulette/)
