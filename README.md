@@ -27,13 +27,10 @@ pnpm run docs:preview
 | `src/common/` | WebUI、命令权限、消息清洗等通用能力 |
 | `src/develop/` | 插件开发指南 |
 
-内容以主仓 [`docs/`](https://github.com/PallasBot/Pallas-Bot/tree/main/docs) 为权威来源；Web 文档侧重用户可读性，代码路径链接到 GitHub。
+内容以主仓 [`docs/`](https://github.com/PallasBot/Pallas-Bot/tree/main/docs) 为权威来源；`src/` 下 Markdown 由主仓 Actions 工作流 [`sync-docs-to-web.yml`](https://github.com/PallasBot/Pallas-Bot/blob/main/.github/workflows/sync-docs-to-web.yml) 自动同步，请勿在此仓库手改与主仓映射相同的页面（VitePress 配置、`src/guide/` 等非同步目录除外）。
 
 ## 贡献
 
-1. Fork [PallasBot/Pallas-Bot-Docs](https://github.com/PallasBot/Pallas-Bot-Docs)
-2. 在 `src/` 下修改或新增 Markdown
-3. 本地 `pnpm run docs:build` 确认无报错
-4. 提交 PR
+**文档正文**：请在 [PallasBot/Pallas-Bot](https://github.com/PallasBot/Pallas-Bot) 的 `docs/` 修改并提 PR；合并后会自动同步到本仓库。
 
-编辑链接指向 `PallasBot/Pallas-Bot-Docs` 的 `main` 分支。
+**站点结构 / VitePress 配置**：在本仓库 `src/.vitepress/` 等目录修改并提 PR。
