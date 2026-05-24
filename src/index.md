@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /guide/start
+      link: /guide/welcome
     - theme: alt
       text: GitHub
       link: https://github.com/PallasBot/Pallas-Bot

@@ -68,6 +68,11 @@ function nav(): DefaultTheme.NavItem[] {
       text: '关于',
       link: '/about',
       activeMatch: '/about'
+    },
+    {
+      text: '萌新引导',
+      link: '/noobook',
+      activeMatch: '/noobook'
     }
   ]
 }
@@ -79,7 +84,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       base: '/guide/',
       collapsed: true,
       items: [
-        { text: '快速开始', link: 'start' },
+        { text: '欢迎！', link: 'welcome' },
+        { text: '快速部署', link: 'start' },
         { text: '功能列表', link: 'usage' },
         { text: 'AI 扩展', link: 'ai' }
       ]
@@ -166,6 +172,26 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '迁移指南', link: 'migration' },
         { text: '致谢', link: 'thanks' }
       ]
-    }
-  ]
+    },
+    {
+      text: '萌新引导',
+      base: '/noobook/',
+      collapsed: true,
+      items: [
+        {
+          text: '新手上路',
+          collapsed: true,
+          items: [
+            { text: '最初的开始', link: 'noob/fornoob' }
+          ]
+        },
+        {
+          text: '进阶指南',
+          collapsed: true,
+          items: [
+            { text: '进步的阶梯', link: 'advance/forplayer' }
+          ]
+        }
+      ]
+    }]
 }
