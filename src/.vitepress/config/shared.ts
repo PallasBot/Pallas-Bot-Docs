@@ -84,8 +84,8 @@ export const shared = defineConfig({
     ],
     ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/assets/logo.png' }],
     ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/assets/logo.png' }],
-    ['link', { rel: 'mask-icon', href: '/assets/logo.png', color: '#5bbad5' }],
-    ['meta', { name: 'theme-color', content: '#5bbad5' }],
+    ['link', { rel: 'mask-icon', href: '/assets/logo.png', color: '#7c3aed' }],
+    ['meta', { name: 'theme-color', content: '#7c3aed' }],
   ],
 
   themeConfig: {
