@@ -147,9 +147,13 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       base: '/develop/',
       collapsed: true,
       items: [
+        { text: '开发总览', link: 'index' },
+        { text: '本地环境', link: 'environment' },
+        { text: '贡献流程', link: 'workflow' },
         { text: '插件开发', link: 'plugin/getting-started' },
-        { text: '项目结构', link: 'plugin/structure' },
-        { text: '进阶功能', link: 'plugin/advanced' }
+        { text: '插件结构', link: 'plugin/structure' },
+        { text: '进阶能力', link: 'plugin/advanced' },
+        { text: 'WebUI 前端', link: 'webui' }
       ]
     },
     {
