@@ -4,7 +4,7 @@
 
 牛牛在**复读学习**和**做梦采集 / 漂流**之前，会先过一道「洗消息」：命中规则的内容**不会进学习库、也不会进梦库或往外漂**。你可以把它理解成：**不想让 Bot 记住或转述的话，在这里挡掉**。
 
-**当前版本里，这条链路已经接好、可以直接用。** 推荐在 Web 控制台 **「通用配置」** →「消息审查 / 入站过滤」中修改（写入 **`data/pallas_config/webui.json`**）；亦可编辑 [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 的 `[env]` 或进程环境变量。保存后 hub 会热重载，分片 worker 会在磁盘变更后自动重读。已接入范围：
+**当前版本里，这条链路已经接好、可以直接用。** 推荐在 Web 控制台 **「通用配置」** →「消息审查 / 入站过滤」中修改（写入 **`data/pallas_config/webui.json`**）；亦可编辑 `config/pallas.toml` 的 `[env]` 或进程环境变量。保存后 hub 会热重载，分片 worker 会在磁盘变更后自动重读。已接入范围：
 
 - **牛牛复读**：群消息在去重之后，若被判定拦截，则整条不再参与学习与后续复读逻辑。
 - **牛牛做梦**：做梦采集里，除「不可以」等业务规则外，同样会走统一审查；拦截则不入库、不漂流。
@@ -33,7 +33,7 @@
 
 1. 用编辑器保存为 **UTF-8**，**一行一个词**；以 `#` 开头的行当注释；空行忽略。
 2. 把文件放在 Bot 机器上任意可读路径（例如 `data/sensitive_lexicon.txt`）。
-3. 在 WebUI **通用配置** 或 `data/pallas_config/webui.json` / [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) `[env]` 中设置（路径改成你的实际位置）：
+3. 在 WebUI **通用配置** 或 `data/pallas_config/webui.json` / `pallas.toml` `[env]` 中设置（路径改成你的实际位置）：
 
    ```env
    PALLAS_SCRUB_LEXICON_PATH=data/sensitive_lexicon.txt
