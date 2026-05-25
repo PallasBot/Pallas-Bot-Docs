@@ -7,7 +7,7 @@
 - `src/`: 业务源码
 - `tests/`: 单元测试与集成测试
 - `docs/`: 面向开发与部署的文档（索引见 [docs/README.md](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md)）
-- `config/`: 主配置示例与 Compose 插值（`pallas.example.toml`、`compose.env.example`）
+- `config/`: 主配置示例与 Compose 插值（[`pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)、[`compose.env.example`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/compose.env.example)）
 - `scripts/`: 运维脚本（如 `run_sharded_bot.sh` 分片启动）
 - `local/plugins/`: 站点自有插件（`extra_plugin_dirs`，见 [站点定制](site-customization-and-updates.md)）
 - `tools/`: 维护脚本与辅助配置

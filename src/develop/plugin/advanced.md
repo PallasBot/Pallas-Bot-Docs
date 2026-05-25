@@ -105,7 +105,7 @@ logger.info(f"bot [{bot_id}] action in group [{group_id}]")
 ## 测试与排障
 
 - 单元测试：`tests/plugins/<name>/`，必要时 mock `Bot` / 数据库
-- 本地配置：勿提交 `config/pallas.toml`、`data/`
+- 本地配置：勿提交 [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)、`data/`
 - 部署问题：[FAQ](/deploy/faq)
 
 ## 相关文档

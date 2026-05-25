@@ -6,7 +6,7 @@
 
 | 内容 | 放哪里 | 更新主仓时 |
 |------|--------|------------|
-| 监听、数据库、超管 | `config/pallas.toml` `[bootstrap]` | 不动 |
+| 监听、数据库、超管 | [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) `[bootstrap]` | 不动 |
 | 插件/通用配置 | `data/pallas_config/webui.json` | 不动 |
 | 运行数据、协议实例 | `data/` | 不动 |
 | **站点自有插件** | `local/plugins/` + `extra_plugin_dirs` | 不动 |
@@ -17,7 +17,7 @@
 ## 站点自有插件
 
 1. 在仓库根创建 `local/plugins/<插件名>/__init__.py`（标准 NoneBot 插件结构）。
-2. 在 **`config/pallas.toml`**（非 `pyproject.toml`）启用：
+2. 在 **[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)**（非 `pyproject.toml`）启用：
 
 ```toml
 [bootstrap]
@@ -28,7 +28,7 @@ extra_plugin_dirs = ["local/plugins"]
    - **hub / worker / unified** 均会加载 `extra_plugin_dirs`；与 `src/plugins/` 或 hub 内置模块**同名时优先 local**（如 `help`、`callback`）。
 4. **覆盖主仓同名插件**：若 `local/plugins/pallas_image/` 与 `src/plugins/pallas_image/` 同名，会**先加载 local**，再跳过 `src` 中同名项。适合「整包 fork 式定制」；只改少量核心文件见下文「改动主仓已有插件」。
 
-也可在 `pyproject.toml` 的 `[tool.nonebot] plugin_dirs` 追加目录，但改 `pyproject.toml` 本身会被 git 跟踪；**推荐只用 `pallas.toml`**。
+也可在 `pyproject.toml` 的 `[tool.nonebot] plugin_dirs` 追加目录，但改 `pyproject.toml` 本身会被 git 跟踪；**推荐只用 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)**。
 
 ## 部署形态与更新方式
 
@@ -49,7 +49,7 @@ extra_plugin_dirs = ["local/plugins"]
 - ./pallas-bot/local/plugins:/app/local/plugins
 ```
 
-宿主机 `pallas-bot/config/pallas.toml` 中设置 `extra_plugin_dirs = ["local/plugins"]`。  
+宿主机 [`pallas-bot/config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 中设置 `extra_plugin_dirs = ["local/plugins"]`。  
 镜像更新（`compose pull`）只替换 `/app` 内代码，**挂载的插件与 `data/`、`config/` 均保留**。
 
 ## 改动主仓已有插件（非整包复制）

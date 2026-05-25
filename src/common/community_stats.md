@@ -2,7 +2,7 @@
 
 向官方共用中心上报部署心跳（[Pallas-Bot-Community-Stats](https://github.com/TogetsuDo/Pallas-Bot-Community-Stats)），用于统计社区内自托管部署数与在线数。
 
-**升级**：包含 `community_stats` 插件的 release 在 **hub / 单进程** 启动后**默认自动接入**，**不必**在 `pallas.toml` 增加 `[community_stats]` 或 `enabled = true`。仅 opt-out：显式 `enabled = false` 或 `PALLAS_COMMUNITY_STATS_ENABLED=false`。**无需向用户分发 token。**
+**升级**：包含 `community_stats` 插件的 release 在 **hub / 单进程** 启动后**默认自动接入**，**不必**在 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 增加 `[community_stats]` 或 `enabled = true`。仅 opt-out：显式 `enabled = false` 或 `PALLAS_COMMUNITY_STATS_ENABLED=false`。**无需向用户分发 token。**
 
 ## 心跳地址
 

@@ -105,7 +105,7 @@ get_my_config = plugin_webui.get
 
 ## 注册与加载
 
-主仓插件由 NoneBot 自动发现 `src/plugins/`。`local/plugins` 需在 `config/pallas.toml` 配置 `extra_plugin_dirs` 后重启生效；**同名时 local 优先**。
+主仓插件由 NoneBot 自动发现 `src/plugins/`。`local/plugins` 需在 [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 配置 `extra_plugin_dirs` 后重启生效；**同名时 local 优先**。
 
 ## 插件文档
 

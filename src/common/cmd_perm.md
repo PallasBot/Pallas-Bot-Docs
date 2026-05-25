@@ -118,7 +118,7 @@ if not await satisfies_command_permission(bot, event, "my_plugin.do_something"):
 ## 运行中覆盖：WebUI 与 webui.json
 
 - WebUI **「通用配置 → 命令权限」** 写入 `data/pallas_config/webui.json`（键 `PALLAS_COMMAND_PERMISSION_OVERRIDES`，JSON：命令 ID → 等级）。
-- 亦可通过环境变量或 `pallas.toml` `[env]` 注入同名键；**WebUI 落盘优先级最高**。
+- 亦可通过环境变量或 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) `[env]` 注入同名键；**WebUI 落盘优先级最高**。
 - 保存后会清理配置缓存，**覆盖值通常无需重启 Bot 即可生效**。
 - 修改 **Python 中的默认等级或 `command_permissions` 列表**：需重新加载插件或重启进程。
 

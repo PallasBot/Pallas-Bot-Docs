@@ -46,6 +46,6 @@
 
 - **群管理员**：QQ 群管（部分玩法如轮盘禁言）
 - **号主**：该牛 `admins` 数组中的 QQ（帮助开关、重新上号等）
-- **超管**：`pallas.toml` 的 `superusers`（创建牛牛、全站最高权限）
+- **超管**：[`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 的 `superusers`（创建牛牛、全站最高权限）
 
 配置号主见 [FAQ · admins](/deploy/faq#q-如何为牛牛配置号主admins)。

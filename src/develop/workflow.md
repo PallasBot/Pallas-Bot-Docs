@@ -59,7 +59,7 @@ chore(scope): …
 ```
 
 - 一个 commit 聚焦一件事
-- **勿提交** `config/pallas.toml`、`data/`、`webui.json`、token 等私密内容
+- **勿提交** [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)、`data/`、`webui.json`、token 等私密内容
 
 ## 文档改动
 
