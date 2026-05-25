@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { shared } from './shared'
 import { zh } from './zh'
-
+import NCard from '../components/NCard.vue';
 export default defineConfig({
   ...shared,
   locales: {

@@ -27,6 +27,7 @@ import 'vitepress-markdown-timeline/dist/theme/index.css'
 
 import './custom.css'
 import PallasFooter from './PallasFooter.vue'
+import NCard from '../components/NCard.vue'
 
 export default {
   extends: DefaultTheme,
@@ -42,6 +43,8 @@ export default {
   },
   enhanceApp(ctx: EnhanceAppContext) {
     const { app } = ctx
+
+    app.component('NCard', NCard)
 
     app.use(NolebaseEnhancedReadabilitiesPlugin, {
       spotlight: {

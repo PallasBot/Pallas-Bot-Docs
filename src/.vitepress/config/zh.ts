@@ -183,14 +183,16 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: true,
       items: [
         {
-          text: '新手上路',
+          text: '猪猪指南',
           collapsed: true,
           items: [
-            { text: '最初的开始', link: 'noob/fornoob' }
+            { text: '最初的开始', link: 'noob/fornoob' },
+            { text: '你需要知道的', link: 'noob/u2know' },           
+            { text: '一些工具', link: '../working' }
           ]
         },
         {
-          text: '进阶指南',
+          text: '糕手教学',
           collapsed: true,
           items: [
             { text: '进步的阶梯', link: 'advance/forplayer' }
