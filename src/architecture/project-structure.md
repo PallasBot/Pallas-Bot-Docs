@@ -7,7 +7,7 @@
 - `src/`: 业务源码
 - `tests/`: 单元测试与集成测试
 - `docs/`: 面向开发与部署的文档（索引见 [docs/README.md](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md)）
-- `config/`: 主配置示例与 Compose 插值（[`pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)、[`compose.env.example`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/compose.env.example)）
+- `config/`: 主配置示例与 Compose 插值（`pallas.example.toml`、`compose.env.example`）
 - `scripts/`: 运维脚本（如 `run_sharded_bot.sh` 分片启动）
 - `local/plugins/`: 站点自有插件（`extra_plugin_dirs`，见 [站点定制](site-customization-and-updates.md)）
 - `tools/`: 维护脚本与辅助配置
@@ -55,7 +55,6 @@
 - `docs/Deployment.md`、`docs/DockerDeployment.md`：部署类文档
 - `docs/FAQ.md`：常见问题
 - `docs/architecture/`：架构与约定文档（本文件所在目录）
-- `docs/develop/`：面向贡献者的开发指南（环境、工作流、插件与 WebUI）
 - `docs/plugins/`：插件专项说明（按插件目录组织）
 
 目录约定：
@@ -63,7 +62,7 @@
 - 每个插件使用独立目录：`docs/plugins/<plugin_name>/README.md`
 - 插件文档总索引：`docs/plugins/README.md`
 
-当前已迁移的插件文档见 [plugins/README.md](/plugins/index)（21 个用户向插件 + 通用能力文档）。
+当前已迁移的插件文档见 [plugins/README.md](../plugins/README.md)（21 个用户向插件 + 通用能力文档）。
 
 ## tools 目录约定
 

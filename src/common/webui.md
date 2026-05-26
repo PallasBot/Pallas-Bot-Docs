@@ -1,6 +1,6 @@
 # WebUI 插件配置与热重载
 
-控制台（`pallas_webui`）通过统一 `data/pallas_config/webui.json` 读写插件配置（主配置见 [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)）。本包 `src/common/webui/` 供**插件作者**接入「保存后立即生效」，无需再改 `extended_api.py`。
+控制台（`pallas_webui`）通过统一 `data/pallas_config/webui.json` 读写插件配置（主配置见 `config/pallas.toml`）。本包 `src/common/webui/` 供**插件作者**接入「保存后立即生效」，无需再改 `extended_api.py`。
 
 ## 目录结构
 
@@ -123,4 +123,4 @@ my_cmd = on_command("某命令", permission=permission_for_command("my_plugin.ac
 
 - `src/common/webui/` — 本包
 - `src/plugins/pallas_webui/extended_api.py` — 路由注册（宜保持薄，逻辑放在 `webui` 包内）
-- `src/common/config/repo_settings.py` — [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) + `webui.json` 合并读写
+- `src/common/config/repo_settings.py` — `pallas.toml` + `webui.json` 合并读写

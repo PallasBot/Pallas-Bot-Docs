@@ -4,11 +4,9 @@
 
 本文面向**本机或 VPS 上的生产/长期运行**部署：按步骤完成环境、配置与协议端接入，并在每步说明如何确认成功。
 
-## 环境与工具（拉取源码前）
+## 部署前检查清单
 
-> **说明**：本节只列机器、网络与工具条件。**[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)**、`data/`、控制台口令等均在 **克隆源码并完成后续步骤** 后才具备，拉取前**不必**已有这些文件。字段说明可先阅 [`config/pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)。
-
-动手克隆前请确认：
+在开始前请确认：
 
 | 项 | 要求 |
 | --- | --- |
@@ -18,6 +16,7 @@
 | 网络 | 服务器可访问数据库端口；若外网访问控制台，需开放 **HTTP 端口**（默认 `8088`） |
 | 数据库 | 已安装 **MongoDB** 或 **PostgreSQL**，或可连接远程实例 |
 | 工具 | `git`、`Python 3.12+`（或由 `uv` 自动安装）、[`uv`](https://docs.astral.sh/uv/) |
+| 配置 | 将准备 **`config/pallas.toml`**（从示例复制，**非可选项**） |
 
 > 多牛、高负载生产环境可选用 [多进程分片](/architecture/bot-process-sharding) 或 [Docker 部署](/deploy/docker)。
 
@@ -30,7 +29,7 @@ git clone https://github.com/PallasBot/Pallas-Bot.git
 cd Pallas-Bot
 ```
 
-**如何确认成功**：目录内存在 `pyproject.toml`、[`config/pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)。
+**如何确认成功**：目录内存在 `pyproject.toml`、`config/pallas.example.toml`。
 
 国内网络若 `git clone` 失败，可配置代理或换镜像源后重试。
 
@@ -42,7 +41,7 @@ cd Pallas-Bot
 uv sync
 ```
 
-若 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 中计划使用 PostgreSQL：
+若 `pallas.toml` 中计划使用 PostgreSQL：
 
 ```bash
 uv sync --extra pg
@@ -58,13 +57,13 @@ uv sync --extra perf
 
 ---
 
-## 步骤 3：准备主配置 [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)（必做）
+## 步骤 3：准备主配置 `config/pallas.toml`（必做）
 
 ```bash
 cp config/pallas.example.toml config/pallas.toml
 ```
 
-编辑 **[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)**，至少完成：
+编辑 **`config/pallas.toml`**，至少完成：
 
 1. **`[bootstrap] superusers`**：填写你的 QQ 号（超管，用于控制台与高危操作）。
 2. **`db_backend`**：设为 `mongodb` 或 `postgresql`。
@@ -91,7 +90,7 @@ db = "PallasBot"
 uv run python tools/migrate_env_to_pallas.py
 ```
 
-**如何确认成功**：[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 为**文件**（非目录），且 `superusers`、数据库段已填写。勿将含密钥的文件提交到 git。
+**如何确认成功**：`config/pallas.toml` 为**文件**（非目录），且 `superusers`、数据库段已填写。勿将含密钥的文件提交到 git。
 
 插件与通用项可在首次启动后于 Web 控制台修改（落盘 `data/pallas_config/webui.json`），详见 [配置要点](/deploy/config) 与 [配置存储](/architecture/settings-storage)。
 
@@ -108,8 +107,8 @@ uv run python tools/migrate_env_to_pallas.py
 
 **如何确认成功**：
 
-- MongoDB：`mongosh` 或客户端能连上 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 中的 host/port。
-- PostgreSQL：`psql -h ... -U ... -d ...` 可登录，且库名与 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 中 `db` 一致。
+- MongoDB：`mongosh` 或客户端能连上 `pallas.toml` 中的 host/port。
+- PostgreSQL：`psql -h ... -U ... -d ...` 可登录，且库名与 `pallas.toml` 中 `db` 一致。
 
 ---
 
@@ -146,7 +145,7 @@ uv run nb run
 
 **方式 A：协议端管理（推荐）**
 
-1. 打开 `http://<主机IP>:8088/protocol/console/`（端口以 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 为准）。
+1. 打开 `http://<主机IP>:8088/protocol/console/`（端口以 `pallas.toml` 为准）。
 2. 使用与控制台相同的登录方式鉴权。
 3. 在页面内创建 NapCat 实例、登录 QQ、确认 OneBot WebSocket 已指向 Bot（通常为 `ws://<Bot主机>:8088/onebot/v11/ws`）。
 
@@ -199,7 +198,7 @@ WantedBy=multi-user.target
 - `data/pallas_console/` — 控制台口令哈希
 - `data/` 下协议端实例、注册表等（分片/多牛共用同一 `data/`）
 
-配置模板 [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 请单独版本管理或加密备份，勿与镜像混放密钥。
+配置模板 `config/pallas.toml` 请单独版本管理或加密备份，勿与镜像混放密钥。
 
 ### 防火墙与安全
 
@@ -213,13 +212,13 @@ WantedBy=multi-user.target
 - **Docker**：见 [Docker 部署 · 后续更新](/deploy/docker#后续更新)。
 - 控制台 **「版本与更新」** 可更新 Web 静态资源；git 工作副本内可在线拉主仓（Docker 纯镜像树除外）。**任何代码/依赖更新后须重启 Bot。**
 
-自定义请尽量只改 **[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)**、**`data/`**、**`local/plugins/`**，避免直接改 `src/` 跟踪文件。见 [站点定制与更新](/architecture/site-customization-and-updates)。
+自定义请尽量只改 **`config/pallas.toml`**、**`data/`**、**`local/plugins/`**，避免直接改 `src/` 跟踪文件。见 [站点定制与更新](/architecture/site-customization-and-updates)。
 
 ---
 
 ## 多进程分片（可选）
 
-同一台机器长期运行**多只牛牛**且单进程卡顿时，可使用 **hub + worker**，共用 **`data/`** 与同一份 **[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)**。
+同一台机器长期运行**多只牛牛**且单进程卡顿时，可使用 **hub + worker**，共用 **`data/`** 与同一份 **`config/pallas.toml`**。
 
 - 启动：`./scripts/run_sharded_bot.sh start`（详见 [多进程分片架构说明](/architecture/bot-process-sharding)）。
 - 控制台与协议端管理仅访问 **hub** 端口（默认 `8088`）。
@@ -237,7 +236,7 @@ WantedBy=multi-user.target
 | Bot 已由 systemd/Docker 运行 | 必须加 **`--no-spawn`** |
 | 监护容器 | `--docker-container <名> --no-spawn` |
 
-`HOST`/`PORT` 从环境变量或 [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 的 `[bootstrap]` 读取。完整参数：`uv run python tools/scripts/bot_watchdog.py --help`。
+`HOST`/`PORT` 从环境变量或 `config/pallas.toml` 的 `[bootstrap]` 读取。完整参数：`uv run python tools/scripts/bot_watchdog.py --help`。
 
 ---
 
@@ -248,7 +247,7 @@ WantedBy=multi-user.target
 | Web 控制台 | `http://<主机>:8088/pallas/` |
 | 协议端管理 | `http://<主机>:8088/protocol/console/` |
 
-修改了 `host`/`port` 或自定义路径时，以 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 与插件配置为准。
+修改了 `host`/`port` 或自定义路径时，以 `pallas.toml` 与插件配置为准。
 
 ---
 
@@ -265,7 +264,7 @@ WantedBy=multi-user.target
 1. 获取源码并 `uv sync`（PG 用 `--extra pg`）。
 2. 将 `src/common` 与所需 `src/plugins/*` 复制到现有 Bot。
 3. 在 `bot.py` 中于启动时调用 `init_db()`、`ensure_voices()`（参见仓库 [`bot.py`](../bot.py)）。
-4. 配置使用 **[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)** + **`webui.json`**。
+4. 配置使用 **`config/pallas.toml`** + **`webui.json`**。
 
 插件列表见 [插件索引](/plugins/index)。多 Bot 共存时注意 `matcher` 优先级与 `block` 插件。
 

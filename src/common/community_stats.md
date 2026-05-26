@@ -4,7 +4,7 @@
 
 **升级**：包含 `community_stats` 插件的 release 在 **hub / 单进程** 启动后**默认自动上报心跳**，**不必**在 `pallas.toml` 增加 `[community_stats]`。插件为内部能力，**不出现在用户帮助总览**（`help_audience: maintainer` + 内置隐藏）。仅 opt-out：`enabled = false` 或 `PALLAS_COMMUNITY_STATS_ENABLED=false`。**无需向用户分发 token。**
 
-社区**语料多读源**与心跳独立：**默认不上报语料、不 enroll**；需在 WebUI **语料联邦** 手动开启 `community_enabled`（见 [语料联邦](corpus/README.md)）。
+社区**语料多读源**与心跳独立：**默认不上报语料、不 enroll**；需在 WebUI **语料联邦** 手动开启 `community_enabled`（见 [语料联邦](/common/corpus)）。
 
 ## 心跳地址
 
@@ -29,7 +29,7 @@
 
 - 首次上报时在 `data/pallas_config/community_stats.json` 生成 `deployment_id`（UUID）。
 - **社区语料**默认关：仅当 WebUI / `[corpus] community_enabled=true` 后，hub 启动时才会 `POST /v1/corpus/enroll` 并写入 `corpus_community` 段；手动 `[corpus.community] token` 时跳过 auto enroll。
-- 开启 community 后 **community_contribute** 默认 auto（开）：学习结果可 mirror 到社区池（详见 [语料联邦](corpus/README.md)）。
+- 开启 community 后 **community_contribute** 默认 auto（开）：学习结果可 mirror 到社区池（详见 [语料联邦](/common/corpus)）。
 - 心跳与语料读共用 **主/备域名 failover**（`stats.pallasbot.top` ↔ `pallas.togetsudo.com`）。
 - **单进程 / hub** 上报；**分片 worker** 不上报（避免重复计数）。
 - `online_bots` 与控制台 **「在线 Bot」** 同源；首包在启动约 **60 秒** 后发送，之后按 `interval_sec`（默认 300 秒）刷新。
@@ -53,4 +53,4 @@
 
 ## 相关
 
-- [语料联邦](corpus/README.md)（同中心 `/v1/corpus/*`、auto enroll）
+- [语料联邦](/common/corpus)（同中心 `/v1/corpus/*`、auto enroll）

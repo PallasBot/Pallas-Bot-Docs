@@ -139,6 +139,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '插件规范', link: 'plugin-convention' },
         { text: '配置存储', link: 'settings-storage' },
         { text: '多进程分片', link: 'bot-process-sharding' },
+        { text: '控制面与语料联邦', link: 'control-plane-corpus-federation' },
         { text: '站点定制与更新', link: 'site-customization-and-updates' }
       ]
     },
@@ -164,7 +165,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: 'Web 控制台', link: 'webui' },
         { text: '消息处理', link: 'message_scrub' },
         { text: '命令权限', link: 'cmd_perm' },
-        { text: '社区统计', link: 'community_stats' }
+        { text: '社区统计', link: 'community_stats' },
+        { text: '语料联邦', link: 'corpus' }
       ]
     },
     {

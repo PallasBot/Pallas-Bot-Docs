@@ -2,12 +2,10 @@
 
 ## 文件
 
-> [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 为**本地运行文件**：克隆仓库后从 [`config/pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 复制并编辑，拉取源码前不存在于你的机器上。
-
 | 路径 | 用途 | Git |
 |------|------|-----|
-| [`config/pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) | 示例与注释 | 跟踪 |
-| [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) | 本地主配置（bootstrap、可选 `[env]`） | **忽略** |
+| `config/pallas.example.toml` | 示例与注释 | 跟踪 |
+| `config/pallas.toml` | 本地主配置（bootstrap、可选 `[env]`） | **忽略** |
 | `data/pallas_config/webui.json` | WebUI 统一落盘（`env` 扁平键 + `sections` 按插件/通用配置分组） | 随 `data/` 部署卷 |
 | `config/pallas.webui.export.toml` | **自动生成、只读**，按段带注释标题的 TOML 快照 | **忽略**（勿手改） |
 | `local/plugins/` | 站点自有 NoneBot 插件（`extra_plugin_dirs`） | 跟踪 `.gitkeep`；插件文件 gitignore |
@@ -16,7 +14,7 @@
 
 ## 合并顺序
 
-[`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) → `.env` → `.env.{ENVIRONMENT}` → `webui.json`（后者覆盖前者；WebUI 落盘最高）。
+`pallas.toml` → `.env` → `.env.{ENVIRONMENT}` → `webui.json`（后者覆盖前者；WebUI 落盘最高）。
 
 读取：`merged_repo_settings_upper()` / `repo_env_raw_value()`（磁盘优先于 `os.environ`）。
 
@@ -47,10 +45,10 @@ uv run python -c "from src.common.config.webui_export_toml import export_webui_i
 
 | 宿主机 | 容器内 |
 |--------|--------|
-| [`pallas-bot/config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) | `/app/config/pallas.toml` |
+| `pallas-bot/config/pallas.toml` | `/app/config/pallas.toml` |
 | `pallas-bot/data/` | `/app/data/`（含 `pallas_config/webui.json`） |
 
-内置 PostgreSQL 时 Compose 插值另需 [`pallas-bot/config/compose.env`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/compose.env.example)（模板见 [`config/compose.env.example`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/compose.env.example)），与 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 中 `[bootstrap.postgres]` 保持一致。
+内置 PostgreSQL 时 Compose 插值另需 `pallas-bot/config/compose.env`（见 [`config/compose.env.example`](../../config/compose.env.example)），与 `pallas.toml` 中 `[bootstrap.postgres]` 保持一致。
 
 ## 迁移
 

@@ -1,22 +1,20 @@
 # 配置要点（生产）
 
-克隆仓库并完成主配置复制（见 [标准部署](/deploy/deployment) 步骤 3 或 [Docker 部署](/deploy/docker) 步骤 2）后，按本节核对 **[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)** 与持久化目录。完整机制见 [配置存储](/architecture/settings-storage)。
+启动与长期运行前，按本节核对 **`config/pallas.toml`** 与持久化目录。完整机制见 [配置存储](/architecture/settings-storage)。
 
 ## 配置合并顺序（优先级从低到高）
 
-1. [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) — 启动必需项（监听、超管、数据库）
+1. `config/pallas.toml` — 启动必需项（监听、超管、数据库）
 2. 遗留 `.env` / `.env.{ENVIRONMENT}`（若存在）
 3. `data/pallas_config/webui.json` — **WebUI 保存后最高**，覆盖同名键
 
-生产环境建议：**启动相关、密钥、数据库** 写在 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)；**插件开关与业务参数** 在控制台修改并落盘 `webui.json`。
+生产环境建议：**启动相关、密钥、数据库** 写在 `pallas.toml`；**插件开关与业务参数** 在控制台修改并落盘 `webui.json`。
 
 ---
 
-## 首次部署配置核对
+## 首次部署检查清单
 
-> **前置**：已克隆 [Pallas-Bot](https://github.com/PallasBot/Pallas-Bot) 并完成 [标准部署](/deploy/deployment) **步骤 3**（或 [Docker 部署](/deploy/docker) 步骤 2 的配置复制）后再逐项勾选。拉取源码**之前**无需已有 **[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)**。各字段含义见 [`config/pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)。
-
-- [ ] 已复制 [`config/pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) → **[`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)**
+- [ ] 已复制 `config/pallas.example.toml` → **`config/pallas.toml`**
 - [ ] `[bootstrap] superusers` 已填 QQ 号
 - [ ] `db_backend` 与 `[bootstrap.mongo]` / `[bootstrap.postgres]` 与实际库一致
 - [ ] `host` / `port` 与防火墙、反向代理一致（默认 `0.0.0.0:8088`）
@@ -65,7 +63,7 @@ password = "your_password"
 db = "PallasBot"
 ```
 
-需已执行 `uv sync --extra pg`。Docker 内置 Postgres 时另备 [`pallas-bot/config/compose.env`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/compose.env.example)，且 **`PG_DB` 与数据卷初始化库名一致**。
+需已执行 `uv sync --extra pg`。Docker 内置 Postgres 时另备 `config/compose.env`，且 **`PG_DB` 与数据卷初始化库名一致**。
 
 **如何确认数据库配置正确**：启动 Bot 无 `connection refused` / 认证失败；日志完成 `init_db`；控制台可打开且无持久 5xx。
 
@@ -121,7 +119,7 @@ uv run python tools/migrate_env_to_pallas.py
 
 定期备份（至少）：
 
-- [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)
+- `config/pallas.toml`
 - `data/pallas_config/webui.json`
 - `data/pallas_console/`
 - 整个 `data/`（含协议端实例、分片状态）

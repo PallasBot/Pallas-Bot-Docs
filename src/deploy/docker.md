@@ -4,17 +4,16 @@
 
 使用 **Docker Compose** 运行官方镜像，适合生产环境统一版本、隔离依赖。需预先安装 [Docker](https://docs.docker.com/get-docker/) 与 Compose 插件（`docker compose version` 有输出即可）。
 
-## 环境与 Compose（启动容器前）
-
-> **说明**：本节只列 Docker 与宿主机目录条件。**[`pallas-bot/config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)** 在下方 **步骤 2** 从仓库示例复制生成，拉取/准备 Compose **之前不必**已有该文件。字段说明见 [`config/pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)。
+## 部署前检查清单
 
 | 项 | 说明 |
 | --- | --- |
 | Docker | Engine + Compose V2；Linux 可用 `curl -fsSL https://get.docker.com \| bash` |
 | 目录 | 单独目录存放 `docker-compose.yml` 与 `pallas-bot/` 数据（勿用中文空名目录作项目名，见排障） |
+| 配置 | **`pallas-bot/config/pallas.toml`** 必须从示例复制并编辑（**文件**，非目录） |
 | 数据库 | 选定 MongoDB（默认栈）或 PostgreSQL（`--profile postgres`） |
 | 端口 | 宿主机映射 `8088`（或自定义）需在防火墙放行 |
-| 备份 | 规划持久化 **`pallas-bot/data`** 与数据库卷（首次 `up` 后逐步落盘） |
+| 备份 | 持久化 **`pallas-bot/data`** 与数据库卷 |
 
 ---
 
@@ -47,7 +46,7 @@ mkdir -p pallas-bot/config pallas-bot/data
 cp /path/to/Pallas-Bot/config/pallas.example.toml pallas-bot/config/pallas.toml
 ```
 
-3. 编辑 **[`pallas-bot/config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)**（必做）：
+3. 编辑 **`pallas-bot/config/pallas.toml`**（必做）：
 
    - `superusers`、 `db_backend`
    - `[bootstrap.mongo]` 或 `[bootstrap.postgres]`
@@ -63,7 +62,7 @@ volumes:
 
 要点：
 
-- **[`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 必须是宿主机上的普通文件**；若误建成文件夹，启动会报 `not a directory`（见排障）。
+- **`pallas.toml` 必须是宿主机上的普通文件**；若误建成文件夹，启动会报 `not a directory`（见排障）。
 - **只挂载 `resource/voices`**，勿把整个 `resource` 挂到 `/app/resource`，否则会盖住镜像内 `styles/default`。
 - **`data`** 持久化 WebUI、协议端、控制台口令等。
 
@@ -75,7 +74,7 @@ volumes:
 
 ### MongoDB（默认）
 
-[`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 中 `db_backend = "mongodb"`（或省略默认）。compose 已为 Bot 注入 `MONGO_HOST=mongodb`。
+`pallas.toml` 中 `db_backend = "mongodb"`（或省略默认）。compose 已为 Bot 注入 `MONGO_HOST=mongodb`。
 
 ```bash
 docker compose up -d
@@ -83,7 +82,7 @@ docker compose up -d
 
 ### PostgreSQL（内置 compose 数据库）
 
-1. [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 设 `db_backend = "postgresql"` 并填写 `[bootstrap.postgres]`。
+1. `pallas.toml` 设 `db_backend = "postgresql"` 并填写 `[bootstrap.postgres]`。
 2. 复制 [`config/compose.env.example`](https://github.com/PallasBot/Pallas-Bot/tree/main/config/compose.env.example) → **`pallas-bot/config/compose.env`**，使 **`PG_*`** 与 TOML 一致。
 3. 启动：
 
@@ -149,7 +148,7 @@ uv run python tools/scripts/bot_watchdog.py --docker-container pallasbot --no-sp
 定期备份：
 
 - `./pallas-bot/data/`
-- [`./pallas-bot/config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)
+- `./pallas-bot/config/pallas.toml`
 - `./mongo/data` 或 `./postgres/data`（数据库卷）
 
 ### 防火墙
@@ -165,7 +164,7 @@ docker compose up -d
 # PostgreSQL profile 时加上 --env-file 与 --profile postgres
 ```
 
-站点插件若挂载 `./pallas-bot/local/plugins`，需在 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 设置 `extra_plugin_dirs`。见 [站点定制与更新](/architecture/site-customization-and-updates)。
+站点插件若挂载 `./pallas-bot/local/plugins`，需在 `pallas.toml` 设置 `extra_plugin_dirs`。见 [站点定制与更新](/architecture/site-customization-and-updates)。
 
 ---
 
@@ -174,7 +173,7 @@ docker compose up -d
 十余只及以上牛牛、需 hub + worker 时，参考 [`docker-compose.shard.example.yml`](../docker-compose.shard.example.yml)：
 
 - hub 映射 **8088**；worker 映射 **8090、8091…**
-- hub 与所有 worker **共用同一份** [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 与 **`data/`** 挂载
+- hub 与所有 worker **共用同一份** `pallas.toml` 与 **`data/`** 挂载
 
 说明见 [多进程分片架构](/architecture/bot-process-sharding) 与 [标准部署 · 分片](/deploy/deployment#多进程分片可选)。
 
@@ -188,7 +187,7 @@ docker compose up -d
 
 ### `mounting ... pallas.toml ... not a directory`
 
-宿主机 [`pallas-bot/config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 被建成了**目录**。删除该目录，重新 `cp config/pallas.example.toml` 为文件后再 `up`。
+宿主机 `pallas-bot/config/pallas.toml` 被建成了**目录**。删除该目录，重新 `cp config/pallas.example.toml` 为文件后再 `up`。
 
 ### `help` 告警样式路径不存在
 
@@ -208,4 +207,4 @@ docker build --build-arg BASE_IMAGE=docker.m.daocloud.io/library/python:3.12-sli
 
 ### Compose 服务名与 WebSocket
 
-协议端插件按 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 的 `HOST`/`PORT` 生成 WS；**不会**自动使用 compose 服务名 `pallasbot`。自管 NapCat 且与 Bot 同网络时，可手写 `ws://pallasbot:8088/onebot/v11/ws`。
+协议端插件按 `pallas.toml` 的 `HOST`/`PORT` 生成 WS；**不会**自动使用 compose 服务名 `pallasbot`。自管 NapCat 且与 Bot 同网络时，可手写 `ws://pallasbot:8088/onebot/v11/ws`。
