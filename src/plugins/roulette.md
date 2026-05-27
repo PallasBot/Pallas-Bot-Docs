@@ -13,7 +13,7 @@
 
 ## 命令权限
 
-见 [`registry`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/common/cmd_perm/registry.py) 与 WebUI；轮盘相关 ID 以代码为准。
+见 [`registry`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/features/cmd_perm/registry.py) 与 WebUI；轮盘相关 ID 以代码为准。
 
 ## 配置
 
