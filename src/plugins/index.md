@@ -25,8 +25,9 @@
 | [duel](/plugins/duel) | 决斗、八角笼牛 |
 | [dream](/plugins/dream) | 做梦、跨群漂流、历史梦 |
 | [chat](/plugins/chat) | 酒后聊天（AI） |
+| [ollama](/plugins/ollama) | 随时闲聊（Ollama） |
 | [sing](/plugins/sing) | 唱歌（AI） |
-| [pallas_image](/plugins/pallas_image) | 画画（AI） |
+| [draw](/plugins/draw) | 画画（AI） |
 | [take_name](/plugins/take_name) | 自动夺舍（群名片） |
 
 ## 帮助与管理
