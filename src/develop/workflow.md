@@ -76,4 +76,4 @@ uv run python tools/scripts/sync_docs_to_web.py
 
 ## 沟通
 
-可在 Issue 留言或加入 README 中的 QQ 开发者群。
+可在 Issue 留言或加入 [关于 · QQ 群](/about) 中的开发者群。
