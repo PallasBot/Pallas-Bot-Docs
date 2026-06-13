@@ -26,6 +26,9 @@ export const shared = defineConfig({
   metaChunk: true,
   vite: {
     cacheDir: '.vitepress/cache/vite',
+    server: {
+      allowedHosts: ['aknyzsd.icu'],
+    },
     ssr: {
       noExternal: ['@nolebase/*'],
     },

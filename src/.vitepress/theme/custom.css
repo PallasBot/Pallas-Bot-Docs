@@ -131,3 +131,87 @@
     gap: 24px;
   }
 }
+
+/* mermaid 流程图：缩略图尺寸（280px），点击触发灯箱放大（见 mermaidLightbox.ts） */
+.mermaid {
+  margin: 1.5rem auto;       /* 居中 */
+  text-align: center;
+  position: relative;
+  cursor: zoom-in;
+  max-width: 280px;
+}
+
+.mermaid svg {
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;          /* 缩略图尺寸；点图触发灯箱看大图 */
+  height: auto;
+}
+
+/* mermaid 灯箱（点击 .mermaid 触发的全屏放大遮罩） */
+#__mermaid_lightbox_overlay__ {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: mldb-fade 0.18s ease;
+}
+#__mermaid_lightbox_overlay__.is-open {
+  display: flex;
+}
+#__mermaid_lightbox_overlay__ .mermaid-lightbox__stage {
+  width: 95vw;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+#__mermaid_lightbox_overlay__ .mermaid-lightbox__stage svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+}
+body.dark #__mermaid_lightbox_overlay__ .mermaid-lightbox__stage svg {
+  background: #1e1e1e;
+}
+#__mermaid_lightbox_overlay__ .mermaid-lightbox__close {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 0;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#__mermaid_lightbox_overlay__ .mermaid-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+#__mermaid_lightbox_overlay__ .mermaid-lightbox__hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  user-select: none;
+}
+@keyframes mldb-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

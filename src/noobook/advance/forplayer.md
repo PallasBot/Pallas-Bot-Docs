@@ -6,6 +6,6 @@
 
 [作为服务器](/noobook/noob/u2know#作为服务器运行)使用linux(最好是无头linux)系统可以获得更好的部署体验和性能释放
 
-[坚持使用windows](/working)
+[坚持使用windows](/noobook/advance/windows/)
 
-[开始使用linux](/woring)-so,nvidia......
+[开始使用linux](/noobook/advance/linux/install)-so,nvidia......

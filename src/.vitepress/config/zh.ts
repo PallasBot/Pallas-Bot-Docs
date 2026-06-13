@@ -188,18 +188,40 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           text: '猪猪指南',
           collapsed: true,
           items: [
-            { text: '最初的开始', link: 'noob/fornoob' },
-            { text: '你需要知道的', link: 'noob/u2know' },           
-            { text: '一些工具', link: '../working' }
+            { text: '哼唧哼唧哼?', link: 'noob/fornoob' },
+            { text: '你需要知道的', link: 'noob/u2know' },
+            { text: '一些工具', link: 'noob/tools' }
+          ]
+        },
+        { text: 'young man!', link: 'advance/forplayer' },
+        {
+          text: 'linux',
+          collapsed: true,
+          items: [
+            { text: '选择你的系统和部署方式', link: 'advance/linux/install' },
+            { text: '在物理机上装 Linux', link: 'advance/linux/install-os' },
+            { text: '连上你的 Linux 猪机', link: 'advance/linux/ssh' },
+            { text: '用户和权限：凭什么我能动它？', link: 'advance/linux/permission' },
+            { text: '装东西：包管理器一览', link: 'advance/linux/package' },
+            { text: '让 bot 一直活着', link: 'advance/linux/systemd' },
+            { text: '常用小工具速查', link: 'advance/linux/tools' },
+            { text: '网络和防火墙：连不上 WebUI？八成是门被锁了', link: 'advance/linux/network' },
+            { text: '出问题了？先看一眼这几处', link: 'advance/linux/debug' }
           ]
         },
         {
-          text: '糕手教学',
+          text: 'windows',
           collapsed: true,
           items: [
-            { text: '进步的阶梯', link: 'advance/forplayer' }
+            { text: '先听一嘴:Windows 跑 bot 的坑', link: 'advance/windows/' },
+            { text: '装 Python 3.12+', link: 'advance/windows/python' },
+            { text: '装 PostgreSQL', link: 'advance/windows/postgresql' },
+            { text: 'jieba 编译翻车救命包', link: 'advance/windows/buildtools' }
           ]
-        }
+        },
+        { text: 'Python 环境管理(venv/pip/uv)', link: 'advance/python-env' },
+        { text: '要用 Git!', link: 'advance/git' },
+        { text: '你过关!', link: 'welldone' }
       ]
     }]
 }

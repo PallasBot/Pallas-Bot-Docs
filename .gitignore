@@ -22,4 +22,13 @@ src/.vitepress/cache/
 coverage/
 
 .claude/
+.claude/settings.local.json
+
+# === 工具配置·勿上传 (-- aknyzsd) ===
+CLAUDE.md
+.cursor/
+.aider*
+.env
+.env.*
+!.env.example
 

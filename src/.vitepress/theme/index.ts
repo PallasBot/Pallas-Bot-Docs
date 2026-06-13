@@ -26,6 +26,7 @@ import '@nolebase/vitepress-plugin-page-properties/client/style.css'
 import 'vitepress-markdown-timeline/dist/theme/index.css'
 
 import './custom.css'
+import './mermaidLightbox'
 import PallasFooter from './PallasFooter.vue'
 import NCard from '../components/NCard.vue'
 
