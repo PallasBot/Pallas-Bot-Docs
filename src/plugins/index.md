@@ -23,6 +23,7 @@
 | [drink](/plugins/drink) | 喝酒 / 醒酒 |
 | [roulette](/plugins/roulette) | 轮盘 |
 | [duel](/plugins/duel) | 决斗、八角笼牛 |
+| [who_is_spy](/plugins/who_is_spy) | 谁是卧底 |
 | [dream](/plugins/dream) | 做梦、跨群漂流、历史梦 |
 | [chat](/plugins/chat) | 酒后聊天（AI） |
 | [ollama](/plugins/ollama) | 随时闲聊（Ollama） |
