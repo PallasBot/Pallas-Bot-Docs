@@ -68,11 +68,6 @@ function nav(): DefaultTheme.NavItem[] {
       text: '关于',
       link: '/about',
       activeMatch: '/about'
-    },
-    {
-      text: '萌新引导',
-      link: '/noobook',
-      activeMatch: '/noobook'
     }
   ]
 }
@@ -139,8 +134,16 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '插件规范', link: 'plugin-convention' },
         { text: '配置存储', link: 'settings-storage' },
         { text: '多进程分片', link: 'bot-process-sharding' },
-        { text: '控制面与语料联邦', link: 'control-plane-corpus-federation' },
         { text: '站点定制与更新', link: 'site-customization-and-updates' }
+      ]
+    },
+    {
+      text: '维护者附录',
+      base: '/architecture/',
+      collapsed: true,
+      items: [
+        { text: '控制面与语料联邦', link: 'control-plane-corpus-federation' },
+        { text: '下一世代瘦身路线图', link: 'next-gen-slimdown' }
       ]
     },
     {
@@ -180,7 +183,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '萌新引导',
+      text: '萌新引导（legacy）',
       base: '/noobook/',
       collapsed: true,
       items: [
