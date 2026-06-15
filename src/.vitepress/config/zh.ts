@@ -68,6 +68,11 @@ function nav(): DefaultTheme.NavItem[] {
       text: '关于',
       link: '/about',
       activeMatch: '/about'
+    },
+    {
+      text: '萌新引导',
+      link: '/noobook',
+      activeMatch: '/noobook'
     }
   ]
 }
@@ -175,7 +180,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '萌新引导（legacy）',
+      text: '萌新引导',
       base: '/noobook/',
       collapsed: true,
       items: [
