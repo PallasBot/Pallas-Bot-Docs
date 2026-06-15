@@ -31,11 +31,11 @@ uv sync --dev --extra coord-redis
 cp config/pallas.example.toml config/pallas.toml
 ```
 
-2. 编辑 [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 的 `[bootstrap]`：监听地址、`SUPERUSERS`、数据库后端（MongoDB / PostgreSQL）等。
+2. 编辑 `config/pallas.toml` 的 `[bootstrap]`：监听地址、`SUPERUSERS`、数据库后端（MongoDB / PostgreSQL）等。
 
-3. 插件与通用项可在启动后于 Web 控制台保存，落盘 **`data/pallas_config/webui.json`**（优先级高于 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 与遗留 `.env`）。
+3. 插件与通用项可在启动后于 Web 控制台保存，落盘 **`data/pallas_config/webui.json`**（优先级高于 `pallas.toml` 与遗留 `.env`）。
 
-合并顺序与读取 API 见 [配置存储](/architecture/settings-storage)。从旧 `.env` 一次性迁移：
+合并顺序与读取 API 见 [配置存储](../architecture/settings-storage.md)。从旧 `.env` 一次性迁移：
 
 ```bash
 uv run python tools/migrate_env_to_pallas.py
@@ -51,25 +51,33 @@ uv run python tools/migrate_env_to_pallas.py
 uv run nb run
 ```
 
+或使用专用启停脚本（对照测试、协议端口同步）：
+
+```bash
+./scripts/run_unified_bot.sh start
+./scripts/run_unified_bot.sh status
+./scripts/run_unified_bot.sh stop
+```
+
 浏览器打开 `http://127.0.0.1:8088/pallas/`，使用启动日志中的口令登录。
 
 ### 分片模式（可选）
 
-生产或多进程场景见 [多进程分片](/architecture/bot-process-sharding)。本地若需验证分片：
+生产或多进程场景见 [多进程分片](../architecture/bot_process_sharding.md)。本地若需验证分片：
 
-- 在 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 的 `[env]` 配置 `REDIS_URL`（需 `uv sync --extra coord-redis`）
+- 在 `pallas.toml` 的 `[env]` 配置 `REDIS_URL`（需 `uv sync --extra coord-redis`）
 - 使用 `./scripts/run_sharded_bot.sh start`（脚本会探测 Redis）
 
 ### 站点自有插件
 
-在 `local/plugins/<name>/` 放置插件，并在 [`pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml) 中设置：
+在 `local/plugins/<name>/` 放置插件，并在 `pallas.toml` 中设置：
 
 ```toml
 [bootstrap]
 extra_plugin_dirs = ["local/plugins"]
 ```
 
-详见 [站点定制与更新](/architecture/site-customization-and-updates)。
+详见 [站点定制与更新](../architecture/site-customization-and-updates.md)。
 
 ## 质量检查（与 CI 一致）
 

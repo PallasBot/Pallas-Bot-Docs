@@ -46,7 +46,7 @@ get_config = plugin_webui.get
 ```
 
 - 业务代码始终 `get_config()`，保存后自动 reload，**无需重启**
-- 复杂解析：传入 `parse_env_value`（参考 `pallas_image/config.py`）
+- 复杂解析：传入 `parse_env_value`（参考 `draw/config.py`）
 - 除 Config 外还有运行时单例：传入 `on_reload`
 - 已有自定义缓存逻辑：登记 `plugin_webui_registry`
 
@@ -79,7 +79,7 @@ get_config = plugin_webui.get
 | 整包替换主仓同名插件 | `local/plugins/<原名>/`（加载优先于 `src/plugins/`） |
 | 只改主仓少量核心文件 | `local/patches/*.patch` 或提 PR |
 
-见 [站点定制与更新](/architecture/site-customization-and-updates)
+见 [站点定制与更新](../../architecture/site-customization-and-updates.md)
 
 ## 分片部署注意
 
@@ -87,7 +87,7 @@ get_config = plugin_webui.get
 - worker 侧 `get_*_config()` 可按磁盘 mtime 拾取新配置
 - 涉及 Bot 连接、presence 时使用 `src/common/shard/` 提供的 API，勿假设单进程内存全局状态
 
-见 [多进程分片](/architecture/bot-process-sharding)
+见 [多进程分片](../../architecture/bot_process_sharding.md)
 
 ## 日志
 
@@ -105,7 +105,7 @@ logger.info(f"bot [{bot_id}] action in group [{group_id}]")
 ## 测试与排障
 
 - 单元测试：`tests/plugins/<name>/`，必要时 mock `Bot` / 数据库
-- 本地配置：勿提交 [`config/pallas.toml`](https://github.com/PallasBot/Pallas-Bot/blob/main/config/pallas.example.toml)、`data/`
+- 本地配置：勿提交 `config/pallas.toml`、`data/`
 - 部署问题：[FAQ](/deploy/faq)
 
 ## 相关文档

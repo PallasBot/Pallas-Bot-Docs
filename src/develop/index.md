@@ -1,6 +1,6 @@
 # 开发指南
 
-面向参与 **Pallas-Bot**、**Pallas-Bot-WebUI** 或站点自有插件维护的贡献者。部署与运行配置见 [快速上手](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) 与 [配置存储](/architecture/settings-storage)。
+面向参与 **Pallas-Bot**、**Pallas-Bot-WebUI** 或站点自有插件维护的贡献者。部署与运行配置见 [快速上手](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) 与 [配置存储](../architecture/settings-storage.md)。
 
 ## 阅读顺序
 
@@ -17,9 +17,9 @@
 
 | 文档 | 说明 |
 | --- | --- |
-| [项目结构](/architecture/project-structure) | 顶层目录与 `src/common` 分层 |
-| [插件目录约定](/architecture/plugin-convention) | `src/plugins/*` 组织规范 |
-| [站点定制](/architecture/site-customization-and-updates) | `local/plugins`、更新策略 |
+| [项目结构](../architecture/project-structure.md) | 顶层目录与 `src/common` 分层 |
+| [插件目录约定](../architecture/plugin-convention.md) | `src/plugins/*` 组织规范 |
+| [站点定制](../architecture/site-customization-and-updates.md) | `local/plugins`、更新策略 |
 | [命令权限 cmd_perm](/common/cmd_perm) | 帮助「何人可用」与 WebUI 覆盖 |
 | [WebUI 插件配置](/common/webui) | `install_hot_reload_config` |
 | [消息审查 message_scrub](/common/message_scrub) | 复读/做梦入站过滤 |
