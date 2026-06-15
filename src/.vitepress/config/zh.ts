@@ -138,6 +138,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '项目结构', link: 'project-structure' },
         { text: '插件规范', link: 'plugin-convention' },
         { text: '配置存储', link: 'settings-storage' },
+        { text: '中央入站调度', link: 'central-ingress-dispatch' },
         { text: '多进程分片', link: 'bot-process-sharding' },
         { text: '控制面与语料联邦', link: 'control-plane-corpus-federation' },
         { text: '站点定制与更新', link: 'site-customization-and-updates' }

@@ -10,7 +10,7 @@
 **适用场景**：生产环境多牛账号、希望降低单进程卡顿或便于按片扩容 worker。
 **不适用**：仅 1～2 只牛、无性能瓶颈时，继续使用 `uv run nb run` 单进程即可。
 
-单进程多牛仍卡顿时，优先按 [中央入站调度](central-ingress-dispatch.md) 做 dispatch / lane / 出站整形；仍不足再启用本节分片。
+单进程多牛仍卡顿时，优先按 [中央入站调度](central-ingress-dispatch) 做 dispatch / lane / 出站整形；仍不足再启用本节分片。
 
 ### 插件加载（hub / worker）
 
@@ -227,7 +227,7 @@ lock.end(group_id)
 
 - `GET /pallas/api/bots`：读 **worker_presence.json**（hub 无反向 WS）。
 - `GET /pallas/api/logs`：合并 `data/pallas_shard/logs/hub.log` 与各 `worker-*.log` 尾行（`sharded_logs: true`）。
-- `GET /pallas/api/shard-observability`：合并各 worker `stats/worker-*.json` 的 **ingress 命中率**、**coord 积压**（实时统计 Redis 键空间）、**PG 连接池粗算**；**WebUI 首页**在分片模式下展示「分片可观测」面板。
+- `GET /pallas/api/shard-observability`：合并各 worker `stats/worker-*.json` 的 **ingress 命中率**、**route_index 命中/回退**、**coord 积压**（实时统计 Redis 键空间）、**PG 连接池粗算**；**WebUI 首页**在分片模式下展示「分片可观测」面板。
 - `./scripts/run_sharded_bot.sh status`：输出 **分片可观测** 摘要（同 API 数据源）。
 - `uv run python scripts/shard_observability_snapshot.py`：完整 JSON；`scripts/shard_observability_status.py`：终端摘要。
 - `plugin-run-stats` / `message-stats`：合并各 worker 的 `stats/worker-*.json`；ERROR 日志合并 worker/hub 落盘文件。
