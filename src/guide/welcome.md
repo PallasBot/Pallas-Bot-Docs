@@ -1,15 +1,13 @@
+# 在开始之前，让牛牛先看看你是谁.....🤔
 
-# 在开始之前，让牛牛先看看你是谁.....🤔 
-(此处是为了更好的引导咱选择对应的教程，请保守选择)
-<br>
-<NCard title="我是小猪，啥也不会🐷" route="/noobook/noob/fornoob">
-哼唧哼唧哼唧<br>(跳转到新手教学，从头开始)
+<NCard title="我是新手，从零部署 🐷" route="/guide/start">
+跟着快速部署走一遍
 </NCard>
-<br>
-<NCard title="我是不会编程的电脑糕手😎" route="/noobook/advance/forplayer">
-牛牛好玩，我要部署<br>(我愿意尝试....)
+
+<NCard title="我想本地开发调试 😎" route="/develop/environment">
+环境、uv、单进程启停
 </NCard>
-<br>
-<NCard title="我是开发者老资历☝️🤓" route="/guide/start">
-诶！我有一计！<br>(我知道我在做什么)
+
+<NCard title="我是开发者老资历 ☝️🤓" route="/guide/start">
+我知道我在做什么
 </NCard>
