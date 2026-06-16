@@ -283,6 +283,35 @@ body.dark #__mermaid_lightbox_overlay__ .mermaid-lightbox__stage svg {
   box-shadow: 0 4px 20px var(--vp-c-brand-soft);
 }
 
+.plugin-doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 1.2em 0 2em;
+}
+
+.plugin-doc-grid .ncard {
+  margin-bottom: 0;
+  height: 100%;
+}
+
+.plugin-doc-grid .card-title {
+  font-size: 1.05rem;
+  margin-bottom: 0.45em;
+}
+
+.plugin-doc-grid .card-text {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--vp-c-text-2);
+}
+
+@media (max-width: 560px) {
+  .plugin-doc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @keyframes mldb-fade {
   from { opacity: 0; }
   to { opacity: 1; }
