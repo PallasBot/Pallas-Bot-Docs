@@ -16,6 +16,7 @@
 | [take_name](/plugins/take_name) | 自动改名片（夺舍） |
 | [blacklist](/plugins/blacklist) | 拉黑 / 屏蔽 |
 | [request_handler](/plugins/request_handler) | 好友/入群申请 |
+| [llm_chat](/plugins/llm_chat) | 随时 @ 智能闲聊（4.0 core） |
 | [pallas_webui](/plugins/pallas_webui) | 网页控制台 |
 
 ## 官方扩展（bundled，默认 slim 不加载）
@@ -30,7 +31,6 @@
 | [draw](/plugins/draw) | `pallas-plugin-draw` | 画画 |
 | [sing](/plugins/sing) | `pallas-plugin-ai-media` | 唱歌、点歌 |
 | [chat](/plugins/chat) | `pallas-plugin-ai-media` | 酒后智能对话 |
-| [llm_chat](/plugins/llm_chat) | `pallas-plugin-llm-chat` | 随时闲聊 |
 | [maa](/plugins/maa) | `pallas-plugin-maa` | MAA 远控 |
 | [pallas_protocol](/plugins/pallas_protocol) | `pallas-plugin-protocol` | NapCat/SnowLuma |
 | [relogin_bot](/plugins/relogin_bot) | `pallas-plugin-protocol` | 重新上号 |
