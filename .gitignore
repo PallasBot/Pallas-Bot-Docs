@@ -4,6 +4,7 @@ node_modules/
 # Build output
 src/.vitepress/dist/
 src/.vitepress/cache/
+src/.vitepress/.temp/
 # Environment
 .env
 .env.local

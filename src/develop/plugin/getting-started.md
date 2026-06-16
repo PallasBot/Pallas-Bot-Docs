@@ -1,5 +1,7 @@
 # 插件开发入门
 
+> **第一次写插件？** 请先跟做 [Cookbook · 牛牛赞我](cookbook.md)（完整闭环）；本文是速查版。
+
 Pallas-Bot 基于 **NoneBot2** + **OneBot v11**。业务插件位于 `src/plugins/<包名>/`；站点定制可放在 `local/plugins/`（见 [站点定制](../../architecture/site-customization-and-updates.md)）。
 
 ## 两种参与方式
@@ -123,7 +125,7 @@ uv run pytest tests/plugins/my_plugin/
 
 - 目录拆分与路径约定：[插件结构与约定](structure.md)
 - cmd_perm、热重载、消息审查、跨插件能力：[插件进阶能力](advanced.md)
-- Agent 分章手册：[插件开发 Skill](../../skills/pallas-plugin-development/SKILL.md)
+- Agent 分章手册：[插件开发 Skill](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/skills/pallas-plugin-development/SKILL.md)
 - 规范总览：[插件目录约定](../../architecture/plugin-convention.md)
 
 ## 延伸阅读

@@ -68,6 +68,6 @@ Base：`https://stats.pallasbot.top`
 ## 相关文档
 
 - [语料联邦](/common/corpus)
-- [社区统计](../common/community_stats.md)
+- [社区统计](/common/community_stats)
 - [多进程分片](bot_process_sharding.md)
 - [配置存储](settings-storage.md)

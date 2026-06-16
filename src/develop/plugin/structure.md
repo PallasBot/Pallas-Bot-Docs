@@ -76,4 +76,4 @@ my_plugin/
 
 ## 下一步
 
-[插件进阶能力](advanced.md) · [插件开发入门](getting-started.md) · [插件开发 Skill](../../skills/pallas-plugin-development/SKILL.md)
+[插件进阶能力](advanced.md) · [插件开发入门](getting-started.md) · [插件开发 Skill](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/skills/pallas-plugin-development/SKILL.md)

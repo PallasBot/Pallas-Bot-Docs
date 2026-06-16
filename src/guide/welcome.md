@@ -1,34 +1,22 @@
 # 选一条路开始
 
-不用一次读完整站。按你的情况点一张卡片，文档会把你带到合适的第一页。
+不用一次读完所有文档。按情况选入口：
 
-<br>
-
-<NCard title="我是萌新，从零学起 🐷" route="/noobook/noob/fornoob">
-从「什么是 Bot、怎么装 Python」讲起，适合完全没碰过命令行的人。
-</NCard>
-
-<br>
-
-<NCard title="我会装软件，想尽快把牛跑起来 😎" route="/guide/quickstart">
-五分钟清单：克隆 → 改配置 → 启动 → 连 QQ。推荐大多数人走这里。
-</NCard>
-
-<br>
-
-<NCard title="我是老手 / 维护者 ☝️" route="/guide/concepts">
-先看架构与配置分层，再进 [标准部署](/deploy/deployment) 或 [开发总览](/develop/index)。
-</NCard>
-
-<br>
-
-::: details 站点地图（怕迷路时展开）
-| 我想… | 去 |
+| 你是谁 | 从这里开始 |
 | --- | --- |
-| 最快跑起来 | [五分钟跑起来](/guide/quickstart) |
-| 查群里口令 | [口令与功能](/guide/usage) |
-| 改生产配置 | [配置要点](/deploy/config) |
-| 装官方扩展插件 | [站点定制](/architecture/site-customization-and-updates) |
-| 写自己的插件 | [插件开发入门](/develop/plugin/getting-started) |
-| 排错 | [FAQ](/deploy/faq) |
-:::
+| 完全新手 | [使用指南](/guide/usage-admin) → 在线站 [萌新引导](https://PallasBot.github.io/Pallas-Bot-Docs/noobook/noob/fornoob) |
+| 会装软件，想尽快跑牛 | **[五分钟跑起来](/guide/quickstart)** |
+| 老手 / 维护者 | [理解架构](/guide/concepts) → [标准部署](/deploy/deployment) 或 [开发指南](/develop/index) |
+
+## 站点地图
+
+| 我想… | 文档 |
+| --- | --- |
+| 最快跑起来 | [quickstart.md](/guide/quickstart) |
+| 控制台改配置 | [使用指南](/guide/usage-admin) |
+| 生产环境部署 | [Deployment.md](/deploy/deployment) |
+| 插件口令 | [plugins/README.md](/plugins/index) |
+| 排错 | [FAQ.md](/deploy/faq) |
+| 写插件 | [插件开发入门](/develop/plugin/getting-started) |
+
+在线阅读（侧栏更全）：<https://PallasBot.github.io/Pallas-Bot-Docs/>

@@ -2,7 +2,7 @@
 
 > [五分钟跑起来](/guide/quickstart) · [标准部署](/deploy/deployment) · [配置要点](/deploy/config)
 
-收录部署与使用中的常见问题。首次部署建议先完成 [快速开始](/guide/quickstart)。
+部署与使用中的常见问题。首次部署请先完成 [五分钟跑起来](/guide/quickstart)。
 
 ## 学习机制
 
@@ -87,7 +87,7 @@ SET admins = '[2777777777, 2666666666]'::jsonb
 WHERE account = 3888888888;
 ```
 
-命令行工具也可使用仓库提供的 [`tools/config/config.mongodb`](https://github.com/PallasBot/Pallas-Bot/tree/main/tools/config/config.mongodb) 等脚本（若你环境已配置好）；与直接改库等价，择一即可。
+也可在 WebUI「数据库」页直接编辑 `bot_config` 表。
 
 ### Q: 如何备份 MongoDB / PostgreSQL？
 

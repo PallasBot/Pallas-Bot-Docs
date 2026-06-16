@@ -2,7 +2,7 @@
 
 > [五分钟跑起来](/guide/quickstart) · [Docker](/deploy/docker) · [配置](/deploy/config) · [分片](/architecture/bot-process-sharding) · [FAQ](/deploy/faq)
 
-面向 **VPS / 本机长期运行**：按步完成环境、配置与协议端，每步可验收。只想先跑通可看 [五分钟跑起来](/guide/quickstart)。
+面向 **VPS / 本机长期运行**。只想先跑通请看 [五分钟跑起来](/guide/quickstart)。
 
 ## 部署前检查清单
 

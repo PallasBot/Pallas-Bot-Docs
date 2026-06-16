@@ -1,6 +1,6 @@
 # 插件进阶能力
 
-在掌握 [入门](getting-started.md) 与 [结构约定](structure.md) 后，按需接入下列横切能力。分章说明见 [插件开发 Skill](../../skills/pallas-plugin-development/SKILL.md)。
+在掌握 [入门](getting-started.md) 与 [结构约定](structure.md) 后，按需接入下列横切能力。分章说明见 [插件开发 Skill](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/skills/pallas-plugin-development/SKILL.md)。
 
 ## 命令权限（cmd_perm）
 
@@ -134,5 +134,5 @@ logger.info(f"bot [{bot_id}] action in group [{group_id}]")
 
 - [插件开发入门](getting-started.md)
 - [插件结构与约定](structure.md)
-- [插件开发 Skill](../../skills/pallas-plugin-development/SKILL.md)
+- [插件开发 Skill](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/skills/pallas-plugin-development/SKILL.md)
 - [贡献与提交流程](../workflow.md)

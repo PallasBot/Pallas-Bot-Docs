@@ -61,7 +61,7 @@ function nav(): DefaultTheme.NavItem[] {
     },
     {
       text: '开发',
-      link: '/develop/plugin/getting-started',
+      link: '/develop/plugin/cookbook',
       activeMatch: '/develop/'
     },
     {
@@ -176,6 +176,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: true,
       items: [
         { text: '开发总览', link: 'index' },
+        { text: 'Cookbook · 牛牛赞我', link: 'plugin/cookbook' },
         { text: '本地环境', link: 'environment' },
         { text: '贡献流程', link: 'workflow' },
         { text: '插件开发入门', link: 'plugin/getting-started' },
