@@ -52,7 +52,8 @@ function nav(): DefaultTheme.NavItem[] {
         { text: '🐳 Docker 部署', link: '/deploy/docker' },
         { text: '🤖 连接 QQ / 协议端', link: '/guide/connect-qq' },
         { text: '🔧 安装官方扩展', link: '/guide/install-extensions' },
-        { text: '🌐 Web 控制台', link: '/common/webui' },
+        { text: '📦 安装插件总览', link: '/guide/install-plugins' },
+        { text: '🌐 Web 控制台', link: '/guide/web-console' },
         { text: '✅ 配置要点', link: '/deploy/config' },
         { text: '💫 常见问题', link: '/deploy/faq' }
       ]
@@ -143,18 +144,34 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '🔧 插件与扩展',
+      text: '🔧 安装插件',
       collapsed: false,
       items: [
-        { text: '安装官方扩展', link: '/guide/install-extensions' },
-        { text: '站点定制 local/plugins', link: '/architecture/site-customization-and-updates' },
-        { text: '插件手册总览', link: '/plugins/index' }
+        { text: '安装插件', link: '/guide/install-plugins' },
+        { text: '官方扩展', link: '/guide/install-extensions' },
+        { text: '插件列表', link: '/plugins/index' },
+        { text: '站点 local/plugins', link: '/architecture/site-customization-and-updates' }
+      ]
+    },
+    {
+      text: '🚀 进阶介绍',
+      collapsed: true,
+      items: [
+        { text: '进阶总览', link: '/guide/advanced' },
+        { text: '概念理解', link: '/guide/concepts' },
+        { text: '配置存储', link: '/architecture/settings-storage' },
+        { text: '配置要点', link: '/deploy/config' },
+        { text: 'AI 扩展', link: '/guide/ai' },
+        { text: '多进程分片', link: '/architecture/bot-process-sharding' },
+        { text: 'Web 控制台', link: '/guide/web-console' },
+        { text: '常见问题', link: '/deploy/faq' }
       ]
     },
     {
       text: '🌐 Web 控制台',
       collapsed: false,
       items: [
+        { text: '网页控制台', link: '/guide/web-console' },
         { text: '使用指南', link: '/guide/usage-admin' },
         { text: '控制台能力说明', link: '/common/webui' }
       ]
