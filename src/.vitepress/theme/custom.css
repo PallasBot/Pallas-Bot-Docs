@@ -211,6 +211,78 @@ body.dark #__mermaid_lightbox_overlay__ .mermaid-lightbox__stage svg {
   font-size: 13px;
   user-select: none;
 }
+/* 自定义块：更接近 GSUID 式「TIP / NOTE」可读性 */
+.vp-doc .custom-block {
+  border-radius: 8px;
+  border-width: 1px;
+  border-left-width: 4px;
+  padding: 12px 16px;
+  font-size: 0.95em;
+  line-height: 1.65;
+}
+
+.vp-doc .custom-block.tip {
+  background: var(--vp-c-brand-soft);
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 35%, transparent);
+}
+
+.vp-doc .custom-block.info {
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc .custom-block.warning {
+  background: color-mix(in srgb, #f59e0b 12%, var(--vp-c-bg));
+}
+
+.vp-doc .custom-block-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* 侧栏：当前分组标题更醒目 */
+.VPSidebar .group + .group {
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.VPSidebar .item h2.text {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--vp-c-brand-1);
+}
+
+/* 首页 Hero */
+.VPHero .name {
+  font-weight: 700;
+}
+
+.VPHero .text {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.VPHero .tagline {
+  font-size: 1.05rem;
+  opacity: 0.88;
+  max-width: 32em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* NCard 入口卡片 */
+.ncard {
+  border-radius: 10px;
+  border: 1px solid var(--vp-c-divider);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ncard:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 4px 20px var(--vp-c-brand-soft);
+}
+
 @keyframes mldb-fade {
   from { opacity: 0; }
   to { opacity: 1; }

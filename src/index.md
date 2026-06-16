@@ -2,18 +2,21 @@
 layout: home
 
 title: Pallas-Bot
-titleTemplate: 面向群聊场景的学习型机器人
+titleTemplate: 群聊学习型机器人 · 文档
 
 hero:
   name: Pallas-Bot
-  text: 面向群聊场景的学习型机器人
-  tagline: 牛牛?!牛牛牛!牛牛牛牛!!!
+  text: 群聊学习型机器人
+  tagline: 会复读、会喝酒，还能接 MAA 与 AI 扩展
   image:
     src: /assets/logo.png
-    alt: Logo
+    alt: Pallas-Bot Logo
   actions:
     - theme: brand
-      text: 快速开始
+      text: 五分钟跑起来
+      link: /guide/quickstart
+    - theme: alt
+      text: 选一条路
       link: /guide/welcome
     - theme: alt
       text: GitHub
@@ -22,20 +25,20 @@ hero:
 features:
   - icon: 🐮
     title: 学习型复读
-    details: 不依赖硬编码问答库，通过群友聊天自动学习并复读。
+    details: 从群聊里学说法，不堆硬编码问答表；支持跨群语料与「不可以」全局禁用。
   - icon: 🎮
-    title: 丰富玩法
-    details: 喝酒、轮盘、唱歌、聊天、生图、夺舍等多种群聊玩法。
-  - icon: 🎨
-    title: 可扩展插件
-    details: 基于nonebot2支持插件化开发，可根据需求启用和禁用功能模块。
+    title: 群聊玩法
+    details: 喝酒、轮盘、决斗、做梦、夺舍……开箱即用，帮助图里可关单群插件。
   - icon: 🔧
-    title: 运维面板
-    details: 提供 Web 控制台和协议端管理，开箱即用的运维体验。
+    title: 浏览器运维
+    details: Web 控制台改配置、看日志、备份数据库；协议端页管 NapCat 多账号。
+  - icon: 🧩
+    title: 核心 + 扩展
+    details: 默认轻量核心；决斗、MAA、唱歌等官方扩展按需安装，站点插件放 local/plugins。
   - icon: 🗄️
-    title: 灵活数据后端
-    details: 支持 MongoDB 或 PostgreSQL 数据后端。
+    title: 双数据库
+    details: MongoDB 或 PostgreSQL 二选一，配置写在 pallas.toml，插件项控制台保存。
   - icon: 🤖
-    title: MAA 扩展
-    details: 支持MAA远控协议，一键长草,牛牛一定要能用牛牛。
+    title: AI 与 MAA
+    details: 对接 Pallas-Bot-AI 玩聊天/唱歌/画画；MAA 远控口令排队任务回图。
 ---

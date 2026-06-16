@@ -23,25 +23,17 @@ uv sync --dev --extra coord-redis
 
 ## 运行配置
 
-**不要**再依赖根目录 `.env` 作为唯一配置源。
+主配置在 **`config/pallas.toml`**（从 `pallas.example.toml` 复制）；插件项在 Web 控制台保存到 **`data/pallas_config/webui.json`**。
 
-1. 复制主配置：
+最少示例见 [配置要点](/deploy/config#最少能跑) 或用户文档 [五分钟跑起来](/guide/quickstart#2-最少配置)。
 
-```bash
-cp config/pallas.example.toml config/pallas.toml
-```
-
-2. 编辑 `config/pallas.toml` 的 `[bootstrap]`：监听地址、`SUPERUSERS`、数据库后端（MongoDB / PostgreSQL）等。
-
-3. 插件与通用项可在启动后于 Web 控制台保存，落盘 **`data/pallas_config/webui.json`**（优先级高于 `pallas.toml` 与遗留 `.env`）。
-
-合并顺序与读取 API 见 [配置存储](../architecture/settings-storage.md)。从旧 `.env` 一次性迁移：
+从旧 `.env` 迁移：
 
 ```bash
 uv run python tools/migrate_env_to_pallas.py
 ```
 
-`.env` 仍可保留 **NoneBot / pip 插件**相关项（见 `.env.example`），避免与 `webui.json` 同名键重复。
+合并顺序见 [配置存储](/architecture/settings-storage)。`.env` 仅建议放 nb/pip 插件项，勿与 `webui.json` 同名键冲突。
 
 ## 启动 Bot
 

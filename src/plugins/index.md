@@ -1,60 +1,54 @@
-# 插件文档索引
+# 插件手册
 
-各插件的「怎么配、怎么用、怎么排障」见子目录 `README.md`（统一结构见 [TEMPLATE.md](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/plugins/TEMPLATE.md)）；`PluginMetadata` 约定见 [cmd_perm](/common/cmd_perm)。
+各插件说明见下表；仓库内还有 `docs/plugins/<name>/README.md` 供维护者对照。
 
-**配置**：有 `config.py` 的插件以该文件字段为准；无独立配置的插件（如 `take_name`、`blacklist`）在文档中单独说明。推荐在 WebUI **插件 / 通用配置** 中修改，落盘 **`data/pallas_config/webui.json`**。
+**改配置**：优先在 Web 控制台 **插件 / 通用配置** 保存，落盘 `data/pallas_config/webui.json`。命令权限与帮助「何人可用」见 [cmd_perm](/common/cmd_perm)。
+
+::: info 4.0 插件来源
+**核心** — 默认随 `uv sync` 加载（复读、帮助、控制台等）。**官方扩展** — 控制台「官方扩展」或 `pallas ext install` 安装。**站点插件** — `local/plugins/`。
+:::
 
 ## 远控与运维
 
 | 文档 | 说明 |
 | --- | --- |
-| [maa](/plugins/maa) | MAA 远程控制（getTask / reportStatus、QQ 绑定与口令） |
-| [connectivity](/plugins/connectivity) | 牛牛连通：画画 / MAA / 唱歌延迟检测 |
 | [pallas_webui](/plugins/pallas_webui) | Web 控制台 |
-| [pallas_protocol](/plugins/pallas_protocol) | NapCat/SnowLuma 协议端管理 |
+| [pallas_protocol](/plugins/pallas_protocol) | NapCat / SnowLuma 协议端 |
+| [maa](/plugins/maa) | MAA 远控 |
+| [connectivity](/plugins/connectivity) | 网关连通检测 |
+| [bot_status](/plugins/bot_status) | 在线状态 |
 | [relogin_bot](/plugins/relogin_bot) | 重新上号、创建牛牛 |
-| [bot_status](/plugins/bot_status) | 在线状态与通知 |
 
 ## 群聊玩法
 
 | 文档 | 说明 |
 | --- | --- |
 | [repeater](/plugins/repeater) | 学习型复读 |
-| [drink](/plugins/drink) | 喝酒 / 醒酒 |
+| [drink](/plugins/drink) | 喝酒 |
 | [roulette](/plugins/roulette) | 轮盘 |
-| [duel](/plugins/duel) | 决斗、八角笼牛 |
+| [duel](/plugins/duel) | 决斗 |
 | [who_is_spy](/plugins/who_is_spy) | 谁是卧底 |
-| [dream](/plugins/dream) | 做梦、跨群漂流、历史梦 |
-| [chat](/plugins/chat) | 酒后聊天（AI） |
-| [ollama](/plugins/ollama) | 随时闲聊（Ollama） |
-| [sing](/plugins/sing) | 唱歌（AI） |
-| [draw](/plugins/draw) | 画画（AI） |
-| [take_name](/plugins/take_name) | 自动夺舍（群名片） |
+| [dream](/plugins/dream) | 做梦 |
+| [chat](/plugins/chat) | 酒后聊天（遗留 RWKV） |
+| [sing](/plugins/sing) | 唱歌 |
+| [pallas_image](/plugins/pallas_image) | 画画 |
+| [take_name](/plugins/take_name) | 夺舍群名片 |
 
-## 帮助与管理
+## 管理
 
 | 文档 | 说明 |
 | --- | --- |
-| [help](/plugins/help) | 三级帮助图、插件开关 |
-| [greeting](/plugins/greeting) | 入群/好友欢迎 |
-| [request_handler](/plugins/request_handler) | 好友/入群申请审批 |
+| [help](/plugins/help) | 帮助图 |
+| [greeting](/plugins/greeting) | 欢迎 |
+| [request_handler](/plugins/request_handler) | 好友/入群申请 |
 | [blacklist](/plugins/blacklist) | 全局拉黑 |
-| [block](/plugins/block) | 其它牛牛与睡眠期拦截 |
+| [block](/plugins/block) | 拦截其它牛 |
 
-## 通用能力（`docs/common/`）
-
-索引见 [common/README.md](../common/README.md)。
+## 通用能力
 
 | 文档 | 说明 |
 | --- | --- |
-| [cmd_perm](/common/cmd_perm) | 命令权限、帮助菜单动态「何人可用」 |
-| [message_scrub](/common/message_scrub) | 消息清洗（复读/做梦等共用） |
-| [webui](/common/webui) | 配置热重载、服务网关段 |
-| [在线统计与社区主站](../common/community_stats.md) | 主站 [stats.pallasbot.top](https://stats.pallasbot.top/) 与上报配置（默认开启） |
-| [语料联邦](/common/corpus) | 本机 + 社区共享接话池 |
-
-## 其它
-
-- [callback](/plugins/callback)：异步任务 HTTP 回调
-- 控制台与协议端共用浏览器登录，口令在 `data/pallas_console/`；遗忘见 [FAQ · 部署排障](/deploy/faq#部署排障)
-- 各子目录 README 文末 **实现见** 指向 [`src/plugins/`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/plugins/)
+| [cmd_perm](/common/cmd_perm) | 命令权限 |
+| [message_scrub](/common/message_scrub) | 消息审查 |
+| [community_stats](/common/community_stats) | 社区统计 |
+| [corpus](/common/corpus) | 语料与社区共享 |

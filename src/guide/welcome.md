@@ -1,15 +1,34 @@
+# 选一条路开始
 
-# 在开始之前，让牛牛先看看你是谁.....🤔 
-(此处是为了更好的引导咱选择对应的教程，请保守选择)
+不用一次读完整站。按你的情况点一张卡片，文档会把你带到合适的第一页。
+
 <br>
-<NCard title="我是小猪，啥也不会🐷" route="/noobook/noob/fornoob">
-哼唧哼唧哼唧<br>(跳转到新手教学，从头开始)
+
+<NCard title="我是萌新，从零学起 🐷" route="/noobook/noob/fornoob">
+从「什么是 Bot、怎么装 Python」讲起，适合完全没碰过命令行的人。
 </NCard>
+
 <br>
-<NCard title="我是不会编程的电脑糕手😎" route="/noobook/advance/forplayer">
-牛牛好玩，我要部署<br>(我愿意尝试....)
+
+<NCard title="我会装软件，想尽快把牛跑起来 😎" route="/guide/quickstart">
+五分钟清单：克隆 → 改配置 → 启动 → 连 QQ。推荐大多数人走这里。
 </NCard>
+
 <br>
-<NCard title="我是开发者老资历☝️🤓" route="/guide/start">
-诶！我有一计！<br>(我知道我在做什么)
+
+<NCard title="我是老手 / 维护者 ☝️" route="/guide/concepts">
+先看架构与配置分层，再进 [标准部署](/deploy/deployment) 或 [开发总览](/develop/index)。
 </NCard>
+
+<br>
+
+::: details 站点地图（怕迷路时展开）
+| 我想… | 去 |
+| --- | --- |
+| 最快跑起来 | [五分钟跑起来](/guide/quickstart) |
+| 查群里口令 | [口令与功能](/guide/usage) |
+| 改生产配置 | [配置要点](/deploy/config) |
+| 装官方扩展插件 | [站点定制](/architecture/site-customization-and-updates) |
+| 写自己的插件 | [插件开发入门](/develop/plugin/getting-started) |
+| 排错 | [FAQ](/deploy/faq) |
+:::

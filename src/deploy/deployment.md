@@ -1,8 +1,8 @@
-# Pallas-Bot 3.0 部署教程
+# 标准部署
 
-> 导航：[`README`](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) · [`Docker 部署`](/deploy/docker) · [`配置要点`](/deploy/config) · [`多进程分片`](/architecture/bot-process-sharding) · [`3.0 迁移`](/about/migration) · [`FAQ`](/deploy/faq)
+> [五分钟跑起来](/guide/quickstart) · [Docker](/deploy/docker) · [配置](/deploy/config) · [分片](/architecture/bot-process-sharding) · [FAQ](/deploy/faq)
 
-本文面向**本机或 VPS 上的生产/长期运行**部署：按步骤完成环境、配置与协议端接入，并在每步说明如何确认成功。
+面向 **VPS / 本机长期运行**：按步完成环境、配置与协议端，每步可验收。只想先跑通可看 [五分钟跑起来](/guide/quickstart)。
 
 ## 部署前检查清单
 

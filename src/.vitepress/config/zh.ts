@@ -2,7 +2,7 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 
 export const zh = defineConfig({
   lang: 'zh-CN',
-  description: '面向群聊场景的学习型机器人',
+  description: 'Pallas-Bot（牛牛）— 群聊学习型机器人文档',
 
   themeConfig: {
     nav: nav(),
@@ -22,7 +22,7 @@ export const zh = defineConfig({
     },
 
     outline: {
-      label: '页面导航'
+      label: '本页目录'
     },
 
     lastUpdated: {
@@ -46,7 +46,7 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: '快速开始',
-      link: '/guide/start',
+      link: '/guide/quickstart',
       activeMatch: '/guide/'
     },
     {
@@ -55,22 +55,22 @@ function nav(): DefaultTheme.NavItem[] {
       activeMatch: '/deploy/'
     },
     {
-      text: '使用指南',
+      text: '口令与插件',
       link: '/guide/usage',
-      activeMatch: '/guide/usage'
+      activeMatch: '/guide/usage|/plugins/'
     },
     {
-      text: '插件开发',
+      text: '开发',
       link: '/develop/plugin/getting-started',
       activeMatch: '/develop/'
     },
     {
-      text: '关于',
-      link: '/about',
-      activeMatch: '/about'
+      text: 'FAQ',
+      link: '/deploy/faq',
+      activeMatch: '/deploy/faq'
     },
     {
-      text: '萌新引导',
+      text: '萌新',
       link: '/noobook',
       activeMatch: '/noobook'
     }
@@ -80,54 +80,68 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
     {
+      text: '认识牛牛',
+      collapsed: false,
+      items: [
+        { text: '选一条路', link: '/guide/welcome' },
+        { text: '理解架构（可跳过）', link: '/guide/concepts' }
+      ]
+    },
+    {
       text: '快速开始',
-      base: '/guide/',
-      collapsed: true,
+      collapsed: false,
       items: [
-        { text: '欢迎！', link: 'welcome' },
-        { text: '快速部署', link: 'start' },
-        { text: '功能列表', link: 'usage' },
-        { text: 'AI 扩展', link: 'ai' }
+        { text: '五分钟跑起来', link: '/guide/quickstart' },
+        { text: '完整部署核对', link: '/guide/start' },
+        { text: '标准部署（生产）', link: '/deploy/deployment' },
+        { text: 'Docker 部署', link: '/deploy/docker' },
+        { text: '配置要点', link: '/deploy/config' }
       ]
     },
     {
-      text: '部署',
-      base: '/deploy/',
-      collapsed: true,
+      text: '玩转牛牛',
+      collapsed: false,
       items: [
-        { text: '标准部署', link: 'deployment' },
-        { text: 'Docker 部署', link: 'docker' },
-        { text: '配置要点', link: 'config' },
-        { text: 'FAQ', link: 'faq' }
+        { text: '口令与功能', link: '/guide/usage' },
+        { text: 'AI 扩展', link: '/guide/ai' },
+        { text: '插件手册', link: '/plugins/index' }
       ]
     },
     {
-      text: '插件',
+      text: '插件详解',
       base: '/plugins/',
       collapsed: true,
       items: [
-        { text: '插件索引', link: 'index' },
-        { text: '牛牛复读 - repeater', link: 'repeater' },
-        { text: '牛牛欢迎 - greeting', link: 'greeting' },
-        { text: '自动夺舍 - take_name', link: 'take_name' },
-        { text: '牛牛喝酒 - drink', link: 'drink' },
-        { text: '牛牛轮盘 - roulette', link: 'roulette' },
-        { text: '牛牛决斗 - duel', link: 'duel' },
-        { text: '酒后聊天 - chat', link: 'chat' },
-        { text: '牛牛做梦 - dream', link: 'dream' },
-        { text: '牛牛唱歌 - sing', link: 'sing' },
-        { text: '牛牛画画 - pallas_image', link: 'pallas_image' },
-        { text: '牛牛连通 - connectivity', link: 'connectivity' },
-        { text: 'MAA 远控 - maa', link: 'maa' },
-        { text: 'Web 控制台 - pallas_webui', link: 'pallas_webui' },
-        { text: '协议端管理 - pallas_protocol', link: 'pallas_protocol' },
-        { text: '其它牛牛拦截 - block', link: 'block' },
-        { text: '牛牛黑名单 - blacklist', link: 'blacklist' },
-        { text: '申请管理 - request_handler', link: 'request_handler' },
-        { text: '任务回调 - callback', link: 'callback' },
-        { text: '牛牛状态 - bot_status', link: 'bot_status' },
-        { text: '重新上号 - relogin_bot', link: 'relogin_bot' },
-        { text: '牛牛帮助 - help', link: 'help' }
+        { text: '复读 repeater', link: 'repeater' },
+        { text: '帮助 help', link: 'help' },
+        { text: '欢迎 greeting', link: 'greeting' },
+        { text: '喝酒 drink', link: 'drink' },
+        { text: '轮盘 roulette', link: 'roulette' },
+        { text: '决斗 duel', link: 'duel' },
+        { text: '做梦 dream', link: 'dream' },
+        { text: '唱歌 sing', link: 'sing' },
+        { text: '画画 pallas_image', link: 'pallas_image' },
+        { text: '聊天 chat', link: 'chat' },
+        { text: '夺舍 take_name', link: 'take_name' },
+        { text: '控制台 pallas_webui', link: 'pallas_webui' },
+        { text: '协议端 pallas_protocol', link: 'pallas_protocol' },
+        { text: 'MAA maa', link: 'maa' },
+        { text: '连通 connectivity', link: 'connectivity' },
+        { text: '状态 bot_status', link: 'bot_status' },
+        { text: '申请 request_handler', link: 'request_handler' },
+        { text: '拉黑 blacklist', link: 'blacklist' },
+        { text: '拦截 block', link: 'block' },
+        { text: '回调 callback', link: 'callback' },
+        { text: '上号 relogin_bot', link: 'relogin_bot' }
+      ]
+    },
+    {
+      text: '查阅',
+      collapsed: true,
+      items: [
+        { text: '常见问题 FAQ', link: '/deploy/faq' },
+        { text: '关于项目', link: '/about/index' },
+        { text: '迁移指南', link: '/about/migration' }
       ]
     },
     {
@@ -136,12 +150,24 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: true,
       items: [
         { text: '项目结构', link: 'project-structure' },
-        { text: '插件规范', link: 'plugin-convention' },
         { text: '配置存储', link: 'settings-storage' },
-        { text: '中央入站调度', link: 'central-ingress-dispatch' },
+        { text: '插件规范', link: 'plugin-convention' },
+        { text: '入站调度', link: 'central-ingress-dispatch' },
         { text: '多进程分片', link: 'bot-process-sharding' },
-        { text: '控制面与语料联邦', link: 'control-plane-corpus-federation' },
-        { text: '站点定制与更新', link: 'site-customization-and-updates' }
+        { text: '多机协同与语料', link: 'control-plane-corpus-federation' },
+        { text: '站点定制与扩展', link: 'site-customization-and-updates' }
+      ]
+    },
+    {
+      text: '通用能力',
+      base: '/common/',
+      collapsed: true,
+      items: [
+        { text: 'Web 控制台', link: 'webui' },
+        { text: '消息审查', link: 'message_scrub' },
+        { text: '命令权限', link: 'cmd_perm' },
+        { text: '社区统计', link: 'community_stats' },
+        { text: '语料联邦', link: 'corpus' }
       ]
     },
     {
@@ -152,32 +178,10 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '开发总览', link: 'index' },
         { text: '本地环境', link: 'environment' },
         { text: '贡献流程', link: 'workflow' },
-        { text: '插件开发', link: 'plugin/getting-started' },
+        { text: '插件开发入门', link: 'plugin/getting-started' },
         { text: '插件结构', link: 'plugin/structure' },
         { text: '进阶能力', link: 'plugin/advanced' },
         { text: 'WebUI 前端', link: 'webui' }
-      ]
-    },
-    {
-      text: '通用能力',
-      base: '/common/',
-      collapsed: true,
-      items: [
-        { text: 'Web 控制台', link: 'webui' },
-        { text: '消息处理', link: 'message_scrub' },
-        { text: '命令权限', link: 'cmd_perm' },
-        { text: '社区统计', link: 'community_stats' },
-        { text: '语料联邦', link: 'corpus' }
-      ]
-    },
-    {
-      text: '关于',
-      base: '/about/',
-      collapsed: true,
-      items: [
-        { text: '关于项目', link: 'index' },
-        { text: '迁移指南', link: 'migration' },
-        { text: '致谢', link: 'thanks' }
       ]
     },
     {
@@ -186,43 +190,44 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: true,
       items: [
         {
-          text: '猪猪指南',
+          text: '从零开始',
           collapsed: true,
           items: [
-            { text: '哼唧哼唧哼?', link: 'noob/fornoob' },
+            { text: '哼唧？', link: 'noob/fornoob' },
             { text: '你需要知道的', link: 'noob/u2know' },
             { text: '一些工具', link: 'noob/tools' }
           ]
         },
-        { text: 'young man!', link: 'advance/forplayer' },
+        { text: '会装软件了', link: 'advance/forplayer' },
         {
-          text: 'linux',
+          text: 'Linux',
           collapsed: true,
           items: [
-            { text: '选择你的系统和部署方式', link: 'advance/linux/install' },
-            { text: '在物理机上装 Linux', link: 'advance/linux/install-os' },
-            { text: '连上你的 Linux 猪机', link: 'advance/linux/ssh' },
-            { text: '用户和权限：凭什么我能动它？', link: 'advance/linux/permission' },
-            { text: '装东西：包管理器一览', link: 'advance/linux/package' },
-            { text: '让 bot 一直活着', link: 'advance/linux/systemd' },
-            { text: '常用小工具速查', link: 'advance/linux/tools' },
-            { text: '网络和防火墙：连不上 WebUI？八成是门被锁了', link: 'advance/linux/network' },
-            { text: '出问题了？先看一眼这几处', link: 'advance/linux/debug' }
+            { text: '选择部署方式', link: 'advance/linux/install' },
+            { text: '装 Linux', link: 'advance/linux/install-os' },
+            { text: 'SSH 连接', link: 'advance/linux/ssh' },
+            { text: '用户与权限', link: 'advance/linux/permission' },
+            { text: '包管理器', link: 'advance/linux/package' },
+            { text: 'systemd 常驻', link: 'advance/linux/systemd' },
+            { text: '常用工具', link: 'advance/linux/tools' },
+            { text: '网络与防火墙', link: 'advance/linux/network' },
+            { text: '排障', link: 'advance/linux/debug' }
           ]
         },
         {
-          text: 'windows',
+          text: 'Windows',
           collapsed: true,
           items: [
-            { text: '先听一嘴:Windows 跑 bot 的坑', link: 'advance/windows/' },
-            { text: '装 Python 3.12+', link: 'advance/windows/python' },
-            { text: '装 PostgreSQL', link: 'advance/windows/postgresql' },
-            { text: 'jieba 编译翻车救命包', link: 'advance/windows/buildtools' }
+            { text: 'Windows 跑 Bot 注意', link: 'advance/windows/' },
+            { text: '安装 Python', link: 'advance/windows/python' },
+            { text: '安装 PostgreSQL', link: 'advance/windows/postgresql' },
+            { text: '编译依赖', link: 'advance/windows/buildtools' }
           ]
         },
-        { text: 'Python 环境管理(venv/pip/uv)', link: 'advance/python-env' },
-        { text: '要用 Git!', link: 'advance/git' },
-        { text: '你过关!', link: 'welldone' }
+        { text: 'Python 环境 (uv)', link: 'advance/python-env' },
+        { text: 'Git 基础', link: 'advance/git' },
+        { text: '你过关了', link: 'welldone' }
       ]
-    }]
+    }
+  ]
 }
