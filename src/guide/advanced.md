@@ -8,7 +8,7 @@
 | --- | --- |
 | [理解架构](/guide/concepts) | 协议端、Pallas-Bot、库、控制台怎么串 |
 | [配置存储](/architecture/settings-storage) | `pallas.toml` 和 `webui.json` 谁覆盖谁 |
-| [运维](/maintainer/quickstart) / [开发](/developer/index) | 正式文档主线 |
+| [运维入口](/maintainer/quickstart) / [开发](/developer/index) | 正式文档主线 |
 
 ## 要上 VPS / 生产
 

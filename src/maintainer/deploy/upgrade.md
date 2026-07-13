@@ -130,7 +130,7 @@
 
 ## 相关阅读
 
-- [快速开始](/maintainer/quickstart)
+- [运维入口](/maintainer/quickstart)
 - [WebUI](/maintainer/install/webui)
 - [协议端](/maintainer/install/protocol)
 - [LLM 与 AI 运维](/maintainer/operate/llm-and-ai)

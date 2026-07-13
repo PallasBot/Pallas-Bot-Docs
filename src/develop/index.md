@@ -1,11 +1,11 @@
 # 开发指南
 
-> 归档入口。现行开发文档已迁移到 [Developer](/developer/index)，维护者文档见 [Maintainer](/maintainer/quickstart)。
+> 归档入口。现行开发文档已迁移到 [Developer](/developer/index)，运维索引见 [运维入口](/maintainer/quickstart)。
 
 优先阅读：
 
 - [Developer](/developer/index)
-- [Maintainer](/maintainer/quickstart)
+- [运维入口](/maintainer/quickstart)
 - [Author](/developer/author/index)
 
 本目录仅暂时保留少量仍有参考价值的旧页，如：
