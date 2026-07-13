@@ -3,7 +3,7 @@
 使用 **Docker Compose** 运行官方镜像，适合生产环境统一版本、隔离依赖。需预先安装 [Docker](https://docs.docker.com/get-docker/) 与 Compose 插件（`docker compose version` 有输出即可）。
 
 ::: tip 导航
-[README](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) · [标准部署](/deploy/deployment) · [配置要点](/deploy/config) · [连接 QQ](guide/connect-qq.md) · [多进程分片](/architecture/bot-process-sharding) · [FAQ](/deploy/faq)
+[README](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) · [标准部署](/deploy/deployment) · [配置要点](/deploy/config) · [连接 QQ](/guide/connect-qq) · [多进程分片](/architecture/bot-process-sharding) · [安装验收 Checklist](/maintainer/install/ga-install-checklist) · [FAQ](/deploy/faq)
 :::
 
 ## 部署前检查清单
@@ -13,7 +13,7 @@
 | Docker | Engine + Compose V2；Linux 可用 `curl -fsSL https://get.docker.com \| bash` |
 | 目录 | 单独目录存放 `docker-compose.yml` 与 `pallas-bot/` 数据（勿用中文空名目录作项目名，见排障） |
 | 配置 | **`pallas-bot/config/pallas.toml`** 必须从示例复制并编辑（**文件**，非目录） |
-| 数据库 | 选定 MongoDB（默认栈）或 PostgreSQL（`--profile postgres`） |
+| 数据库 | **新装** PostgreSQL（`docker-compose.full.yml` 或 `pallas.example.toml` 默认）；**3.x 升级** 沿用 MongoDB（`docker-compose.yml`） |
 | 端口 | 宿主机映射 `8088`（或自定义）需在防火墙放行 |
 | 备份 | 持久化 **`pallas-bot/data`** 与数据库卷 |
 
@@ -73,15 +73,31 @@ volumes:
 
 ## 步骤 3：选择数据库并启动
 
-::: details MongoDB（默认栈）
-`pallas.toml` 中 `db_backend = "mongodb"`（或省略默认）。compose 已为 Bot 注入 `MONGO_HOST=mongodb`。
+::: details 全栈（新装推荐：Bot + PostgreSQL + AI + Ollama）
+1. 复制 [`docker-compose.full.yml`](../docker-compose.full.yml) 与 [`config/pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/tree/main/config/pallas.example.toml)（已默认 `postgresql`）。
+2. 准备目录与 `compose.env`（`PG_*` 与 `pallas.toml` 中 `[bootstrap.postgres]` 一致）。
+3. 启动：
+
+```bash
+docker compose -f docker-compose.full.yml --env-file ./pallas-bot/config/compose.env up -d
+```
+
+4. 首次拉取 Ollama 模型需数分钟，可看 `docker compose -f docker-compose.full.yml logs -f ollama-init pallasbot-ai`。
+
+**如何确认成功**：`curl -s http://127.0.0.1:8088/pallas/api/health` 与 `curl -s http://127.0.0.1:9099/health` 均正常。
+
+有 NVIDIA GPU 时追加 `-f docker-compose.full.gpu.yml`。
+:::
+
+::: details MongoDB（3.x 升级 / 沿用现有数据）
+`pallas.toml` 中 `db_backend = "mongodb"` 并填写 `[bootstrap.mongo]`。compose 已为 Bot 注入 `MONGO_HOST=mongodb`。
 
 ```bash
 docker compose up -d
 ```
 :::
 
-::: details PostgreSQL（内置 compose 数据库）
+::: details PostgreSQL（仅 Bot，不含 AI；原 compose 分步栈）
 1. `pallas.toml` 设 `db_backend = "postgresql"` 并填写 `[bootstrap.postgres]`。
 2. 复制 [`config/compose.env.example`](https://github.com/PallasBot/Pallas-Bot/tree/main/config/compose.env.example) → **`pallas-bot/config/compose.env`**，使 **`PG_*`** 与 TOML 一致。
 3. 启动：
@@ -103,7 +119,7 @@ curl -s http://127.0.0.1:8088/pallas/api/health
 
 ## 步骤 4：协议端与 QQ
 
-详见 [连接 QQ / 协议端](guide/connect-qq.md)。Docker 下打开：
+详见 [连接 QQ / 协议端](/guide/connect-qq)。Docker 下打开：
 
 `http://<宿主机IP>:8088/protocol/console/`
 
@@ -172,7 +188,7 @@ uv run python tools/scripts/bot_watchdog.py --docker-container pallasbot --no-sp
 | 单进程 + PostgreSQL | `perf,pg` | **Dockerfile 默认值** |
 | 多进程分片 | `perf,pg,deploy-shard` | 需配置 `REDIS_URL` |
 | 4.0 core 仅接话 | `perf,pg` | 默认不装玩法扩展 |
-| 4.0 + 常用玩法 | `perf,pg,plugins-game` | 决斗 + 谁是卧底 |
+| 4.0 + 常用玩法 | `perf,pg,plugins-game` | 决斗 + 谁是卧底；仅用于镜像预装 |
 | 4.0 全官方扩展 | `perf,pg,deploy-full` | 决斗 + MAA + 谁是卧底 |
 | 4.0 全部官方扩展 | `perf,pg,deploy-all` | 11 个官方扩展包 |
 
@@ -237,5 +253,5 @@ docker build --build-arg BASE_IMAGE=docker.m.daocloud.io/library/python:3.12-sli
 | --- | --- |
 | 非 Docker 标准部署 | [标准部署](/deploy/deployment) |
 | 改配置项说明 | [配置要点](/deploy/config) |
-| 装官方扩展 | [安装官方扩展](guide/install-extensions.md) |
+| 装官方扩展 | [安装官方扩展](/guide/install-extensions) |
 | 更多排错 | [FAQ](/deploy/faq) |
