@@ -50,7 +50,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: '⭐ 运维快速开始 · 先跑起来再折腾', link: '/maintainer/quickstart' },
         { text: '⭐ 五分钟跑起来', link: '/guide/quickstart' },
-        { text: '4.0 启动说明', link: '/guide/4.0-start' },
+        { text: '把玩法 / AI 也装上', link: '/guide/4.0-start' },
         { text: '🐳 Docker 部署', link: '/maintainer/deploy/docker' },
         { text: '🤖 连接 QQ / 协议端', link: '/maintainer/install/protocol' },
         { text: '🔧 安装官方扩展', link: '/maintainer/install/official-extensions' },
@@ -161,7 +161,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '知识源与 ingest', link: '/developer/plugin-development/knowledge-sources' },
         { text: 'Cookbook', link: '/developer/plugin-development/pallas-api-cookbook' },
         { text: '发布', link: '/developer/plugin-development/publishing' },
-        { text: '社区插件作者指南', link: '/guide/community-plugin-author' },
+        { text: '写社区插件并上架', link: '/guide/community-plugin-author' },
         { text: '官方扩展 PyPI', link: '/develop/extension-pypi-publish' }
       ]
     },
@@ -171,15 +171,15 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '选一条路', link: '/guide/welcome' },
         { text: '五分钟跑起来', link: '/guide/quickstart' },
-        { text: '4.0 启动说明', link: '/guide/4.0-start' },
-        { text: '4.0 迁移', link: '/guide/4.0-migration' },
+        { text: '把玩法 / AI 也装上', link: '/guide/4.0-start' },
+        { text: '从 3.x 迁到 4.0', link: '/guide/4.0-migration' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
         { text: '安装插件', link: '/guide/install-plugins' },
         { text: '安装官方扩展', link: '/guide/install-extensions' },
         { text: '社区插件商店', link: '/guide/community-plugin-store' },
-        { text: '社区插件作者', link: '/guide/community-plugin-author' },
+        { text: '写社区插件并上架', link: '/guide/community-plugin-author' },
         { text: '@牛牛与复读/LLM', link: '/guide/llm-and-repeater' },
-        { text: 'ollama → llm_chat', link: '/guide/llm-migrate-from-ollama' },
+        { text: '从旧版 ollama 迁到 llm_chat', link: '/guide/llm-migrate-from-ollama' },
         { text: '口令与功能', link: '/guide/usage' }
       ]
     },
