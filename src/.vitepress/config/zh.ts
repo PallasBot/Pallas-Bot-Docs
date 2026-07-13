@@ -51,8 +51,8 @@ function nav(): DefaultTheme.NavItem[] {
         { text: '五分钟跑起来', link: '/guide/quickstart' },
         { text: '把玩法 / AI 也装上', link: '/guide/4.0-start' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
-        { text: '安装官方扩展', link: '/guide/install-extensions' },
-        { text: '从 3.x 迁到现行版本', link: '/guide/4.0-migration' },
+        { text: '安装官方插件', link: '/guide/install-extensions' },
+        { text: '从 3.x 迁到 4.0', link: '/guide/4.0-migration' },
         { text: '萌新引导', link: '/noobook' }
       ]
     },
@@ -113,8 +113,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '把玩法 / AI 也装上', link: '/guide/4.0-start' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
         { text: '安装插件', link: '/guide/install-plugins' },
-        { text: '安装官方扩展', link: '/guide/install-extensions' },
-        { text: '从 3.x 迁到现行版本', link: '/guide/4.0-migration' },
+        { text: '安装官方插件', link: '/guide/install-extensions' },
+        { text: '从 3.x 迁到 4.0', link: '/guide/4.0-migration' },
         { text: '从旧版 ollama 迁到 llm_chat', link: '/guide/llm-migrate-from-ollama' }
       ]
     },
@@ -139,7 +139,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '本体安装', link: '/maintainer/install/bot' },
         { text: 'WebUI', link: '/maintainer/install/webui' },
         { text: '协议端', link: '/maintainer/install/protocol' },
-        { text: '官方扩展', link: '/maintainer/install/official-extensions' },
+        { text: '官方插件', link: '/maintainer/install/official-extensions' },
         { text: '安装验收 Checklist', link: '/maintainer/install/ga-install-checklist' },
         { text: 'AI Runtime', link: '/maintainer/install/ai-runtime' },
         { text: '单进程部署', link: '/maintainer/deploy/single-process' },
@@ -168,7 +168,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: 'Cookbook', link: '/developer/plugin-development/pallas-api-cookbook' },
         { text: '发布', link: '/developer/plugin-development/publishing' },
         { text: '写社区插件并上架', link: '/guide/community-plugin-author' },
-        { text: '官方扩展 PyPI', link: '/develop/extension-pypi-publish' }
+        { text: '官方插件 PyPI', link: '/develop/extension-pypi-publish' }
       ]
     },
     {
@@ -194,7 +194,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ]
         },
         {
-          text: '官方扩展',
+          text: '官方插件',
           base: '/plugins/',
           collapsed: true,
           items: [

@@ -1,6 +1,6 @@
 # pallas_protocol（协议端管理）
 
-> **官方扩展**：`pallas-plugin-protocol`（`uv sync --extra plugins-protocol`）
+> **官方插件**：`pallas-plugin-protocol`（`uv sync --extra plugins-protocol`）
 
 多账号 **NapCat / SnowLuma** 协议端：创建牛牛、启停实例、日志与 OneBot 反向 WebSocket 配置同步。与 Web 控制台共用浏览器登录（口令在 `data/pallas_console/`）。
 

@@ -1,6 +1,6 @@
 # community_stats（社区统计上报）
 
-> **官方扩展**：`pallas-plugin-community-stats`（`uv sync --extra plugins-community-stats`）
+> **官方插件**：`pallas-plugin-community-stats`（`uv sync --extra plugins-community-stats`）
 
 向社区统计中心周期上报部署心跳（在线牛牛数等聚合信息），供控制台与 [社区主站](https://stats.pallasbot.top/) 展示。**无群内用户口令**。
 

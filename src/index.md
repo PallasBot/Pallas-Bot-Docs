@@ -17,7 +17,7 @@ hero:
       text: 五分钟跑起来
       link: /guide/quickstart
     - theme: alt
-      text: 安装官方扩展
+      text: 安装官方插件
       link: /guide/install-extensions
     - theme: alt
       text: 写第一个插件
@@ -34,7 +34,7 @@ features:
     linkText: 复读插件
   - icon: 🎮
     title: 群聊玩法
-    details: 喝酒、轮盘、决斗、做梦……核心轻量，玩法按需装官方扩展。
+    details: 喝酒、轮盘、决斗、做梦……核心轻量，玩法按需装官方插件。
     link: /plugins/index
     linkText: 插件手册
   - icon: 🔧

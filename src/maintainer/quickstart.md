@@ -12,7 +12,7 @@
 | Docker | [Docker 部署](/maintainer/deploy/docker) |
 | 单进程长跑 | [单进程部署](/maintainer/deploy/single-process) |
 | 多账号 / 分片 | [分片部署](/maintainer/deploy/sharded) |
-| 从旧版升级 | [升级](/maintainer/deploy/upgrade) · [从 3.x 迁到现行版本](/guide/4.0-migration) |
+| 从旧版升级 | [升级](/maintainer/deploy/upgrade) · [从 3.x 迁到 4.0](/guide/4.0-migration) |
 | 新装验收走查 | [安装验收 Checklist](/maintainer/install/ga-install-checklist) |
 | 排障 | [排障](/maintainer/operate/troubleshooting) |
 | 闲聊 / 记忆不生效 | [LLM 与 AI](/maintainer/operate/llm-and-ai) |
@@ -25,7 +25,7 @@
 | 本体 | [本体安装](/maintainer/install/bot) |
 | WebUI | [WebUI](/maintainer/install/webui) |
 | 协议端 | [协议端](/maintainer/install/protocol) |
-| 官方扩展 | [官方扩展](/maintainer/install/official-extensions) |
+| 官方插件 | [官方插件](/maintainer/install/official-extensions) |
 | AI Runtime | [AI Runtime](/maintainer/install/ai-runtime) |
 | 命令权限 | [命令权限](/maintainer/operate/command-permissions) |
 | Web 控制台日常 | [Web 控制台](/maintainer/operate/webui) |

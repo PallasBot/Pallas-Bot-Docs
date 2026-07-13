@@ -294,7 +294,7 @@ WantedBy=multi-user.target
 
 | 我想… | 文档 |
 | --- | --- |
-| 装决斗、MAA 等 | [安装官方扩展](/guide/install-extensions) |
+| 装决斗、MAA 等 | [安装官方插件](/guide/install-extensions) |
 | 查插件口令 | [插件索引](/plugins/index) |
 | 用控制台改配置 | [Web 控制台](/common/webui) |
 | 排错 | [FAQ](/deploy/faq) |

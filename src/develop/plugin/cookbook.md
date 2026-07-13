@@ -407,7 +407,7 @@ uv run pytest tests/plugins/praise_me/
 | 全服榜 | 用 `src.foundation.db` 做持久化，或汇总多群 JSON |
 | 帮助图样式 | 保持 `menu_data` 与 metadata 同步即可 |
 | 贡献主仓 | 挪到 `src/plugins/praise_me/`，PR 附测试与插件文档 |
-| 官方扩展包 | 4.0 玩法类可走扩展仓 + `uv sync --extra plugins-*` |
+| 官方插件包 | 4.0 玩法类可走扩展仓 + `uv sync --extra plugins-*` |
 
 ---
 
