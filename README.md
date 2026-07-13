@@ -23,7 +23,7 @@ pnpm run docs:preview
 | `src/guide/` | 快速开始、功能列表、AI 扩展 |
 | `src/deploy/` | 部署、Docker、配置、FAQ |
 | `src/plugins/` | 各插件说明（与主仓 `docs/plugins/` 对应） |
-| `src/architecture/` | 项目结构、配置存储、分片等 |
+| `src/developer/architecture/` | 架构总览、配置、分片、治理等 |
 | `src/common/` | WebUI、命令权限、语料联邦、消息清洗等通用能力 |
 | `src/develop/` | 插件开发指南 |
 

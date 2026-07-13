@@ -26,7 +26,7 @@
 
 ## 配置
 
-[`config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/plugins/ollama/config.py) 字段以 WebUI **插件 → ollama** 为准（落盘 `data/pallas_config/webui.json`，保存后热重载）。也可在 **`config/pallas.toml` 的 `[env]`** 写同名键（如 `OLLAMA_ENABLE`），合并顺序见 [settings-storage](../../architecture/settings-storage.md)。
+[`config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/plugins/ollama/config.py) 字段以 WebUI **插件 → ollama** 为准（落盘 `data/pallas_config/webui.json`，保存后热重载）。也可在 **`config/pallas.toml` 的 `[env]`** 写同名键（如 `OLLAMA_ENABLE`），合并顺序见 [settings-storage](/developer/architecture/config-storage)。
 
 | 键 | 配置键名 | 说明 |
 | --- | --- | --- |

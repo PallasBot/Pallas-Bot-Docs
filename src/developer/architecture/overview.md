@@ -65,10 +65,11 @@ flowchart LR
 1. [Core 与扩展](core-vs-extensions.md)
 2. [分片运行时](shard-runtime.md)
 3. [配置存储](config-storage.md)
-4. [Golden Plugin](/developer/plugin-development/golden-plugin)
+4. [插件治理](plugin-governance.md)
+5. [Golden Plugin](/developer/plugin-development/golden-plugin)
 
-深度材料：
+延伸：
 
-- [Pallas 核心契约](/architecture/internal/pallas-core-contract)
-- [内核插件统一化](/architecture/internal/core-plugin-unification-design)
-- [包布局与公开 API](/architecture/internal/pallas-package-layout)
+- [仓库布局](/developer/reference/repo-layout)
+- [Platform API](/developer/reference/platform-api)
+- [Reload 与 Activation](/developer/plugin-development/reload-and-activation)

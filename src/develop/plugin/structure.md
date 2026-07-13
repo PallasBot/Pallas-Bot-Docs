@@ -1,6 +1,6 @@
 # 插件结构与约定
 
-本文是 [插件目录约定](../../architecture/plugin-convention.md) 的**开发向**说明：新建或改动插件时如何组织文件与数据。
+本文是 [插件目录约定](/developer/plugin-development/golden-plugin) 的**开发向**说明：新建或改动插件时如何组织文件与数据。
 
 ## 最小结构
 

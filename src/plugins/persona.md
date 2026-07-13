@@ -66,5 +66,5 @@
 
 - [复读插件](../repeater/README.md)
 - [`@牛牛`、复读接话与 LLM 的关系](../../guide/llm-and-repeater.md)
-- [Pallas 核心契约](/architecture/internal/pallas-core-contract)
-- [AI 终态架构](/architecture/internal/pallas-final-ai-shape)
+- [架构总览](/developer/architecture/overview)
+- [LLM 与 AI 运维](/maintainer/operate/llm-and-ai)

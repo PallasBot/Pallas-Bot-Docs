@@ -70,7 +70,7 @@ uv run nb run
 | systemd、备份、防火墙 | [标准部署](/deploy/deployment) |
 | Docker | [Docker 部署](/deploy/docker) |
 | 配置项详解 | [配置要点](/deploy/config) |
-| 多牛分片 | [多进程分片](/architecture/bot-process-sharding) |
+| 多牛分片 | [多进程分片](/maintainer/deploy/sharded) |
 
 ---
 

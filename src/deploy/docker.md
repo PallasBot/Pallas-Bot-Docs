@@ -3,7 +3,7 @@
 使用 **Docker Compose** 运行官方镜像，适合生产环境统一版本、隔离依赖。需预先安装 [Docker](https://docs.docker.com/get-docker/) 与 Compose 插件（`docker compose version` 有输出即可）。
 
 ::: tip 导航
-[README](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) · [标准部署](/deploy/deployment) · [配置要点](/deploy/config) · [连接 QQ](/guide/connect-qq) · [多进程分片](/architecture/bot-process-sharding) · [安装验收 Checklist](/maintainer/install/ga-install-checklist) · [FAQ](/deploy/faq)
+[README](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) · [标准部署](/deploy/deployment) · [配置要点](/deploy/config) · [连接 QQ](/guide/connect-qq) · [多进程分片](/maintainer/deploy/sharded) · [安装验收 Checklist](/maintainer/install/ga-install-checklist) · [FAQ](/deploy/faq)
 :::
 
 ## 部署前检查清单
@@ -164,7 +164,7 @@ docker compose up -d
 # PostgreSQL profile 时加上 --env-file 与 --profile postgres
 ```
 
-站点插件若挂载 `./pallas-bot/local/plugins`，需在 `pallas.toml` 设置 `extra_plugin_dirs`。见 [站点定制与更新](/architecture/site-customization-and-updates)。
+站点插件若挂载 `./pallas-bot/local/plugins`，需在 `pallas.toml` 设置 `extra_plugin_dirs`。见 [升级与站点定制](/maintainer/deploy/upgrade)。
 :::
 
 ::: details 宿主机探活（可选）
@@ -210,7 +210,7 @@ docker build \
 - hub 映射 **8088**；worker 映射 **8090、8091…**
 - hub 与所有 worker **共用同一份** `pallas.toml` 与 **`data/`** 挂载
 
-说明见 [多进程分片架构](/architecture/bot-process-sharding)。
+说明见 [多进程分片架构](/maintainer/deploy/sharded)。
 :::
 
 ---

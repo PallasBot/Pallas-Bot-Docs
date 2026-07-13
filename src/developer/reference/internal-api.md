@@ -44,4 +44,4 @@
 
 - [Platform API](platform-api.md)
 - [pallas.api Cookbook](/developer/plugin-development/pallas-api-cookbook)
-- [包布局](/architecture/internal/pallas-package-layout)
+- [仓库布局](/developer/reference/repo-layout)

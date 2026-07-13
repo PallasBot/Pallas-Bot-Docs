@@ -220,8 +220,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '常见问题 FAQ', link: '/deploy/faq' },
         { text: '关于项目', link: '/about/index' },
         { text: '迁移指南', link: '/about/migration' },
-        { text: '命令权限（素材）', link: '/common/cmd_perm' },
-        { text: '分片（素材）', link: '/architecture/bot-process-sharding' }
+        { text: '命令权限', link: '/common/cmd_perm' },
+        { text: '分片部署', link: '/maintainer/deploy/sharded' }
       ]
     },
     {
