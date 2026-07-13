@@ -172,7 +172,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '选一条路', link: '/guide/welcome' },
         { text: '五分钟跑起来', link: '/guide/quickstart' },
         { text: '把玩法 / AI 也装上', link: '/guide/4.0-start' },
-        { text: '从 3.x 迁到 4.0', link: '/guide/4.0-migration' },
+        { text: '从 3.x 迁到现行版本', link: '/guide/4.0-migration' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
         { text: '安装插件', link: '/guide/install-plugins' },
         { text: '安装官方扩展', link: '/guide/install-extensions' },
