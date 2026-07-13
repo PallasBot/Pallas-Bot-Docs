@@ -13,7 +13,7 @@
 | --- | --- |
 | [理解架构](/guide/concepts) | 协议端、本体、库、控制台怎么串起来 |
 | [配置存储](/architecture/settings-storage) | `pallas.toml` 和 `webui.json` 谁覆盖谁 |
-| [项目结构](/architecture/project-structure) | 仓库里 `src/`、`data/` 各是什么 |
+| [Maintainer](/maintainer/quickstart) / [Developer](/developer/index) | 当前正式文档主线入口 |
 
 ---
 
@@ -25,7 +25,7 @@
 | [标准部署](/deploy/deployment) | 分步部署、systemd、备份 |
 | [Docker 部署](/deploy/docker) | Compose、卷、镜像里带哪些扩展 |
 
-数据库：**MongoDB 和 PostgreSQL 二选一**；表结构首次启动自动建，不用手搓 SQL（PG 需先建好空库）。
+数据库：**PostgreSQL**（4.0 默认）；表结构首次启动自动建，不用手搓 SQL（需先建好空库）。从 3.x 升级可继续用 MongoDB。
 
 ---
 
@@ -62,4 +62,4 @@
 
 ## 我要写代码
 
-请看 [开发指南](/develop/index) 和 [插件 Cookbook](/develop/plugin/cookbook)，不在本节展开。
+请看 [Maintainer](/maintainer/quickstart)、[Developer](/developer/index) 和 [插件开发入门](/developer/plugin-development/getting-started)，不在本节展开。

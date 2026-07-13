@@ -65,7 +65,7 @@ function nav(): DefaultTheme.NavItem[] {
         { text: '📋 插件索引', link: '/plugins/index' },
         { text: '🛒 安装官方扩展', link: '/maintainer/install/official-extensions' },
         { text: '🎮 口令与玩法', link: '/guide/usage' },
-        { text: '🤖 AI / LLM', link: '/maintainer/operate/llm-and-ai' },
+        { text: 'AI 运行时（可选）', link: '/maintainer/install/ai-runtime' },
         {
           text: '本体 core',
           items: [
@@ -132,16 +132,16 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: 'WebUI 安装', link: '/maintainer/install/webui' },
         { text: '协议端', link: '/maintainer/install/protocol' },
         { text: '官方扩展', link: '/maintainer/install/official-extensions' },
-        { text: 'AI Runtime', link: '/maintainer/install/ai-runtime' },
         { text: '安装验收 Checklist', link: '/maintainer/install/ga-install-checklist' },
+        { text: 'AI Runtime（可选附加）', link: '/maintainer/install/ai-runtime' },
         { text: '单进程部署', link: '/maintainer/deploy/single-process' },
         { text: 'Docker', link: '/maintainer/deploy/docker' },
         { text: '分片部署', link: '/maintainer/deploy/sharded' },
         { text: '升级', link: '/maintainer/deploy/upgrade' },
-        { text: 'LLM 与 AI', link: '/maintainer/operate/llm-and-ai' },
         { text: 'Web 控制台', link: '/maintainer/operate/webui' },
         { text: '命令权限', link: '/maintainer/operate/command-permissions' },
         { text: '排障', link: '/maintainer/operate/troubleshooting' },
+        { text: 'LLM 与 AI（可选）', link: '/maintainer/operate/llm-and-ai' },
         { text: '配置参考', link: '/maintainer/reference/config' }
       ]
     },

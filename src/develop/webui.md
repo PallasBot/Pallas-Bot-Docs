@@ -2,7 +2,7 @@
 
 控制台 UI 由独立仓库 **[Pallas-Bot-WebUI](https://github.com/PallasBot/Pallas-Bot-WebUI)** 构建，产物由主仓 `pallas_webui` 插件挂载，基址 **`/pallas/`**。
 
-后端 API 实现在主仓 `src/plugins/pallas_webui/`（如 `extended_api.py`）；**插件配置热重载**等通用能力在 `src/console/webui/`，一般无需改 API 层即可接入新插件配置（见 [WebUI 插件配置](/common/webui)）。
+后端 API 实现在主仓 `src/plugins/pb_webui/`（如 `extended_api.py`）；**插件配置热重载**等通用能力在 `src/console/webui/`，一般无需改 API 层即可接入新插件配置（见 [WebUI 插件配置](/common/webui)）。
 
 ## 本地联调
 
@@ -17,7 +17,7 @@ npm install
 npm run dev    # 默认 http://127.0.0.1:5173/pallas/
 ```
 
-`npm run dev` 将 `/pallas/api` 代理到 `http://127.0.0.1:8088`。后端端口非 8088 时：
+`npm run dev` 将 `/pallas/api`、`/pallas/plugin-assets`、`/pallas/store-assets` 等代理到 `http://127.0.0.1:8088`。后端端口非 8088 时：
 
 ```bash
 VITE_PROXY_TARGET=http://127.0.0.1:<port> npm run dev
@@ -30,7 +30,68 @@ cd Pallas-Bot-WebUI
 npm run build   # vue-tsc + vite build
 ```
 
-将 `dist/` 内容按主仓 `pallas_webui` 约定复制或 CI 发布到主仓静态资源目录。生产环境通常直接使用主仓内置构建结果，无需单独起 Vite。
+主仓 CI / Release 会从 **Pallas-Bot-WebUI** checkout 源码，经 `tools/build_webui_dist.sh` 构建并打包 **`dist.zip`**（zip 根为 `public/`），随 **Pallas-Bot Release** 附件发布。Bot 启动时解压到 **`data/pb_webui`**，静态目录为 **`data/pb_webui/public`**（与 `webui_public_path()` 一致）。
+
+本地手动部署：将构建产物放入 `data/pb_webui/public/`，或解压 Release 的 `dist.zip` 到 `data/pb_webui/`。
+
+```bash
+# 主仓内一键构建 zip（需已 clone WebUI 到 ../Pallas-Bot-WebUI 等路径）
+./tools/build_webui_dist.sh /path/to/Pallas-Bot-WebUI dist.zip
+unzip -d data/pb_webui dist.zip
+```
+
+自动更新默认从 **`PallasBot/Pallas-Bot`** Release 下载 `dist.zip`（配置项 `pallas_webui_dist_zip_repo`）。
+
+## OpenAPI 契约
+
+控制台后端可在线提供：
+
+```text
+/pallas/api/openapi.json
+```
+
+如需离线导出给前端 codegen 或评审：
+
+```bash
+cd Pallas-Bot
+uv run python tools/export_pb_webui_openapi.py
+```
+
+默认输出到：
+
+```text
+openspec/pallas-console-v1.json
+```
+
+双仓同步与 drift 门禁：
+
+```bash
+# Bot：导出并提交 openspec
+cd Pallas-Bot
+uv run python tools/export_pb_webui_openapi.py
+uv run python tools/check_console_openapi_drift.py
+
+# WebUI：从主仓 openspec 生成类型并校验
+cd Pallas-Bot-WebUI
+npm run gen:console-openapi-types
+npm run check:console-openapi-types
+```
+
+CI 分别在两仓执行上述 check。
+
+### DynamicConfigPanel（插件 config 元数据）
+
+插件 `config.py` 的 Pydantic 字段可通过 `Field(..., json_schema_extra={...})` 驱动 WebUI 表单：
+
+| 键 | 作用 |
+| --- | --- |
+| `ui_group` | 分组标题（DynamicConfigPanel 折叠卡片） |
+| `ui_order` | 组内排序，越小越靠前 |
+| `ui_hidden` | 进阶项，默认折叠在「高级」组 |
+| `secret` | 字符串打码 + 眼睛切换 |
+| `multiline` | 多行 textarea |
+
+未在 schema 声明但写入 `webui.json` 的键会在面板底部「未声明的环境键」列出；需改 Raw TOML 模式编辑。
 
 ## 代码约定
 
@@ -67,9 +128,17 @@ npm run build   # vue-tsc + vite build
 | --- | --- |
 | 新页面、样式、前端交互 | Pallas-Bot-WebUI |
 | 新 API、权限、配置落盘 | Pallas-Bot（`pallas_webui` / `common/webui`） |
-| 内嵌协议端静态页 | 主仓 `src/plugins/pallas_protocol/web/static/`（同样遵守窄屏） |
+| 内嵌协议端静态页 | 主仓 `src/plugins/pb_protocol/web/static/`（同样遵守窄屏） |
 
 PR 仍建议**单一主题**：前后端分拆为两个 PR 时，在描述中互相链接。
+
+## 插件包内视觉资源
+
+插件列表、商店本地插件与帮助图共用后端 `resolve_catalog_visuals()`。在 `local/plugins/<id>/` 或 `packages/<id>/` 放置 `assets/cover.png`、`assets/icon.png` 等（完整候选见 [插件目录约定 · 包内视觉资源](/architecture/plugin-convention#插件包内视觉资源assets)）后：
+
+- API 字段 `cover` / `icon` / `avatar` 按 **包内 → 商店缓存 → 远程** 合并后返回 `/pallas/plugin-assets/…` 或 `/pallas/store-assets/…`
+- 前端 `resolvePluginIconForRow()` **优先**使用上述 API 字段，再回退商店远程 URL 或品牌 mascot
+- bundled README 中相对路径 `assets/…` 会改写为同前缀 URL（`normalizeBundledReadmeMarkdown`）
 
 ## 提交
 

@@ -3,7 +3,7 @@
 面向 **VPS / 本机长期运行**。只想先跑通请看 [五分钟跑起来](/guide/quickstart)。
 
 ::: tip 导航
-[五分钟跑起来](/guide/quickstart) · [Docker](/deploy/docker) · [配置](/deploy/config) · [连接 QQ](guide/connect-qq.md) · [分片](/architecture/bot-process-sharding) · [FAQ](/deploy/faq)
+[五分钟跑起来](/guide/quickstart) · [Docker](/deploy/docker) · [配置](/deploy/config) · [连接 QQ](/guide/connect-qq) · [分片](/architecture/bot-process-sharding) · [FAQ](/deploy/faq)
 :::
 
 ## 部署前检查清单
@@ -16,7 +16,7 @@
 | 系统 | Linux（推荐）或 Windows；长期运行优先 Linux + systemd |
 | QQ 账号 | 使用**小号**登录协议端，勿用大号 |
 | 网络 | 服务器可访问数据库端口；若外网访问控制台，需开放 **HTTP 端口**（默认 `8088`） |
-| 数据库 | 已安装 **MongoDB** 或 **PostgreSQL**，或可连接远程实例 |
+| 数据库 | 已安装 **PostgreSQL**（4.0 默认），或可连接远程实例；3.x 升级可继续用 MongoDB |
 | 工具 | `git`、`Python 3.12+`（或由 `uv` 自动安装）、[`uv`](https://docs.astral.sh/uv/) |
 | 配置 | 将准备 **`config/pallas.toml`**（从示例复制，**非可选项**） |
 
@@ -80,21 +80,23 @@ cp config/pallas.example.toml config/pallas.toml
 编辑 **`config/pallas.toml`**，至少完成：
 
 1. **`[bootstrap] superusers`**：填写你的 QQ 号（超管，用于控制台与高危操作）。
-2. **`db_backend`**：设为 `mongodb` 或 `postgresql`。
-3. **`[bootstrap.mongo]`** 或 **`[bootstrap.postgres]`**：填写数据库地址、库名、账号密码（与步骤 4 中实际库一致）。
+2. **`db_backend`**：新装默认 `postgresql`；3.x 升级可继续 `mongodb`。
+3. **`[bootstrap.postgres]`** 或 **`[bootstrap.mongo]`**：填写数据库地址、库名、账号密码（与步骤 4 中实际库一致）。
 
-示例（MongoDB）：
+示例（PostgreSQL，4.0 默认）：
 
 ```toml
 [bootstrap]
 host = "0.0.0.0"
 port = 8088
 superusers = ["你的QQ号"]
-db_backend = "mongodb"
+db_backend = "postgresql"
 
-[bootstrap.mongo]
+[bootstrap.postgres]
 host = "127.0.0.1"
-port = 27017
+port = 5432
+user = "pallas"
+password = "pallas"
 db = "PallasBot"
 ```
 
@@ -112,17 +114,17 @@ uv run python tools/migrate_env_to_pallas.py
 
 ## 步骤 4：准备数据库
 
-任选 **MongoDB** 或 **PostgreSQL**，保证 Bot 所在机器能连通。
+**4.0 新装默认 PostgreSQL**（`uv sync --extra pg`）。从 3.x 升级、已有 Mongo 数据的站点可继续用 MongoDB，不必为上 4.0 强迁。
 
-- MongoDB：[Windows 安装](https://www.runoob.com/mongodb/mongodb-window-install.html) · [Linux 安装](https://www.runoob.com/mongodb/mongodb-linux-install.html)
-- PostgreSQL：[官方下载](https://www.postgresql.org/download/) · 使用 PG 时需已执行 `uv sync --extra pg`
+- PostgreSQL：[官方下载](https://www.postgresql.org/download/) · 权限与可选扩展见 [deploy/pg/README.md](../deploy/pg/README.md)
+- MongoDB（升级沿用）：[Windows 安装](https://www.runoob.com/mongodb/mongodb-window-install.html) · [Linux 安装](https://www.runoob.com/mongodb/mongodb-linux-install.html)
 
-库表由 Pallas-Bot **首次启动时自动初始化**，无需手工建表（PG 需库已存在，见 [Docker 部署 · PG 排障](/deploy/docker#pg-日志-fatal-database-pallasbot-does-not-exist)）。
+库表由 Pallas-Bot **首次启动时自动初始化**，无需手工建表（PG 需目标库已存在；勿依赖超级用户）。详见 [Docker 部署 · PG 排障](/deploy/docker#pg-日志-fatal-database-pallasbot-does-not-exist)。
 
 **如何确认成功**：
 
-- MongoDB：`mongosh` 或客户端能连上 `pallas.toml` 中的 host/port。
 - PostgreSQL：`psql -h ... -U ... -d ...` 可登录，且库名与 `pallas.toml` 中 `db` 一致。
+- MongoDB（若沿用）：`mongosh` 或客户端能连上 `pallas.toml` 中的 host/port。
 
 ---
 
@@ -159,7 +161,7 @@ uv run nb run
 
 ## 步骤 7：接入 QQ 协议端
 
-详见 [连接 QQ / 协议端](guide/connect-qq.md)。摘要：
+详见 [连接 QQ / 协议端](/guide/connect-qq)。摘要：
 
 **方式 A：协议端管理（推荐）**
 
@@ -292,7 +294,7 @@ WantedBy=multi-user.target
 
 | 我想… | 文档 |
 | --- | --- |
-| 装决斗、MAA 等 | [安装官方扩展](guide/install-extensions.md) |
+| 装决斗、MAA 等 | [安装官方扩展](/guide/install-extensions) |
 | 查插件口令 | [插件索引](/plugins/index) |
 | 用控制台改配置 | [Web 控制台](/common/webui) |
 | 排错 | [FAQ](/deploy/faq) |

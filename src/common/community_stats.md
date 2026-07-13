@@ -51,4 +51,5 @@
 
 ## 实现
 
-[`src/features/community_stats/`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/features/community_stats/)
+- 插件壳：[`src/plugins/pb_stats/`](https://github.com/PallasBot/Pallas-Bot/tree/main/pallas/plugins/pb_stats/)
+- 业务：[`src/features/community_stats/`](https://github.com/PallasBot/Pallas-Bot/tree/main/pallas/features/community_stats/)

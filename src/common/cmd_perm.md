@@ -71,7 +71,7 @@ from src.features.cmd_perm import (
 
 ## 实现
 
-[`src/features/cmd_perm/`](https://github.com/PallasBot/Pallas-Bot/tree/main/src/features/cmd_perm/)
+[`src/features/cmd_perm/`](https://github.com/PallasBot/Pallas-Bot/tree/main/pallas/features/cmd_perm/)
 
 ---
 

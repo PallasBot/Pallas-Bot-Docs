@@ -3,7 +3,7 @@
 面向 **部署者、群管理员**：牛已经跑起来之后，日常在网页和群里怎么用。
 
 ::: tip 前提
-若还没连上 QQ，先看 [五分钟跑起来](/guide/quickstart) 和 [连接协议端](../guide/connect-qq.md)。
+若还没连上 QQ，先看 [五分钟跑起来](/guide/quickstart) 和 [连接协议端](/guide/connect-qq)。
 :::
 
 ---
@@ -14,7 +14,7 @@
 2. 用启动日志里的口令登录  
 3. 群里发 **`牛牛帮助`**，对照图里功能  
 
-控制台各页面说明：[网页控制台](../guide/web-console.md)。
+控制台各页面说明：[网页控制台](/guide/web-console)。
 
 ---
 
@@ -65,4 +65,4 @@
 
 ---
 
-▶ [安装插件](../guide/install-plugins.md) · [进阶介绍](/guide/advanced)
+▶ [安装插件](/guide/install-plugins) · [进阶介绍](/guide/advanced)
