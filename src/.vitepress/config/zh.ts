@@ -156,7 +156,9 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '配置与 WebUI', link: '/developer/plugin-development/config-and-webui' },
         { text: '知识源与 ingest', link: '/developer/plugin-development/knowledge-sources' },
         { text: 'Cookbook', link: '/developer/plugin-development/pallas-api-cookbook' },
-        { text: '发布', link: '/developer/plugin-development/publishing' }
+        { text: '发布', link: '/developer/plugin-development/publishing' },
+        { text: '社区插件作者指南', link: '/guide/community-plugin-author' },
+        { text: '官方扩展 PyPI', link: '/develop/extension-pypi-publish' }
       ]
     },
     {
@@ -170,6 +172,10 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '连接 QQ', link: '/guide/connect-qq' },
         { text: '安装插件', link: '/guide/install-plugins' },
         { text: '安装官方扩展', link: '/guide/install-extensions' },
+        { text: '社区插件商店', link: '/guide/community-plugin-store' },
+        { text: '社区插件作者', link: '/guide/community-plugin-author' },
+        { text: '@牛牛与复读/LLM', link: '/guide/llm-and-repeater' },
+        { text: 'ollama → llm_chat', link: '/guide/llm-migrate-from-ollama' },
         { text: '口令与功能', link: '/guide/usage' }
       ]
     },
