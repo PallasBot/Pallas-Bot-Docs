@@ -20,8 +20,8 @@ hero:
       text: 安装官方扩展
       link: /guide/install-extensions
     - theme: alt
-      text: 编写插件
-      link: /develop/plugin/cookbook
+      text: 写第一个插件
+      link: /developer/plugin-development/first-plugin
     - theme: alt
       text: GitHub
       link: https://github.com/PallasBot/Pallas-Bot
@@ -40,8 +40,8 @@ features:
   - icon: 🔧
     title: 浏览器运维
     details: Web 控制台改配置、看日志、备份数据库；插件商店一键装扩展。
-    link: /common/webui
-    linkText: 如何使用
+    link: /guide/web-console
+    linkText: 网页控制台
   - icon: 🧩
     title: 核心 + 扩展
     details: 默认 slim 核心；决斗、MAA 等走 pip 扩展包，站点插件放 local/plugins。
@@ -53,8 +53,8 @@ features:
     link: /guide/connect-qq
     linkText: 连接协议端
   - icon: 🗄️
-    title: 双数据库
-    details: MongoDB 或 PostgreSQL 二选一，配置写在 pallas.toml。
+    title: PostgreSQL 默认
+    details: 现行默认 PostgreSQL；从 3.x 升级可继续用 MongoDB。配置写在 pallas.toml。
     link: /deploy/config
     linkText: 配置要点
   - icon: 🤖
@@ -64,7 +64,7 @@ features:
     linkText: AI 扩展
   - icon: 📄
     title: 文档齐全
-    details: 安装、部署、插件、开发 Cookbook 与萌新引导一应俱全。
+    details: 安装、部署、插件、开发与萌新引导一应俱全。
     link: /guide/welcome
     linkText: 选一条路
 ---

@@ -1,65 +1,50 @@
 # 进阶介绍
 
-::: tip 怎么用本节
-你已经能 `uv run nb run` 且群里 **牛牛帮助** 有回复，就可以按需往下翻。  
-**不用从头读到尾**——当手册查就行。
-:::
+已经能 `uv run nb run`，群里 **牛牛帮助** 有回复，就可以按需查这一页。不用从头读到尾。
 
----
+## 想搞懂原理
 
-## 我想搞懂原理
-
-| 文档 | 你会搞懂什么 |
+| 文档 | 你会搞懂 |
 | --- | --- |
-| [理解架构](/guide/concepts) | 协议端、本体、库、控制台怎么串起来 |
+| [理解架构](/guide/concepts) | 协议端、Pallas-Bot、库、控制台怎么串 |
 | [配置存储](/architecture/settings-storage) | `pallas.toml` 和 `webui.json` 谁覆盖谁 |
-| [Maintainer](/maintainer/quickstart) / [Developer](/developer/index) | 当前正式文档主线入口 |
+| [运维](/maintainer/quickstart) / [开发](/developer/index) | 正式文档主线 |
 
----
+## 要上 VPS / 生产
 
-## 我要上生产 / VPS
-
-| 文档 | 你会搞懂什么 |
+| 文档 | 你会搞懂 |
 | --- | --- |
-| [配置要点](/deploy/config) | 生产环境 `pallas.toml` 检查项 |
-| [标准部署](/deploy/deployment) | 分步部署、systemd、备份 |
-| [Docker 部署](/deploy/docker) | Compose、卷、镜像里带哪些扩展 |
+| [配置要点](/deploy/config) | 生产环境检查项 |
+| [标准部署](/deploy/deployment) | systemd、备份 |
+| [Docker](/deploy/docker) | Compose、卷、镜像带哪些扩展 |
 
-数据库：**PostgreSQL**（现行默认）；表结构首次启动自动建，不用手搓 SQL（需先建好空库）。从 3.x 升级可继续用 MongoDB。
+数据库用 **PostgreSQL**（现行默认）。表结构首次启动自动建；先准备好空库。3.x 升级站可继续用 MongoDB。
 
----
+## 连 QQ、装插件、改配置
 
-## 我要连 QQ、装插件、改配置
-
-| 文档 | 你会搞懂什么 |
+| 文档 | 你会搞懂 |
 | --- | --- |
-| [连接 QQ](connect-qq.md) | NapCat、WS 地址、验收口令 |
-| [安装插件](install-plugins.md) | core / 官方扩展 / local 怎么装 |
-| [使用指南](/guide/usage-admin) | 控制台里常见页面去哪 |
-| [Web 控制台](web-console.md) | `/pallas/` 登录与各面板说明 |
+| [连接 QQ](connect-qq.md) | NapCat、WS、验收口令 |
+| [安装插件](install-plugins.md) | core / 官方扩展 / local |
+| [使用指南](/guide/usage-admin) | 日常网页操作 |
+| [网页控制台](web-console.md) | `/pallas/` 各面板 |
 
----
+## 多只牛 / 高级玩法
 
-## 我要多只牛 / 高级玩法
-
-| 文档 | 你会搞懂什么 |
+| 文档 | 你会搞懂 |
 | --- | --- |
 | [多进程分片](/architecture/bot-process-sharding) | hub、worker、Redis |
-| [站点定制](/architecture/site-customization-and-updates) | 更新 Bot 时不弄丢自己的插件 |
-| [AI 扩展](ai.md) | Pallas-Bot-AI 怎么接 |
+| [站点定制](/architecture/site-customization-and-updates) | 更新时不弄丢自己的插件 |
+| [AI 扩展](ai.md) | 怎么接 Pallas-Bot-AI |
 | [语料联邦](/common/corpus) | 跨群接话库（多数站可跳过） |
-
----
 
 ## 出问题了
 
-| 文档 | 你会搞懂什么 |
+| 文档 | 你会搞懂 |
 | --- | --- |
 | [FAQ](/deploy/faq) | 口令忘了、没反应、升级 |
-| [命令权限](/common/cmd_perm) | 谁能在群里用某口令 |
+| [命令权限](/common/cmd_perm) | 谁能用某口令 |
 
----
+## 要写代码
 
-## 我要写代码
-
-请看 [Maintainer](/maintainer/quickstart)、[Developer](/developer/index) 和 [插件开发入门](/developer/plugin-development/getting-started)，不在本节展开。
+看 [写第一个插件](/developer/plugin-development/first-plugin) 和 [Developer](/developer/index)。
