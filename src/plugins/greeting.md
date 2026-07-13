@@ -40,7 +40,7 @@
 
 > 可在控制台对应插件页中修改。
 
-欢迎相关配置见 [`packages/greeting/config.py`](../../packages/greeting/config.py)。欢迎素材和持久化内容通常落在 `data/greeting/`。
+欢迎相关配置见 [`packages/greeting/config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/greeting/config.py)。欢迎素材和持久化内容通常落在 `data/greeting/`。
 
 ## 排障
 
@@ -51,13 +51,13 @@
 
 ## 实现
 
-源码位置：[`packages/greeting/`](../../packages/greeting/)
+源码位置：[`packages/greeting/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/greeting/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/greeting/__init__.py)：注册欢迎元数据和权限说明。
-- [`commands.py`](../../packages/greeting/commands.py)：处理设置和清除欢迎内容。
-- [`config.py`](../../packages/greeting/config.py)：定义欢迎行为相关配置。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/greeting/__init__.py)：注册欢迎元数据和权限说明。
+- [`commands.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/greeting/commands.py)：处理设置和清除欢迎内容。
+- [`config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/greeting/config.py)：定义欢迎行为相关配置。
 
 实现要点：
 

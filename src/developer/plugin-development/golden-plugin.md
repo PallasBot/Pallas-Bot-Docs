@@ -47,7 +47,7 @@ __plugin_meta__ = PluginMetadata(
             {"id": "example.main", "label": "示例命令", "default": "everyone"},
         ],
         "command_limits": [
-            {"id": "example.main", "seconds": 5},
+            {"id": "example.main", "cd_sec": 5},
         ],
         "menu_data": [
             {
@@ -122,4 +122,4 @@ get_config = plugin_webui.get
 - [配置与 WebUI](config-and-webui.md)
 - [元数据](metadata.md)
 - [测试](testing.md)
-- [内核插件统一化](../../architecture/internal/core-plugin-unification-design.md)
+- [内核插件统一化](/architecture/internal/core-plugin-unification-design)

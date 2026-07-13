@@ -8,7 +8,7 @@
 | --- | --- |
 | 主仓 / 平台 | [架构总览](/developer/architecture/overview) → [分片](/developer/architecture/shard-runtime) → [治理](/developer/architecture/plugin-governance) → [仓库布局](/developer/reference/repo-layout) |
 | 官方扩展 | [Core vs 扩展](/developer/architecture/core-vs-extensions) → [Golden](/developer/plugin-development/golden-plugin) → [元数据](/developer/plugin-development/metadata) → [发布](/developer/plugin-development/publishing) |
-| 社区插件 | [入门](/developer/plugin-development/getting-started) → [配置](/developer/plugin-development/config-and-webui) → [Cookbook](/developer/plugin-development/pallas-api-cookbook) → [Internal 边界](/developer/reference/internal-api) |
+| 社区插件 | [首插件](/developer/plugin-development/first-plugin) → [配置](/developer/plugin-development/config-and-webui) → [Cookbook](/developer/plugin-development/pallas-api-cookbook) → [Internal 边界](/developer/reference/internal-api) |
 
 ## 边界速查
 

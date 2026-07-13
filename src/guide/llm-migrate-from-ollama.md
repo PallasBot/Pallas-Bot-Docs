@@ -68,5 +68,5 @@ uv run python tools/integration_repeater_llm.py --scenario both --ai-port 9099
 ## 延伸阅读
 
 - [4.0 启动说明](/guide/4.0-start)
-- [Bot ↔ AI 仓契约](../architecture/internal/pallas-final-ai-shape.md)
+- [Bot ↔ AI 仓契约](/architecture/internal/pallas-final-ai-shape)
 - [llm_chat 插件说明](/plugins/llm_chat)

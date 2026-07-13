@@ -44,13 +44,13 @@
 
 ## 实现
 
-源码位置：[`packages/take_name/`](../../packages/take_name/)
+源码位置：[`packages/take_name/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/take_name/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/take_name/__init__.py)：注册自动夺舍元数据。
-- [`handlers.py`](../../packages/take_name/handlers.py)：处理改名时机和目标选择。
-- [`startup.py`](../../packages/take_name/startup.py)：注册定时任务与运行时联动。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/take_name/__init__.py)：注册自动夺舍元数据。
+- [`handlers.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/take_name/handlers.py)：处理改名时机和目标选择。
+- [`startup.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/take_name/startup.py)：注册定时任务与运行时联动。
 
 实现要点：
 

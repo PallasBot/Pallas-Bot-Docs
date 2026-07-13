@@ -35,7 +35,7 @@
 
 > 可在控制台对应插件页中修改。
 
-轮盘相关配置见 [`packages/roulette/config.py`](../../packages/roulette/config.py)。
+轮盘相关配置见 [`packages/roulette/config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/roulette/config.py)。
 
 ## 排障
 
@@ -46,13 +46,13 @@
 
 ## 实现
 
-源码位置：[`packages/roulette/`](../../packages/roulette/)
+源码位置：[`packages/roulette/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/roulette/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/roulette/__init__.py)：注册轮盘元数据。
-- [`commands.py`](../../packages/roulette/commands.py)：处理开枪、救援和补枪流程。
-- [`config.py`](../../packages/roulette/config.py)：定义玩法相关配置。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/roulette/__init__.py)：注册轮盘元数据。
+- [`commands.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/roulette/commands.py)：处理开枪、救援和补枪流程。
+- [`config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/roulette/config.py)：定义玩法相关配置。
 
 实现要点：
 

@@ -147,4 +147,4 @@ Ollama 在 Docker + GPU 下长跑后，容器内 NVML 可能断联，HTTP 仍 20
 
 - [AI Runtime 安装](/maintainer/install/ai-runtime)
 - [排障](troubleshooting.md)
-- [AI 终态架构](../../architecture/internal/pallas-final-ai-shape.md)
+- [AI 终态架构](/architecture/internal/pallas-final-ai-shape)

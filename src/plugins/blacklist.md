@@ -50,12 +50,12 @@
 
 ## 实现
 
-源码位置：[`packages/blacklist/`](../../packages/blacklist/)
+源码位置：[`packages/blacklist/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/blacklist/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/blacklist/__init__.py)：注册拉黑与解禁元数据。
-- [`commands.py`](../../packages/blacklist/commands.py)：处理用户和群的增删逻辑。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/blacklist/__init__.py)：注册拉黑与解禁元数据。
+- [`commands.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/blacklist/commands.py)：处理用户和群的增删逻辑。
 
 实现要点：
 

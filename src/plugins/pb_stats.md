@@ -43,14 +43,14 @@
 
 源码位置：
 
-- 插件壳：[`packages/pb_stats/`](../../packages/pb_stats/)
+- 插件壳：[`packages/pb_stats/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_stats/)
 - 业务逻辑：[`pallas/product/community_stats/`](https://github.com/PallasBot/Pallas-Bot/tree/main/pallas/product/community_stats/)
 
 关键文件：
 
-- [`packages/pb_stats/__init__.py`](../../packages/pb_stats/__init__.py)：注册在线统计元数据。
-- [`packages/pb_stats/startup.py`](../../packages/pb_stats/startup.py)：启动后台上报流程。
-- [`packages/pb_stats/config.py`](../../packages/pb_stats/config.py)：定义在线统计相关配置。
+- [`packages/pb_stats/__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_stats/__init__.py)：注册在线统计元数据。
+- [`packages/pb_stats/startup.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_stats/startup.py)：启动后台上报流程。
+- [`packages/pb_stats/config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_stats/config.py)：定义在线统计相关配置。
 
 实现要点：
 

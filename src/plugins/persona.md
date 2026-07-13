@@ -45,14 +45,14 @@
 源码位置：
 
 - 行为逻辑：[`pallas/product/persona/`](https://github.com/PallasBot/Pallas-Bot/tree/main/pallas/product/persona/)
-- 接入入口：[`packages/repeater/`](../../packages/repeater/)
+- 接入入口：[`packages/repeater/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/repeater/)
 
 关键文件：
 
 - [`pallas/product/persona/auto.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/pallas/product/persona/auto.py)：按 `bot_id` 派生基础牛格差异。
 - [`pallas/product/persona/loader.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/pallas/product/persona/loader.py)：合并牛级特征与群风格画像。
 - [`pallas/product/persona/compile_group_style.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/pallas/product/persona/compile_group_style.py)：把群内学习结果整理成可用画像。
-- [`packages/repeater/__init__.py`](../../packages/repeater/__init__.py)：把这些画像接到实际接话逻辑里。
+- [`packages/repeater/__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/repeater/__init__.py)：把这些画像接到实际接话逻辑里。
 
 实现要点：
 
@@ -66,5 +66,5 @@
 
 - [复读插件](../repeater/README.md)
 - [`@牛牛`、复读接话与 LLM 的关系](../../guide/llm-and-repeater.md)
-- [Pallas 核心契约](../../architecture/internal/pallas-core-contract.md)
-- [AI 终态架构](../../architecture/internal/pallas-final-ai-shape.md)
+- [Pallas 核心契约](/architecture/internal/pallas-core-contract)
+- [AI 终态架构](/architecture/internal/pallas-final-ai-shape)

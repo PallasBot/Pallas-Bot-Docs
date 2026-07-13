@@ -9,7 +9,7 @@ Bot 在 LLM 闲聊前统一检索并注入 system prompt。AI 为可选能力；
 
 ## 官方参考
 
-本体 [`packages/llm_chat`](../../packages/llm_chat/__init__.py) 与内置 FAQ（`pallas.bot_faq`）可作为对照。
+本体 [`packages/llm_chat`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/llm_chat/__init__.py) 与内置 FAQ（`pallas.bot_faq`）可作为对照。
 
 ## 插件声明示例
 

@@ -43,7 +43,7 @@ activation_policy = workers-restart
 | 作者 | 按变更粒度选 `reload_policy`；勿把代码变更标成可热载 |
 | 维护者 | 装包看 `activation_policy`；支持配置热载 ≠ 装包免重启 |
 
-分级总览：[hot-reload-tiers](../../architecture/hot-reload-tiers.md)。
+分级总览：[hot-reload-tiers](/architecture/hot-reload-tiers)。
 
 ## 相关
 

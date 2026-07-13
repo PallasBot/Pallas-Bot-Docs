@@ -136,7 +136,7 @@
 
 ## 推荐阅读顺序
 
-- 想理解合并顺序：看 [配置存储](../../architecture/settings-storage.md)
+- 想理解合并顺序：看 [配置存储](/architecture/settings-storage)
 - 想快速部署：看 [快速开始](/maintainer/quickstart)
 - 想改运行中配置：看 [WebUI 运维](/maintainer/operate/webui)
 - 想排查保存后不生效：看 [排障](/maintainer/operate/troubleshooting)

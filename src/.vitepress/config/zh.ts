@@ -103,7 +103,9 @@ function nav(): DefaultTheme.NavItem[] {
       text: '💻 开发',
       items: [
         { text: '开发者入口', link: '/developer/index' },
+        { text: '写第一个插件', link: '/developer/plugin-development/first-plugin' },
         { text: 'Golden Plugin', link: '/developer/plugin-development/golden-plugin' },
+        { text: '命令权限', link: '/common/cmd_perm' },
         { text: '知识源与 ingest', link: '/developer/plugin-development/knowledge-sources' },
         { text: 'Cookbook', link: '/developer/plugin-development/pallas-api-cookbook' },
         { text: '本地环境（素材）', link: '/develop/environment' }
@@ -150,10 +152,12 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '入口', link: '/developer/index' },
+        { text: '写第一个插件', link: '/developer/plugin-development/first-plugin' },
         { text: '架构总览', link: '/developer/architecture/overview' },
         { text: 'Core 与扩展', link: '/developer/architecture/core-vs-extensions' },
         { text: 'Golden Plugin', link: '/developer/plugin-development/golden-plugin' },
         { text: '配置与 WebUI', link: '/developer/plugin-development/config-and-webui' },
+        { text: '命令权限 cmd_perm', link: '/common/cmd_perm' },
         { text: '知识源与 ingest', link: '/developer/plugin-development/knowledge-sources' },
         { text: 'Cookbook', link: '/developer/plugin-development/pallas-api-cookbook' },
         { text: '发布', link: '/developer/plugin-development/publishing' },

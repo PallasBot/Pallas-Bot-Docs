@@ -55,12 +55,12 @@
 
 ## 实现
 
-源码位置：[`packages/pb_core/`](../../packages/pb_core/)
+源码位置：[`packages/pb_core/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_core/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/pb_core/__init__.py)：注册核心管理命令和权限。
-- [`handlers.py`](../../packages/pb_core/handlers.py)：处理状态、控制台入口、插件列表、更新和重启逻辑。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_core/__init__.py)：注册核心管理命令和权限。
+- [`handlers.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_core/handlers.py)：处理状态、控制台入口、插件列表、更新和重启逻辑。
 
 实现要点：
 

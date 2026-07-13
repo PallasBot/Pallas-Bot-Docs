@@ -33,7 +33,7 @@
 
 > 可在控制台对应插件页中修改。
 
-控制台口令保存在 `data/pallas_console/`。前端静态资源、热重载配置和控制台行为主要由 [`packages/pb_webui/config.py`](../../packages/pb_webui/config.py) 与启动流程控制。
+控制台口令保存在 `data/pallas_console/`。前端静态资源、热重载配置和控制台行为主要由 [`packages/pb_webui/config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_webui/config.py) 与启动流程控制。
 
 ## 排障
 
@@ -44,13 +44,13 @@
 
 ## 实现
 
-源码位置：[`packages/pb_webui/`](../../packages/pb_webui/)
+源码位置：[`packages/pb_webui/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_webui/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/pb_webui/__init__.py)：注册控制台元数据。
-- [`startup.py`](../../packages/pb_webui/startup.py)：挂载控制台页面和 API。
-- [`config.py`](../../packages/pb_webui/config.py)：定义控制台相关配置。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_webui/__init__.py)：注册控制台元数据。
+- [`startup.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_webui/startup.py)：挂载控制台页面和 API。
+- [`config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/pb_webui/config.py)：定义控制台相关配置。
 
 实现要点：
 

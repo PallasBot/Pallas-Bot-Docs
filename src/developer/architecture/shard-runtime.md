@@ -1,6 +1,6 @@
 # 分片运行时
 
-分片编码合同。部署脚本见 [maintainer/deploy/sharded](/maintainer/deploy/sharded)。架构细节：[bot_process_sharding](../../architecture/bot_process_sharding.md)、[central-ingress-dispatch](../../architecture/internal/central-ingress-dispatch.md)。
+分片编码合同。部署脚本见 [maintainer/deploy/sharded](/maintainer/deploy/sharded)。架构细节：[bot_process_sharding](/architecture/bot-process-sharding)、[central-ingress-dispatch](/architecture/internal/central-ingress-dispatch)。
 
 ## 拓扑
 

@@ -1,6 +1,6 @@
 # 配置存储
 
-运行时配置事实源与读取合同。插件接法见 [配置与 WebUI](/developer/plugin-development/config-and-webui)。权威细节：[settings-storage](../../architecture/settings-storage.md)。
+运行时配置事实源与读取合同。插件接法见 [配置与 WebUI](/developer/plugin-development/config-and-webui)。权威细节：[settings-storage](/architecture/settings-storage)。
 
 ## 事实源
 
@@ -55,4 +55,4 @@ pallas.toml  →  .env  →  webui.json
 
 - [配置与 WebUI](/developer/plugin-development/config-and-webui)
 - [分片运行时](shard-runtime.md)
-- [settings-storage](../../architecture/settings-storage.md)
+- [settings-storage](/architecture/settings-storage)

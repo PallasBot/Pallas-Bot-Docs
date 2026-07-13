@@ -42,7 +42,7 @@
 
 > 可在控制台对应插件页中修改。
 
-牛牛帮助的样式、忽略名单和自定义视觉项见 [`packages/help/config.py`](../../packages/help/config.py)。视觉相关资料还可参考 [VISUAL.md](../../packages/help/VISUAL.md)。
+牛牛帮助的样式、忽略名单和自定义视觉项见 [`packages/help/config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/help/config.py)。视觉相关资料还可参考 [VISUAL.md](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/help/VISUAL.md)。
 
 ## 排障
 
@@ -53,13 +53,13 @@
 
 ## 实现
 
-源码位置：[`packages/help/`](../../packages/help/)
+源码位置：[`packages/help/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/help/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/help/__init__.py)：注册帮助元数据、命令权限和帮助菜单结构。
-- [`commands.py`](../../packages/help/commands.py)：处理帮助查询和群内开关命令。
-- [`config.py`](../../packages/help/config.py)：定义帮助图样式和相关配置。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/help/__init__.py)：注册帮助元数据、命令权限和帮助菜单结构。
+- [`commands.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/help/commands.py)：处理帮助查询和群内开关命令。
+- [`config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/help/config.py)：定义帮助图样式和相关配置。
 
 实现要点：
 

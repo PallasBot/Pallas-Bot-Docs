@@ -51,13 +51,13 @@
 
 ## 实现
 
-源码位置：[`packages/llm_chat/`](../../packages/llm_chat/)
+源码位置：[`packages/llm_chat/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/llm_chat/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/llm_chat/__init__.py)：注册元数据、权限和 LLM 工具声明。
-- [`chat_message.py`](../../packages/llm_chat/chat_message.py)：处理群内 `@牛牛` 的聊天提交与门控。
-- [`commands.py`](../../packages/llm_chat/commands.py)：处理清空会话命令。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/llm_chat/__init__.py)：注册元数据、权限和 LLM 工具声明。
+- [`chat_message.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/llm_chat/chat_message.py)：处理群内 `@牛牛` 的聊天提交与门控。
+- [`commands.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/llm_chat/commands.py)：处理清空会话命令。
 
 实现要点：
 

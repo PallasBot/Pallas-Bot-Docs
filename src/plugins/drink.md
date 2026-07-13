@@ -50,13 +50,13 @@
 
 ## 实现
 
-源码位置：[`packages/drink/`](../../packages/drink/)
+源码位置：[`packages/drink/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/drink/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/drink/__init__.py)：注册喝酒和醒酒元数据。
-- [`handlers.py`](../../packages/drink/handlers.py)：处理醉酒度变化和触发逻辑。
-- [`startup.py`](../../packages/drink/startup.py)：注册运行时联动。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/drink/__init__.py)：注册喝酒和醒酒元数据。
+- [`handlers.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/drink/handlers.py)：处理醉酒度变化和触发逻辑。
+- [`startup.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/drink/startup.py)：注册运行时联动。
 
 实现要点：
 

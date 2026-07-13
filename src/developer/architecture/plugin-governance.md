@@ -49,4 +49,4 @@
 - [Core 与扩展](core-vs-extensions.md)
 - [元数据](/developer/plugin-development/metadata)
 - [Reload 与 Activation](/developer/plugin-development/reload-and-activation)
-- [热重载分级](../../architecture/hot-reload-tiers.md)
+- [热重载分级](/architecture/hot-reload-tiers)

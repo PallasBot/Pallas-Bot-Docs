@@ -38,7 +38,7 @@
 
 > 可在控制台对应插件页中修改。
 
-常用配置见 [`packages/repeater/config.py`](../../packages/repeater/config.py)。
+常用配置见 [`packages/repeater/config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/repeater/config.py)。
 
 | 键 | 说明 |
 | --- | --- |
@@ -57,13 +57,13 @@
 
 ## 实现
 
-源码位置：[`packages/repeater/`](../../packages/repeater/)
+源码位置：[`packages/repeater/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/repeater/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/repeater/__init__.py)：注册元数据、禁用命令和帮助结构。
-- [`config.py`](../../packages/repeater/config.py)：定义接话、复读和主动发言相关配置。
-- [`handlers/`](../../packages/repeater/handlers)：处理学习、接话、禁用和行为决策。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/repeater/__init__.py)：注册元数据、禁用命令和帮助结构。
+- [`config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/repeater/config.py)：定义接话、复读和主动发言相关配置。
+- [`handlers/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/repeater/handlers)：处理学习、接话、禁用和行为决策。
 
 实现要点：
 

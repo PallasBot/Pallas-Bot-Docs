@@ -37,7 +37,7 @@
 
 > 可在控制台对应插件页中修改。
 
-申请管理相关配置见 [`packages/request_handler/config.py`](../../packages/request_handler/config.py)。
+申请管理相关配置见 [`packages/request_handler/config.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/request_handler/config.py)。
 
 ## 排障
 
@@ -48,13 +48,13 @@
 
 ## 实现
 
-源码位置：[`packages/request_handler/`](../../packages/request_handler/)
+源码位置：[`packages/request_handler/`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/request_handler/)
 
 关键文件：
 
-- [`__init__.py`](../../packages/request_handler/__init__.py)：注册元数据和权限。
-- [`commands.py`](../../packages/request_handler/commands.py)：处理查看、审批和自动同意命令。
-- [`startup.py`](../../packages/request_handler/startup.py)：注册事件监听和提醒流程。
+- [`__init__.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/request_handler/__init__.py)：注册元数据和权限。
+- [`commands.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/request_handler/commands.py)：处理查看、审批和自动同意命令。
+- [`startup.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/packages/request_handler/startup.py)：注册事件监听和提醒流程。
 
 实现要点：
 

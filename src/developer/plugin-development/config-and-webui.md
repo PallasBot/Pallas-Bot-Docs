@@ -77,4 +77,4 @@ UI 字段元数据见 [DynamicConfigPanel](dynamic-config-panel.md)。
 - [配置存储](/developer/architecture/config-storage)
 - [Golden Plugin](golden-plugin.md)
 - [WebUI 底层](/common/webui)
-- [settings-storage](../../architecture/settings-storage.md)
+- [settings-storage](/architecture/settings-storage)
