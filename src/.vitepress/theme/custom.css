@@ -211,7 +211,7 @@ body.dark #__mermaid_lightbox_overlay__ .mermaid-lightbox__stage svg {
   font-size: 13px;
   user-select: none;
 }
-/* 自定义块：更接近 GSUID 式「TIP / NOTE」可读性 */
+/* 自定义块：提高 TIP / NOTE 可读性 */
 .vp-doc .custom-block {
   border-radius: 8px;
   border-width: 1px;
