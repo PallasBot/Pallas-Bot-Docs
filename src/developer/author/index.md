@@ -22,4 +22,3 @@
 ## 相关
 
 - [Developer](/developer/index)
-- [文风](/developer/reference/style-guide)

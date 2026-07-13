@@ -29,4 +29,4 @@ Pallas-Bot 开发者契约入口。维护者部署见 [`docs/maintainer/`](/main
 | --- | --- |
 | [architecture/](/developer/architecture/overview) | 运行时、分层、分片、配置、治理 |
 | [plugin-development/](/developer/plugin-development/getting-started) | 骨架、元数据、配置、测试、发布 |
-| [reference/](/developer/reference/repo-layout) | 仓库布局、API 分层、控制台约定、文风 |
+| [reference/](/developer/reference/repo-layout) | 仓库布局、API 分层、控制台约定 |
