@@ -59,7 +59,7 @@ uv run nb run
 
 ## 步骤 5：连接 QQ
 
-打开 `http://<主机>:8088/protocol/console/`，创建实例并登录；或自管 NapCat 指向 `ws://<主机>:8088/onebot/v11/ws`。
+打开 `http://<主机>:8088/pallas/protocol`，创建实例并登录；或自管 NapCat 指向 `ws://<主机>:8088/onebot/v11/ws`。
 
 ---
 
