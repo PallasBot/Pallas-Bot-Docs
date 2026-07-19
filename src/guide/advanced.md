@@ -11,7 +11,6 @@
 | 控制台改配置、看日志 | [网页控制台](web-console.md) |
 | 群里口令一览 | [命令与功能](usage.md) |
 | 日常管理 | [日常管理](usage-admin.md) |
-| 配置从哪改 | [配置从哪改](config.md) |
 | 号主 | [号主](bot-owner.md) |
 | 唱歌 / 画画 / 闲聊 | [AI 扩展](ai.md) |
 | `@牛牛` 与复读 | [@牛牛与复读](llm-and-repeater.md) |

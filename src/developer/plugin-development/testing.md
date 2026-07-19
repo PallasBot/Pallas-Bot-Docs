@@ -42,7 +42,7 @@ uv run pytest tests/plugins/<name>/ -q
 uv run ruff check pallas/ packages/
 ```
 
-流程：[environment](/developer/environment)、[workflow](/developer/workflow)。
+流程：[environment](../../develop/environment.md)、[workflow](../../develop/workflow.md)。
 
 ## 相关
 

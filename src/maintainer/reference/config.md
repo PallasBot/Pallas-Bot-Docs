@@ -1,6 +1,6 @@
 # 配置参考
 
-配置索引：来源、覆盖顺序、热生效与重启边界。用户向入口见 [配置从哪改](/guide/config)。
+配置索引：来源、覆盖顺序、热生效与重启边界。
 
 ## 三类来源
 
@@ -107,7 +107,7 @@ uv run python tools/migrate_env_to_pallas.py
 | 目标 | 文档 |
 | --- | --- |
 | 合并顺序与读取 API | [配置存储](/developer/architecture/config-storage) |
-| 本机跑通 | [五分钟跑起来](../../guide/quickstart.md) |
+| 本机跑通 | [五分钟跑起来](/guide/quickstart) |
 | 部署形态 | [运维入口](/maintainer/quickstart) |
 | 运行中配置 | [WebUI 运维](/maintainer/operate/webui) |
 | 保存后不生效 | [排障](/maintainer/operate/troubleshooting) |

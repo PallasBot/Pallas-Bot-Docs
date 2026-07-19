@@ -99,6 +99,6 @@ uv run pallas --help
 
 ## 相关阅读
 
-- [网页控制台](../../guide/web-console.md)
+- [网页控制台](/guide/web-console)
 - [CLI 参考](/maintainer/reference/cli)（Bot 升级与初次部署）
-- [用户向安装说明](../../guide/install-plugins.md)
+- [用户向安装说明](/guide/install-plugins)

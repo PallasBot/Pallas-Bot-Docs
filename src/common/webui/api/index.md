@@ -35,14 +35,14 @@
 
 | 文档 | 对应 WebUI 页面 / 能力 |
 | --- | --- |
-| [认证与健康检查](/common/webui/api/01-auth-health) | 登录、health、system、bots |
-| [插件与插件配置](/common/webui/api/02-plugins) | 插件列表、单插件 config、帮助可见性、全局禁用、舰队白名单 |
-| [通用配置](/common/webui/api/03-common-config) | CommonConfig、cmd_perm、语料、网关探测 |
-| [仪表盘与统计](/common/webui/api/04-stats-dashboard) | 消息统计、社区、语料热度、分片、入站调度 |
-| [好友群与申请](/common/webui/api/05-social) | 好友/群列表、入群/好友申请 |
-| [数据库](/common/webui/api/06-database) | 概览、备份、表行编辑 |
-| [实例与账号配置](/common/webui/api/07-instances-configs) | instances、bot/group/user config |
-| [更新与 AI 扩展](/common/webui/api/08-update-ai) | WebUI/Bot 更新、AI 扩展、NCM |
+| [认证与健康检查](01-auth-health.md) | 登录、health、system、bots |
+| [插件与插件配置](02-plugins.md) | 插件列表、单插件 config、帮助可见性、全局禁用、舰队白名单 |
+| [通用配置](03-common-config.md) | CommonConfig、cmd_perm、语料、网关探测 |
+| [仪表盘与统计](04-stats-dashboard.md) | 消息统计、社区、语料热度、分片、入站调度 |
+| [好友群与申请](05-social.md) | 好友/群列表、入群/好友申请 |
+| [数据库](06-database.md) | 概览、备份、表行编辑 |
+| [实例与账号配置](07-instances-configs.md) | instances、bot/group/user config |
+| [更新与 AI 扩展](08-update-ai.md) | WebUI/Bot 更新、AI 扩展、NCM |
 
 ## 写操作与热重载
 
@@ -53,7 +53,7 @@
 | `PUT /bot-configs/{account}` 等 | 数据库 | 按各 repository 约定 |
 | 备份/更新 | 磁盘 / git | 可能需重启或异步任务 |
 
-插件作者接入新配置项：见 [WebUI 插件配置](/common/webui) 与 [插件 Skill · WebUI 配置](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/skills/pallas-plugin-development/references/04-webui-config.md)。
+插件作者接入新配置项：见 [WebUI 插件配置](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) 与 [插件 Skill · WebUI 配置](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/skills/pallas-plugin-development/references/04-webui-config.md)。
 
 ## 扩展新 API
 
@@ -68,4 +68,4 @@
 uv run python tools/export_pb_webui_openapi.py
 ```
 
-协议端（NapCat/Snowluma）另有独立 HTTP API，由 `pallas_protocol` 挂载，不在 `/pallas/api` 下；见 [pallas_protocol 文档](/plugins/pb_protocol)。
+协议端（NapCat/Snowluma）另有独立 HTTP API，由 `pallas_protocol` 挂载，不在 `/pallas/api` 下；见 [pallas_protocol 文档](../../../plugins/pb_protocol/README.md)。

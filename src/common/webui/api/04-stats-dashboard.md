@@ -35,4 +35,4 @@
 
 实现：`extended_api.py`；社区 `src/features/community_stats/`、语料 `src/features/corpus/`、分片 `src/platform/shard/`。
 
-架构说明：[分片运行时](../../../developer/architecture/shard-runtime.md)、[分片部署](../../../maintainer/deploy/sharded.md)。
+架构说明：[分片运行时](/developer/architecture/shard-runtime)、[分片部署](/maintainer/deploy/sharded)。

@@ -107,6 +107,6 @@ QQ / 协议端实例
 ## 相关阅读
 
 - [协议端管理插件](/plugins/pb_protocol)
-- [连接 QQ](../../guide/connect-qq.md)
+- [连接 QQ](/guide/connect-qq)
 - [分片部署](/maintainer/deploy/sharded)
 - [排障](/maintainer/operate/troubleshooting)

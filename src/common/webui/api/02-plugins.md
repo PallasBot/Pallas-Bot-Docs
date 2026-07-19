@@ -57,7 +57,7 @@ PUT 成功后：
 
 实现：`extended_api.py`；配置读写 `src/console/webui/plugin_api.py`。
 
-插件作者接入： [WebUI 插件配置](/common/webui)。
+插件作者接入： [WebUI 插件配置](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md)。
 
 ### 单插件治理
 

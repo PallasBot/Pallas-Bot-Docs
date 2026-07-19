@@ -109,4 +109,4 @@ uv run pallas
 
 ## 你已经跑通本体
 
-▶ [连接 QQ](connect-qq.md) → [号主](bot-owner.md) → [配置从哪改](config.md)
+▶ [连接 QQ](connect-qq.md)

@@ -1,7 +1,7 @@
 # 日常管理
 
 ::: tip
-Bot 已启动且能打开网页控制台。尚未连 QQ 见 [连接 QQ](/guide/connect-qq)。
+Bot 已启动且能打开 `/pallas/`。尚未连 QQ 见 [连接 QQ](/guide/connect-qq)。
 :::
 
 ## 登录控制台
@@ -23,7 +23,7 @@ Bot 已启动且能打开网页控制台。尚未连 QQ 见 [连接 QQ](/guide/c
 | 改命令权限 | **命令权限** |
 | 关闭某牛全部玩法 | **插件** → **全实例禁用** |
 | 排查无响应 | **运行日志**、**日志报错** |
-| 添加 NapCat 账号 | **协议端实例**（或协议端管理页） |
+| 添加 NapCat 账号 | **协议端实例** 或 `/pallas/protocol` |
 | 备份数据库 | **数据库** |
 
 保存后写入 `data/pallas_config/webui.json`。

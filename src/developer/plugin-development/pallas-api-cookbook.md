@@ -8,7 +8,7 @@
 | --- | --- |
 | 主仓全仓开发 | 根目录 `uv sync`；无需单独装包 |
 | 独立扩展仓（wheel） | `./scripts/build_core.sh` 后 `uv pip install build/pallas-core/dist/pallas_core-*.whl` |
-| PyPI | `uv add "pallas-core>=4.0.0,<5.0.0"`（随主仓 `v*` tag 发布，见 [pallas-core 发版](/developer/extension-pypi-publish#pallas-core主仓)） |
+| PyPI | `uv add "pallas-core>=4.0.0,<5.0.0"`（随主仓 `v*` tag 发布，见 [pallas-core 发版](../../develop/extension-pypi-publish.md#pallas-core主仓)） |
 
 模板：`templates/pallas-plugin-extension/pyproject.toml`。
 

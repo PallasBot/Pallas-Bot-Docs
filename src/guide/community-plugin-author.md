@@ -1,8 +1,8 @@
 # 写社区插件并上架
 
-把仓库整理成商店可识别的形态，自检通过后向索引仓提 PR。用户安装见 [社区插件商店](community-plugin-store.md)；目录与接入见 [Golden Plugin](/developer/plugin-development/golden-plugin)。
+本页面向**插件作者**：把仓库整理成商店可识别的形态，自检通过后向索引仓提 PR。用户安装方式见 [社区插件商店](community-plugin-store.md)；代码结构合同见 [Golden Plugin](/developer/plugin-development/golden-plugin)。
 
-## 阶段与产出
+## 你要完成什么
 
 | 阶段 | 产出 |
 | --- | --- |
