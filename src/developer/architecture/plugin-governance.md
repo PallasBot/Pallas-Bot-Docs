@@ -1,6 +1,6 @@
 # 插件治理
 
-治理面合同：声明 → 配置 → 生效 → 可见性。实现分散在 metadata、WebUI API 与 CLI，不是单一页面。
+插件治理覆盖声明、配置、生效与可见性；入口分散在 metadata、WebUI API 与 CLI。
 
 ## 治理面
 
@@ -17,7 +17,7 @@
 
 | 约定 | 说明 |
 | --- | --- |
-| `command_permissions` + `command_limits` | 现行命令治理基础；命令 ID 必须稳定 |
+| `command_permissions` + `command_limits` | 命令治理基础；命令 ID 必须稳定 |
 | `reload_policy` ≠ `activation_policy` | 见 [Reload 与 Activation](/developer/plugin-development/reload-and-activation) |
 | 无完整 metadata | 难以进入帮助与治理页 |
 
@@ -29,7 +29,7 @@
 | Official | 声明 `activation_policy`；PyPI 发版 |
 | Community | 公开 API；索引 / Git / 本地接入 |
 
-## 平台入口（实现）
+## 平台入口
 
 | 能力 | 位置 |
 | --- | --- |
@@ -38,7 +38,7 @@
 | WebUI 插件治理 API | `packages/pb_webui` / `pallas.console.webui` |
 | 元数据声明写法 | [元数据](/developer/plugin-development/metadata) |
 
-## 演进中（非阻塞）
+## 演进中
 
 - 单插件治理页展示细节
 - 社区插件画像分层
@@ -48,7 +48,7 @@
 
 配置 / 元数据 / 代码三级，以及 `reload_policy` 与 `activation_policy` 对照，见 [Reload 与 Activation](/developer/plugin-development/reload-and-activation)。
 
-运维侧检查清单：[热重载前检查](/maintainer/operate/hot-reload-pre-reload-checklist)。
+运维检查清单：[热重载前检查](/maintainer/operate/hot-reload-pre-reload-checklist)。
 
 ## 相关
 

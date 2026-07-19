@@ -1,6 +1,6 @@
 # Reload 与 Activation
 
-两个正交策略，禁止混用。
+`reload_policy` 与 `activation_policy` 正交，不可混用。
 
 | | `reload_policy` | `activation_policy` |
 | --- | --- | --- |

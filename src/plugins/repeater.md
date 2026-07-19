@@ -77,5 +77,5 @@
 ## 相关链接
 
 - [命令权限说明](/common/cmd_perm)
-- [接话行为说明](../persona/README.md)
-- [`@牛牛`、复读接话与 LLM 的关系](../../guide/llm-and-repeater.md)
+- [接话行为说明](/plugins/persona)
+- [`@牛牛`、复读接话与 LLM 的关系](/guide/llm-and-repeater)

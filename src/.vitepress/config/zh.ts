@@ -46,55 +46,57 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: '快速开始',
+      text: '🚀 快速开始',
       items: [
-        { text: '五分钟跑起来', link: '/guide/quickstart' },
-        { text: '把玩法 / AI 也装上', link: '/guide/4.0-start' },
+        { text: '快速开始', link: '/guide/quickstart' },
+        { text: '源码安装', link: '/guide/install-source' },
+        { text: 'Docker 部署', link: '/deploy/docker' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
-        { text: '安装官方插件', link: '/guide/install-extensions' },
-        { text: '从 3.x 迁到 4.0', link: '/guide/4.0-migration' },
-        { text: '萌新引导', link: '/noobook' }
-      ]
-    },
-    {
-      text: '使用',
-      items: [
-        { text: '口令与玩法', link: '/guide/usage' },
         { text: '网页控制台', link: '/guide/web-console' },
-        { text: 'AI 扩展', link: '/guide/ai' },
-        { text: '@牛牛与复读/LLM', link: '/guide/llm-and-repeater' },
-        { text: '社区插件商店', link: '/guide/community-plugin-store' },
-        { text: '插件索引', link: '/plugins/index' }
+        { text: '萌新引导', link: '/noobook/' }
       ]
     },
     {
-      text: '运维',
+      text: '🔧 安装插件',
       items: [
-        { text: '运维入口', link: '/maintainer/quickstart' },
-        { text: 'Docker 部署', link: '/maintainer/deploy/docker' },
-        { text: '单进程部署', link: '/maintainer/deploy/single-process' },
-        { text: '分片部署', link: '/maintainer/deploy/sharded' },
-        { text: '升级', link: '/maintainer/deploy/upgrade' },
-        { text: '排障', link: '/maintainer/operate/troubleshooting' },
-        { text: '配置参考', link: '/maintainer/reference/config' },
+        { text: '安装插件', link: '/guide/install-plugins' },
+        { text: '插件列表', link: '/plugins/index' },
+        { text: 'AI 扩展', link: '/guide/ai' }
+      ]
+    },
+    {
+      text: '📖 使用',
+      items: [
+        { text: '命令与功能', link: '/guide/usage' },
+        { text: '日常管理', link: '/guide/usage-admin' },
+        { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
         { text: '常见问题 FAQ', link: '/deploy/faq' }
       ]
     },
     {
-      text: '开发',
+      text: '🛠️ 运维',
+      items: [
+        { text: '运维入口', link: '/maintainer/quickstart' },
+        { text: '标准部署', link: '/deploy/deployment' },
+        { text: '配置要点', link: '/deploy/config' },
+        { text: '分片部署', link: '/maintainer/deploy/sharded' },
+        { text: '升级', link: '/maintainer/deploy/upgrade' },
+        { text: '排障', link: '/maintainer/operate/troubleshooting' },
+        { text: '配置参考', link: '/maintainer/reference/config' }
+      ]
+    },
+    {
+      text: '💻 开发',
       items: [
         { text: '开发者入口', link: '/developer/index' },
         { text: '写第一个插件', link: '/developer/plugin-development/first-plugin' },
         { text: 'Golden Plugin', link: '/developer/plugin-development/golden-plugin' },
-        { text: '命令权限', link: '/common/cmd_perm' },
-        { text: 'Cookbook', link: '/developer/plugin-development/pallas-api-cookbook' },
         { text: '写社区插件并上架', link: '/guide/community-plugin-author' }
       ]
     },
     {
       text: '更多',
       items: [
-        { text: '选一条路', link: '/guide/welcome' },
         { text: '理解架构', link: '/developer/architecture/overview' },
         { text: 'GitHub', link: 'https://github.com/PallasBot/Pallas-Bot' }
       ]
@@ -105,37 +107,54 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: '上手',
+      text: '🚀 快速开始',
       collapsed: false,
       items: [
-        { text: '选一条路', link: '/guide/welcome' },
-        { text: '五分钟跑起来', link: '/guide/quickstart' },
-        { text: '把玩法 / AI 也装上', link: '/guide/4.0-start' },
+        { text: '快速开始', link: '/guide/quickstart' },
+        { text: '源码安装', link: '/guide/install-source' },
+        { text: 'Docker 部署', link: '/deploy/docker' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
-        { text: '安装插件', link: '/guide/install-plugins' },
-        { text: '安装官方插件', link: '/guide/install-extensions' },
-        { text: '从 3.x 迁到 4.0', link: '/guide/4.0-migration' },
-        { text: '从旧版 ollama 迁到 llm_chat', link: '/guide/llm-migrate-from-ollama' }
+        { text: '网页控制台', link: '/guide/web-console' },
+        { text: '完整部署核对', link: '/guide/start' }
       ]
     },
     {
-      text: '使用',
+      text: '🔧 安装插件',
       collapsed: false,
       items: [
-        { text: '口令与功能', link: '/guide/usage' },
-        { text: '网页控制台', link: '/guide/web-console' },
-        { text: '理解怎么拼起来', link: '/guide/concepts' },
-        { text: 'AI 扩展', link: '/guide/ai' },
-        { text: '@牛牛与复读/LLM', link: '/guide/llm-and-repeater' },
+        { text: '安装插件', link: '/guide/install-plugins' },
         { text: '社区插件商店', link: '/guide/community-plugin-store' },
-        { text: '进阶', link: '/guide/advanced' }
+        { text: '插件列表', link: '/plugins/index' },
+        { text: 'AI 扩展', link: '/guide/ai' }
       ]
     },
     {
-      text: '运维',
+      text: '📖 使用',
+      collapsed: false,
+      items: [
+        { text: '命令与功能', link: '/guide/usage' },
+        { text: '日常管理', link: '/guide/usage-admin' },
+        { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
+        { text: '牛是怎么拼起来的', link: '/guide/concepts' },
+        { text: '进阶查阅', link: '/guide/advanced' }
+      ]
+    },
+    {
+      text: '♻️ 迁移',
+      collapsed: true,
+      items: [
+        { text: '从 3.x 迁到 4.0', link: '/guide/4.0-migration' },
+        { text: '从旧版 ollama 迁到 llm_chat', link: '/guide/llm-migrate-from-ollama' },
+        { text: '2.x → 3.0 数据迁移（归档）', link: '/about/migration' }
+      ]
+    },
+    {
+      text: '🛠️ 运维',
       collapsed: true,
       items: [
         { text: '运维入口', link: '/maintainer/quickstart' },
+        { text: '标准部署', link: '/deploy/deployment' },
+        { text: '配置要点', link: '/deploy/config' },
         { text: '本体安装', link: '/maintainer/install/bot' },
         { text: 'WebUI', link: '/maintainer/install/webui' },
         { text: '协议端', link: '/maintainer/install/protocol' },
@@ -143,7 +162,6 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '安装验收 Checklist', link: '/maintainer/install/ga-install-checklist' },
         { text: 'AI Runtime', link: '/maintainer/install/ai-runtime' },
         { text: '单进程部署', link: '/maintainer/deploy/single-process' },
-        { text: 'Docker', link: '/maintainer/deploy/docker' },
         { text: '分片部署', link: '/maintainer/deploy/sharded' },
         { text: '升级', link: '/maintainer/deploy/upgrade' },
         { text: 'Web 控制台', link: '/maintainer/operate/webui' },
@@ -154,25 +172,28 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '开发',
+      text: '💻 开发',
       collapsed: true,
       items: [
         { text: '入口', link: '/developer/index' },
+        { text: '本地开发环境', link: '/developer/environment' },
+        { text: '贡献流程', link: '/developer/workflow' },
         { text: '写第一个插件', link: '/developer/plugin-development/first-plugin' },
         { text: '架构总览', link: '/developer/architecture/overview' },
         { text: 'Core 与扩展', link: '/developer/architecture/core-vs-extensions' },
         { text: 'Golden Plugin', link: '/developer/plugin-development/golden-plugin' },
         { text: '配置与 WebUI', link: '/developer/plugin-development/config-and-webui' },
         { text: '命令权限 cmd_perm', link: '/common/cmd_perm' },
-        { text: '知识源与 ingest', link: '/developer/plugin-development/knowledge-sources' },
         { text: 'Cookbook', link: '/developer/plugin-development/pallas-api-cookbook' },
         { text: '发布', link: '/developer/plugin-development/publishing' },
         { text: '写社区插件并上架', link: '/guide/community-plugin-author' },
-        { text: '官方插件 PyPI', link: '/develop/extension-pypi-publish' }
+        { text: '官方插件 PyPI', link: '/developer/extension-pypi-publish' },
+        { text: 'WebUI 前端', link: '/developer/webui' },
+        { text: 'WebUI API', link: '/common/webui/api/' }
       ]
     },
     {
-      text: '插件详解',
+      text: '📄 插件详解',
       collapsed: true,
       items: [
         { text: '插件索引', link: '/plugins/index' },
@@ -190,6 +211,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: '拉黑 blacklist', link: 'blacklist' },
             { text: '申请 request_handler', link: 'request_handler' },
             { text: '闲聊 llm_chat', link: 'llm_chat' },
+            { text: '牛格 persona', link: 'persona' },
+            { text: '核心 pb_core', link: 'pb_core' },
             { text: '控制台 pb_webui', link: 'pb_webui' }
           ]
         },
@@ -214,18 +237,15 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '查阅',
+      text: '🔍 查阅',
       collapsed: true,
       items: [
         { text: '常见问题 FAQ', link: '/deploy/faq' },
-        { text: '关于项目', link: '/about/index' },
-        { text: '迁移指南', link: '/about/migration' },
-        { text: '命令权限', link: '/common/cmd_perm' },
-        { text: '分片部署', link: '/maintainer/deploy/sharded' }
+        { text: '关于项目', link: '/about/index' }
       ]
     },
     {
-      text: '萌新引导',
+      text: '🌱 萌新引导',
       base: '/noobook/',
       collapsed: true,
       items: [

@@ -70,4 +70,4 @@
 ## 相关链接
 
 - [命令权限说明](/common/cmd_perm)
-- [文档结构模板](../TEMPLATE.md)
+- [文档结构模板](https://github.com/PallasBot/Pallas-Bot/blob/main/docs/plugins/TEMPLATE.md)

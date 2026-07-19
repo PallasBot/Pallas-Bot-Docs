@@ -60,5 +60,5 @@
 
 ## 相关链接
 
-- [牛牛核心](../pb_core/README.md)
-- [在线统计](../pb_stats/README.md)
+- [牛牛核心](/plugins/pb_core)
+- [在线统计](/plugins/pb_stats)

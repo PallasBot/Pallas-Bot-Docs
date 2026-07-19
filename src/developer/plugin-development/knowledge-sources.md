@@ -5,7 +5,7 @@
 | 插件声明 | `PluginMetadata.extra['knowledge_sources']` |
 | 本地目录 | `data/pallas_knowledge/**/*.md` / `.jsonl` |
 
-Bot 在 LLM 闲聊前统一检索并注入 system prompt。AI 为可选能力；无 LLM 时本页不生效。
+Bot 在 LLM 闲聊前统一检索并注入 system prompt。无 LLM 时知识源不参与注入。
 
 ## 官方参考
 

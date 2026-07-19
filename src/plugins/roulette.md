@@ -62,4 +62,4 @@
 
 ## 相关链接
 
-- [牛牛喝酒](../drink/README.md)
+- [牛牛喝酒](/plugins/drink)

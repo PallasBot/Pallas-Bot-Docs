@@ -1,6 +1,6 @@
 # 配置存储
 
-运行时配置事实源与读取合同。插件接法见 [配置与 WebUI](/developer/plugin-development/config-and-webui)。运维排障见 [配置参考](/maintainer/reference/config)。
+运行时配置事实源、合并顺序与读取入口。插件接法见 [配置与 WebUI](/developer/plugin-development/config-and-webui)。运维排障见 [配置参考](/maintainer/reference/config)。
 
 ## 事实源
 

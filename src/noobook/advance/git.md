@@ -355,7 +355,7 @@ git checkout main
 git merge upstream/main
 ```
 
-> **关于 Pallas-Bot 的 PR 流程更详细的看 →** [贡献流程](/develop/workflow)  
+> **关于 Pallas-Bot 的 PR 流程更详细的看 →** [贡献流程](/developer/workflow)  
 > **关于 SSH 免密推送 →** 配 SSH Key 比每次输 token 爽 100 倍，看 [「用 SSH 连 GitHub」](#九ssh-免密推送可选-但强烈推荐) 这一节的步骤
 
 ---
@@ -596,4 +596,4 @@ git push origin fix/typo-readme
 ---
 
 下一步 → 看看 [Linux 速成 6 篇](/noobook/advance/linux/install)（**机器人部署在 Linux 上最稳**），  
-或者直接去 [你过关!](/noobook/welldone) 收个尾 →  或者回到 [萌新引导首页](/noobook) 复习别的内容~
+或者直接去 [你过关!](/noobook/welldone) 收个尾 →  或者回到 [萌新引导首页](/noobook/) 复习别的内容~

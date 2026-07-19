@@ -29,6 +29,8 @@ import './custom.css'
 import './mermaidLightbox'
 import PallasFooter from './PallasFooter.vue'
 import NCard from '../components/NCard.vue'
+import ChatPanel from '../components/ChatPanel.vue'
+import ChatMessage from '../components/ChatMessage.vue'
 
 export default {
   extends: DefaultTheme,
@@ -46,6 +48,8 @@ export default {
     const { app } = ctx
 
     app.component('NCard', NCard)
+    app.component('ChatPanel', ChatPanel)
+    app.component('ChatMessage', ChatMessage)
 
     app.use(NolebaseEnhancedReadabilitiesPlugin, {
       spotlight: {

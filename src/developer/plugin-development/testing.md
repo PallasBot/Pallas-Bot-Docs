@@ -1,6 +1,6 @@
 # 测试
 
-证明插件在现行治理面下行为成立，而非穷尽所有路径。
+覆盖行为、元数据、配置与分片相关路径；目录与最小例见下。
 
 ## 覆盖矩阵
 
@@ -42,7 +42,7 @@ uv run pytest tests/plugins/<name>/ -q
 uv run ruff check pallas/ packages/
 ```
 
-流程：[environment](../../develop/environment.md)、[workflow](../../develop/workflow.md)。
+流程：[environment](/developer/environment)、[workflow](/developer/workflow)。
 
 ## 相关
 

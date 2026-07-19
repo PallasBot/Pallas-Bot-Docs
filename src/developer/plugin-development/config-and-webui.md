@@ -1,6 +1,6 @@
 # 配置与 WebUI
 
-插件侧配置接入合同。合并顺序与读取 API 见 [配置存储](/developer/architecture/config-storage)。
+插件侧配置接入：热载模型、通用段与仓边界。合并顺序与读取 API 见 [配置存储](/developer/architecture/config-storage)。
 
 ## 事实
 

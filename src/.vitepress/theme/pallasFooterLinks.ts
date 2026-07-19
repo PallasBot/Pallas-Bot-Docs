@@ -24,7 +24,7 @@ export const PALLAS_FOOTER_COLUMNS: PallasFooterColumn[] = [
     title: '工具',
     links: [
       { label: '在线文档', href: '/', external: false },
-      { label: 'Web 控制台', href: '/plugins/pallas_webui', external: false },
+      { label: 'Web 控制台', href: '/plugins/pb_webui', external: false },
       { label: '标准部署', href: '/deploy/deployment', external: false },
       { label: 'Docker 部署', href: '/deploy/docker', external: false },
     ],

@@ -70,5 +70,5 @@
 
 ## 相关链接
 
-- [Web 控制台](../pb_webui/README.md)
-- [牛牛状态](../bot_status/README.md)
+- [Web 控制台](/plugins/pb_webui)
+- [牛牛状态](/plugins/bot_status)

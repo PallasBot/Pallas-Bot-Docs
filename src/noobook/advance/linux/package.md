@@ -216,7 +216,7 @@ python3.12 --version  # 用 python3.12 这个新命令调用
 ```
 :::
 
-> 💡 装齐系统包**只是开始**——PG 怎么建库、uv 怎么装、主仓怎么 clone 跟启动,都**不归这一页管**,去看主仓的 [快速部署](/guide/start) 和 [Python 环境管理](/noobook/advance/python-env)。
+> 💡 装齐系统包**只是开始**——PG 怎么建库、uv 怎么装、主仓怎么 clone 跟启动,都**不归这一页管**,去看主仓的 [快速部署](/guide/quickstart) 和 [Python 环境管理](/noobook/advance/python-env)。
 
 ---
 
@@ -226,4 +226,4 @@ python3.12 --version  # 用 python3.12 这个新命令调用
 - [ ] 遇到「装新软件」会先 `apt search`，没有再想别的办法
 - [ ] 知道**不乱跑来历不明的安装脚本**
 
-下一步 → 系统包到位,真正的部署从这开始:[快速部署](/guide/start)
+下一步 → 系统包到位,真正的部署从这开始:[快速部署](/guide/quickstart)

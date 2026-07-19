@@ -1,7 +1,7 @@
 # 插件文档索引
 
 ::: info 官方插件
-决斗、MAA、谁是卧底等玩法在 **官方插件 pip 包** 中，默认 slim 不加载。安装见 [安装官方插件](/guide/install-extensions) 或控制台 **插件商店**。
+决斗、MAA、谁是卧底等玩法在 **官方插件 pip 包** 中，默认 slim 不加载。安装见 [安装插件](/guide/install-plugins) 或控制台 **插件商店**。
 :::
 
 ## 本体 core（默认加载）
@@ -45,7 +45,7 @@
 
 <NCard title="闲聊 llm_chat" route="/plugins/llm_chat">随时 @ 智能闲聊与 AI 开关</NCard>
 <NCard title="牛牛核心 pb_core" route="/plugins/pb_core">进程摘要、插件概览与重启</NCard>
-<NCard title="控制台 pallas_webui" route="/plugins/pb_webui">网页控制台与 API</NCard>
+<NCard title="控制台 pb_webui" route="/plugins/pb_webui">网页控制台与 API</NCard>
 <NCard title="在线统计 pb_stats" route="/plugins/pb_stats">社区主站心跳与上报</NCard>
 <NCard title="状态 bot_status" route="/plugins/bot_status">在吗、报数与邮件测试</NCard>
 

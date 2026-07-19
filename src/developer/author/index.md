@@ -1,6 +1,6 @@
 # Author
 
-按作者身份索引 Developer 文档。非第三条主线。
+按作者身份索引 Developer 文档。
 
 ## 路径
 

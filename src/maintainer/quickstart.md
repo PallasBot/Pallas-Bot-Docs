@@ -1,37 +1,32 @@
 # 运维入口
 
-第一次装、只想本机跑通？去 **[五分钟跑起来](/guide/quickstart)**。  
-这里只指路：部署形态、升级、排障、配置——**不重复**装本体步骤。
+## 按目标跳转
 
-## 你要做什么
-
-| 目标 | 打开 |
+| 目标 | 文档 |
 | --- | --- |
-| 本机第一次跑通 | [五分钟跑起来](/guide/quickstart) |
-| 装决斗 / MAA / 协议端 / AI | [把玩法 / AI 也装上](/guide/4.0-start) |
-| Docker | [Docker 部署](/maintainer/deploy/docker) |
+| 本机首次跑通 | [快速开始](/guide/quickstart) · [源码安装](/guide/install-source) · [Docker](/deploy/docker) |
+| 安装决斗 / MAA / 协议端 / AI | [安装插件](/guide/install-plugins) · [AI 扩展](/guide/ai) |
+| Docker | [Docker 部署](/deploy/docker) |
 | 单进程长跑 | [单进程部署](/maintainer/deploy/single-process) |
 | 多账号 / 分片 | [分片部署](/maintainer/deploy/sharded) |
-| 从旧版升级 | [升级](/maintainer/deploy/upgrade) · [从 3.x 迁到 4.0](/guide/4.0-migration) |
-| 新装验收走查 | [安装验收 Checklist](/maintainer/install/ga-install-checklist) |
+| 版本升级 | [升级](/maintainer/deploy/upgrade) · [3.x → 4.0 迁移](/guide/4.0-migration) |
+| 新装验收 | [安装验收 Checklist](/maintainer/install/ga-install-checklist) |
 | 排障 | [排障](/maintainer/operate/troubleshooting) |
-| 闲聊 / 记忆不生效 | [LLM 与 AI](/maintainer/operate/llm-and-ai) |
-| 查配置键 | [配置参考](/maintainer/reference/config) |
+| 闲聊 / 记忆异常 | [LLM 与 AI](/maintainer/operate/llm-and-ai) |
+| 配置键查询 | [配置参考](/maintainer/reference/config) |
 
-## 安装与组件（按需细读）
+## 组件安装
 
 | 组件 | 文档 |
 | --- | --- |
-| 本体 | [本体安装](/maintainer/install/bot) |
+| Pallas-Bot 本体 | [本体安装](/maintainer/install/bot) |
 | WebUI | [WebUI](/maintainer/install/webui) |
 | 协议端 | [协议端](/maintainer/install/protocol) |
 | 官方插件 | [官方插件](/maintainer/install/official-extensions) |
 | AI Runtime | [AI Runtime](/maintainer/install/ai-runtime) |
 | 命令权限 | [命令权限](/maintainer/operate/command-permissions) |
-| Web 控制台日常 | [Web 控制台](/maintainer/operate/webui) |
+| Web 控制台 | [Web 控制台](/maintainer/operate/webui) |
 
-::: tip 什么时候才需要分片
-多 Bot 账号同时在线、单进程已有明显压力、或需要更稳的 worker / 协调时，再看 [分片部署](/maintainer/deploy/sharded)。平时单进程即可。
-:::
+## 分片适用条件
 
-上手分流：[选一条路](/guide/welcome)
+多 Bot 账号同时在线、单进程资源瓶颈、或需独立 worker 协调时，参见 [分片部署](/maintainer/deploy/sharded)。默认单进程即可。

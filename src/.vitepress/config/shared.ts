@@ -11,6 +11,7 @@ import taskLists from 'markdown-it-task-lists'
 import { defineConfig } from 'vitepress'
 import timeline from 'vitepress-markdown-timeline'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
+import { MarkdownTransform } from '../plugins/markdownTransform'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -20,7 +21,15 @@ const siteIcon = `${siteBase}/assets/favicon.png`
 export const shared = defineConfig({
   title: 'Pallas-Bot',
   base: siteBase,
-  ignoreDeadLinks: true,
+  // 外链与示例 URL 不验；站内死链在 CI/本地 build 时暴露
+  ignoreDeadLinks: [
+    /^https?:\/\//,
+    /^mailto:/,
+    // OpenAPI / 运行时示例
+    /openapi\.json/,
+    /localhost/,
+    /127\.0\.0\.1/,
+  ],
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
@@ -33,6 +42,7 @@ export const shared = defineConfig({
       noExternal: ['@nolebase/*'],
     },
     plugins: [
+      MarkdownTransform(),
       GitChangelog({
         maxGitLogCount: 80,
         repoURL: () => 'https://github.com/PallasBot/Pallas-Bot',
@@ -63,6 +73,7 @@ export const shared = defineConfig({
     ],
   },
   markdown: {
+    lineNumbers: true,
     config: (md) => {
       md.use(timeline)
       md.use(taskLists)

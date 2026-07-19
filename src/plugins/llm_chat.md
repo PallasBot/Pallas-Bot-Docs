@@ -71,6 +71,6 @@
 ## 相关链接
 
 - [Pallas-Bot-AI](https://github.com/PallasBot/Pallas-Bot-AI)
-- [酒后聊天](../chat/README.md)
-- [牛牛复读](../repeater/README.md)
-- [`@牛牛`、复读接话与 LLM 的关系](../../guide/llm-and-repeater.md)
+- [酒后聊天](/plugins/chat)
+- [牛牛复读](/plugins/repeater)
+- [`@牛牛`、复读接话与 LLM 的关系](/guide/llm-and-repeater)

@@ -64,7 +64,7 @@ uv run python scripts/fetch_arknights_duel_data.py
 
 - 扩展仓 `src/pallas_plugin_duel/__init__.py`：注册命令、权限与帮助元数据。
 - 扩展仓 `src/pallas_plugin_duel/` 下的玩法逻辑文件：处理决斗流程、抢答、事件与结算。
-- [`scripts/fetch_arknights_duel_data.py`](../../scripts/fetch_arknights_duel_data.py)：拉取干员头像等静态资源。
+- [`scripts/fetch_arknights_duel_data.py`](https://github.com/PallasBot/Pallas-Bot/tree/main/scripts/fetch_arknights_duel_data.py)：拉取干员头像等静态资源。
 
 实现要点：
 
@@ -75,5 +75,5 @@ uv run python scripts/fetch_arknights_duel_data.py
 ## 相关链接
 
 - [命令权限说明](/common/cmd_perm)
-- [安装官方插件](/guide/install-extensions)
+- [安装插件](/guide/install-plugins)
 - [牛牛决斗插件仓库](https://github.com/TogetsuDo/pallas-plugin-duel)

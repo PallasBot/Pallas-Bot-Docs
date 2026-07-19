@@ -1,8 +1,8 @@
-# Pallas 3.0 迁移指南（MongoDB -> PostgreSQL）
+# 2.x → 3.0 数据迁移（归档）
+
+> 从 **3.x 升到 4.0** 请看 [从 3.x 迁到 4.0](/guide/4.0-migration)。本页仅保留 2.x → 3.0（MongoDB → PostgreSQL）步骤。
 
 > 导航：[`README`](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) · [`标准部署`](/deploy/deployment) · [`Docker 部署`](/deploy/docker) · [`FAQ`](/deploy/faq)
-
-本文用于从 2.x 升级到 3.0 时的数据迁移与验证。
 
 ## 适用范围
 
@@ -19,7 +19,7 @@
 ## 依赖安装
 
 ```bash
-uv sync --extra pg
+uv sync
 ```
 
 ## 迁移命令

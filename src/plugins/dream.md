@@ -67,5 +67,5 @@
 ## 相关链接
 
 - [命令权限说明](/common/cmd_perm)
-- [喝酒插件说明](../drink/README.md)
+- [喝酒插件说明](/plugins/drink)
 - [牛牛做梦插件仓库](https://github.com/TogetsuDo/pallas-plugin-dream)

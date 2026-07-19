@@ -1,12 +1,12 @@
 # 发布
 
-三条分发路径。先定归属层（[Core vs 扩展](/developer/architecture/core-vs-extensions)），再选路径。
+三条分发路径；归属层见 [Core vs 扩展](/developer/architecture/core-vs-extensions)。
 
 ## 路径矩阵
 
 | 路径 | 归属 | 交付物 | 细节 |
 | --- | --- | --- | --- |
-| 官方插件 PyPI | Official | wheel、Git tag、README、semver | [extension-pypi-publish](../../develop/extension-pypi-publish.md) |
+| 官方插件 PyPI | Official | wheel、Git tag、README、semver | [extension-pypi-publish](/developer/extension-pypi-publish) |
 | 社区生态分发 | Community | README、metadata、图标、索引/Git | [community-plugin-author](../../guide/community-plugin-author.md) |
 | 站点本地投放 | `local/plugins/` | 可维护目录 + 最小 README/metadata | 本页「本地」节 |
 
@@ -36,7 +36,7 @@ Core 不按独立插件发行，随主仓版本。
 
 | MUST | MUST NOT |
 | --- | --- |
-| 目录清晰、最小 README | 依赖 `pallas.core.*` 作为长期契约 |
+| 目录清晰、最小 README | 依赖 `pallas.core.*` 作为长期稳定面 |
 | 基本 metadata | 以「本机能跑」替代可维护结构 |
 
 ## 通用发布前检查

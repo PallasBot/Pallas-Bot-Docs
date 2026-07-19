@@ -235,8 +235,9 @@ body.dark #__mermaid_lightbox_overlay__ .mermaid-lightbox__stage svg {
 }
 
 .vp-doc .custom-block-title {
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 8px;
 }
 
 /* 侧栏：当前分组标题更醒目 */
@@ -253,9 +254,22 @@ body.dark #__mermaid_lightbox_overlay__ .mermaid-lightbox__stage svg {
   color: var(--vp-c-brand-1);
 }
 
-/* 首页 Hero */
+/* 首页 Hero（靠近 GSUID：渐变名 + 光斑底） */
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #a78bfa 10%, #7c3aed 55%, #4c1d95);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #7c3aed 30%, #a78bfa80);
+  --vp-home-hero-image-filter: blur(36px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
 .VPHero .name {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .VPHero .text {
@@ -269,6 +283,31 @@ body.dark #__mermaid_lightbox_overlay__ .mermaid-lightbox__stage svg {
   max-width: 32em;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* 正文：标题后间距更紧凑，步骤感更强 */
+.vp-doc h2 {
+  margin-top: 1.6em;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 0.9em;
+}
+
+.vp-doc h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.vp-doc details {
+  margin: 0.9em 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 0.55em 0.9em;
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc details summary {
+  cursor: pointer;
+  font-weight: 600;
 }
 
 /* NCard 入口卡片 */

@@ -1,257 +1,145 @@
-# Pallas-Bot Docker 部署
+# 使用 Docker 部署
 
-使用 **Docker Compose** 运行官方镜像，适合生产环境统一版本、隔离依赖。需预先安装 [Docker](https://docs.docker.com/get-docker/) 与 Compose 插件（`docker compose version` 有输出即可）。
+::: tip
+**不要** `git clone` 整仓。镜像内已有代码；本机只需 compose 文件与配置。
 
-::: tip 导航
-[README](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) · [标准部署](/deploy/deployment) · [配置要点](/deploy/config) · [连接 QQ](/guide/connect-qq) · [多进程分片](/maintainer/deploy/sharded) · [安装验收 Checklist](/maintainer/install/ga-install-checklist) · [FAQ](/deploy/faq)
-:::
-
-## 部署前检查清单
-
-| 项 | 说明 |
-| --- | --- |
-| Docker | Engine + Compose V2；Linux 可用 `curl -fsSL https://get.docker.com \| bash` |
-| 目录 | 单独目录存放 `docker-compose.yml` 与 `pallas-bot/` 数据（勿用中文空名目录作项目名，见排障） |
-| 配置 | **`pallas-bot/config/pallas.toml`** 必须从示例复制并编辑（**文件**，非目录） |
-| 数据库 | **新装** PostgreSQL（`docker-compose.full.yml` 或 `pallas.example.toml` 默认）；**3.x 升级** 沿用 MongoDB（`docker-compose.yml`） |
-| 端口 | 宿主机映射 `8088`（或自定义）需在防火墙放行 |
-| 备份 | 持久化 **`pallas-bot/data`** 与数据库卷 |
-
----
-
-## 步骤 1：安装 Docker 与 Compose
-
-- [Windows Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)（推荐 WSL2 后端）
-- [Linux 安装](https://docs.docker.com/engine/install/ubuntu/)
-
-验证：
+依赖：[Docker](https://docs.docker.com/get-docker/)。确认：
 
 ```bash
-docker --version
 docker compose version
 ```
-
-**如何确认成功**：两条命令均正常输出版本号。
-
-::: details Linux Rootless（可选）
-`dockerd-rootless-setuptool.sh install`，见 [官方文档](https://docs.docker.com/engine/security/rootless/)。
 :::
 
----
+## 1. 准备目录
 
-## 步骤 2：准备 Compose 与目录
-
-1. 将仓库 [`docker-compose.yml`](../docker-compose.yml) 复制到部署目录（例如 `~/pallas-deploy/`）。
-
-2. 创建数据目录并复制主配置：
+建一个空的部署目录，只下载三个文件：
 
 ```bash
-mkdir -p pallas-bot/config pallas-bot/data
-cp /path/to/Pallas-Bot/config/pallas.example.toml pallas-bot/config/pallas.toml
+mkdir -p ~/pallas-deploy/pallas-bot/config \
+         ~/pallas-deploy/pallas-bot/data \
+         ~/pallas-deploy/pallas-bot/resource/voices
+cd ~/pallas-deploy
+
+BASE=https://raw.githubusercontent.com/PallasBot/Pallas-Bot/main
+curl -fsSL -o docker-compose.yml "$BASE/docker-compose.yml"
+curl -fsSL -o pallas-bot/config/pallas.toml "$BASE/config/pallas.example.toml"
+curl -fsSL -o pallas-bot/config/compose.env "$BASE/config/compose.env.example"
 ```
 
-3. 编辑 **`pallas-bot/config/pallas.toml`**（必做）：`superusers`、`db_backend`、数据库段。
+::: tip
+Windows 可用 Docker Desktop 自带的终端。没有 `curl` 时，用浏览器打开上面三个 URL，把内容存到对应路径即可。
 
-4. 按需调整 compose 中 **`volumes`**：
-
-```yml
-volumes:
-  - ./pallas-bot/resource/voices:/app/resource/voices
-  - ./pallas-bot/config/pallas.toml:/app/config/pallas.toml
-  - ./pallas-bot/data:/app/data
-```
-
-要点：
-
-- **`pallas.toml` 必须是宿主机上的普通文件**；若误建成文件夹，启动会报 `not a directory`（见排障）。
-- **只挂载 `resource/voices`**，勿把整个 `resource` 挂到 `/app/resource`，否则会盖住镜像内 `styles/default`。
-- **`data`** 持久化 WebUI、协议端、控制台口令等。
-
-**如何确认成功**：`file pallas-bot/config/pallas.toml` 显示为文本文件；`pallas-bot/data` 目录存在。
-
----
-
-## 步骤 3：选择数据库并启动
-
-::: details 全栈（新装推荐：Bot + PostgreSQL + AI + Ollama）
-1. 复制 [`docker-compose.full.yml`](../docker-compose.full.yml) 与 [`config/pallas.example.toml`](https://github.com/PallasBot/Pallas-Bot/tree/main/config/pallas.example.toml)（已默认 `postgresql`）。
-2. 准备目录与 `compose.env`（`PG_*` 与 `pallas.toml` 中 `[bootstrap.postgres]` 一致）。
-3. 启动：
-
-```bash
-docker compose -f docker-compose.full.yml --env-file ./pallas-bot/config/compose.env up -d
-```
-
-4. 首次拉取 Ollama 模型需数分钟，可看 `docker compose -f docker-compose.full.yml logs -f ollama-init pallasbot-ai`。
-
-**如何确认成功**：`curl -s http://127.0.0.1:8088/pallas/api/health` 与 `curl -s http://127.0.0.1:9099/health` 均正常。
-
-有 NVIDIA GPU 时追加 `-f docker-compose.full.gpu.yml`。
+注意：`pallas-bot/config/pallas.toml` 必须是**文件**，不能是目录。
 :::
 
-::: details MongoDB（3.x 升级 / 沿用现有数据）
-`pallas.toml` 中 `db_backend = "mongodb"` 并填写 `[bootstrap.mongo]`。compose 已为 Bot 注入 `MONGO_HOST=mongodb`。
+## 2. 改配置
 
-```bash
-docker compose up -d
+编辑 **`pallas-bot/config/pallas.toml`**：
+
+```toml
+[bootstrap]
+host = "0.0.0.0"
+port = 8088
+superusers = ["你的QQ号"]
+db_backend = "postgresql"
+
+[bootstrap.postgres]
+host = "postgres"
+port = 5432
+user = "pallas"
+password = "pallas"
+db = "PallasBot"
 ```
+
+`compose.env` 里的 `PG_USER` / `PG_PASSWORD` / `PG_DB` 与上面保持一致（默认已对齐）。
+
+::: warning
+`host` 填 Compose 服务名 **`postgres`**，不要填 `127.0.0.1`（容器内指不到库）。
 :::
 
-::: details PostgreSQL（仅 Bot，不含 AI；原 compose 分步栈）
-1. `pallas.toml` 设 `db_backend = "postgresql"` 并填写 `[bootstrap.postgres]`。
-2. 复制 [`config/compose.env.example`](https://github.com/PallasBot/Pallas-Bot/tree/main/config/compose.env.example) → **`pallas-bot/config/compose.env`**，使 **`PG_*`** 与 TOML 一致。
-3. 启动：
+## 3. 启动
 
 ```bash
 docker compose --env-file ./pallas-bot/config/compose.env --profile postgres up -d
 ```
-:::
 
-**如何确认成功**：
+看一眼状态：
 
 ```bash
 docker compose ps
-docker compose logs -f pallasbot
 curl -s http://127.0.0.1:8088/pallas/api/health
+docker compose logs pallasbot | head -80
 ```
 
----
+浏览器打开 `http://127.0.0.1:8088/pallas/`，用日志里的控制台密码登录。
 
-## 步骤 4：协议端与 QQ
+## 4. 连接 QQ
 
-详见 [连接 QQ / 协议端](/guide/connect-qq)。Docker 下打开：
+打开 `http://<主机>:8088/pallas/protocol`，用同一密码登录 → 新建 NapCat → 扫码。群里发 **牛牛帮助**，应能出图。
 
-`http://<宿主机IP>:8088/pallas/protocol`
+完整说明见 [连接 QQ](/guide/connect-qq)。
 
-::: details NapCat 与 Docker 模式
-Linux 下管理页使用 **Docker 模式** 拉起 NapCat 时，需在 `pallasbot` 服务挂载 **`/var/run/docker.sock`**（compose 内已注释说明，注意安全）。
+## 下一步
 
-自管 NapCat 时，WebSocket：`ws://<可达Bot的地址>:8088/onebot/v11/ws`。
+▶ [连接 QQ](/guide/connect-qq)
+
+## 日常命令
+
+```bash
+docker compose --env-file ./pallas-bot/config/compose.env --profile postgres logs -f pallasbot
+docker compose --env-file ./pallas-bot/config/compose.env --profile postgres restart pallasbot
+docker compose --env-file ./pallas-bot/config/compose.env --profile postgres pull
+docker compose --env-file ./pallas-bot/config/compose.env --profile postgres up -d
+docker compose --env-file ./pallas-bot/config/compose.env --profile postgres down
+```
+
+::: details 全栈（Bot + PG + Redis + Ollama + AI）
+再下载 `docker-compose.full.yml`：
+
+```bash
+curl -fsSL -o docker-compose.full.yml \
+  https://raw.githubusercontent.com/PallasBot/Pallas-Bot/main/docker-compose.full.yml
+docker compose -f docker-compose.full.yml --env-file ./pallas-bot/config/compose.env up -d
+```
+
+有 NVIDIA GPU 时可叠加 `docker-compose.full.gpu.yml`。`8088` 与 `9099` 的 health 都正常即可。
 :::
 
-**如何确认成功**：控制台显示在线 Bot；群内 **牛牛帮助** 有响应。
-
----
-
-## 步骤 5：访问控制台
-
-| 服务 | 地址 |
-| --- | --- |
-| Web 控制台 | `http://<宿主机>:8088/pallas/` |
-| 协议端管理 | `http://<宿主机>:8088/pallas/protocol` |
-
-使用启动日志中的口令登录；生产环境勿开 `pallas_webui_dev_mode`。
-
----
-
-## 日常运维
+::: details MongoDB（3.x 升级沿用）
+`pallas.toml` 设 `db_backend = "mongodb"` 并填写 `[bootstrap.mongo]`，然后：
 
 ```bash
-docker compose logs -f pallasbot
-```
-
-::: details 备份、防火墙与更新
-**备份**：`./pallas-bot/data/`、`pallas.toml`、数据库卷（`./mongo/data` 或 `./postgres/data`）
-
-**防火墙**：仅对可信 IP 开放 **8088**；公网请加 HTTPS 与强认证。
-
-**更新**：
-
-```bash
-docker compose down
-docker compose pull
 docker compose up -d
-# PostgreSQL profile 时加上 --env-file 与 --profile postgres
 ```
-
-站点插件若挂载 `./pallas-bot/local/plugins`，需在 `pallas.toml` 设置 `extra_plugin_dirs`。见 [升级与站点定制](/maintainer/deploy/upgrade)。
 :::
 
-::: details 宿主机探活（可选）
-Bot 已在容器内运行时：
-
-```bash
-uv run python tools/scripts/bot_watchdog.py --docker-container pallasbot --no-spawn
-```
-
-容器名须与 compose 中 `container_name` / 服务名一致。详见 [标准部署 · 进程守护](/deploy/deployment#进程守护脚本可选)。
+::: details 备份与防火墙
+- 备份：`./pallas-bot/data/`、`pallas.toml`、`./postgres/data`（或 `./mongo/data`）
+- 防火墙：仅对可信 IP 开放 **8088**；公网请加 HTTPS
 :::
 
----
-
-::: details 自建镜像与 `PALLAS_UV_EXTRAS`
-官方镜像 `pallasbot/pallas-bot:latest` 为**单进程**用途。自行 `docker build` 时，仓库根目录 **`.dockerignore`** 默认不打包 `tests/`、`docs/`、`.git`、`data/`、`local/` 等。
-
-| 场景 | 建议 `PALLAS_UV_EXTRAS` | 说明 |
-| --- | --- | --- |
-| 单进程 + MongoDB | `perf` | 默认 compose 栈 |
-| 单进程 + PostgreSQL | `perf,pg` | **Dockerfile 默认值** |
-| 多进程分片 | `perf,pg,deploy-shard` | 需配置 `REDIS_URL` |
-| 4.0 core 仅接话 | `perf,pg` | 默认不装玩法扩展 |
-| 4.0 + 常用玩法 | `perf,pg,plugins-game` | 决斗 + 谁是卧底；仅用于镜像预装 |
-| 4.0 全官方插件 | `perf,pg,deploy-full` | 决斗 + MAA + 谁是卧底 |
-| 4.0 全部官方插件 | `perf,pg,deploy-all` | 11 个官方插件包 |
-
-示例：
-
-```bash
-docker build \
-  --build-arg PALLAS_UV_EXTRAS=perf,pg \
-  --build-arg PALLAS_BOT_VERSION=3.0.0 \
-  -t pallasbot:local .
-```
-
-国内拉取基础镜像失败见下方排障 · `python:3.12-slim`。
+::: details 自建镜像与 extras
+官方镜像偏单进程用途。自行 `docker build` 时可用 `--build-arg PALLAS_UV_EXTRAS=perf`（PG 驱动已在主依赖）。国内拉基础镜像失败可用 `BASE_IMAGE` 换镜像站前缀。
 :::
 
-::: details 多进程分片（可选）
-十余只及以上牛牛、需 hub + worker 时，参考 [`docker-compose.shard.example.yml`](../docker-compose.shard.example.yml)：
-
-- hub 映射 **8088**；worker 映射 **8090、8091…**
-- hub 与所有 worker **共用同一份** `pallas.toml` 与 **`data/`** 挂载
-
-说明见 [多进程分片架构](/maintainer/deploy/sharded)。
+::: details 多进程分片
+参考仓库 [`docker-compose.shard.example.yml`](https://github.com/PallasBot/Pallas-Bot/blob/main/docker-compose.shard.example.yml)；说明见 [分片部署](/maintainer/deploy/sharded)。
 :::
-
----
 
 ## 排障
 
-::: details `project name must not be empty`
-仓库 compose 已设 `name: pallas-bot`。若仍报错：`docker compose -p pallas-bot up -d`，或避免用特殊字符作当前目录名。
-:::
-
 ::: details `pallas.toml ... not a directory`
-宿主机 `pallas-bot/config/pallas.toml` 被建成了**目录**。删除该目录，重新 `cp config/pallas.example.toml` 为文件后再 `up`。
+宿主机路径被建成了目录。删掉后重新下载为**文件**再 `up`。
 :::
 
-::: details `help` 告警样式路径不存在
-勿将空 `./pallas-bot/resource` 挂到 `/app/resource`；仅挂载 **`voices`** 子目录。
+::: details `database "PallasBot" does not exist`
+旧数据卷库名与当前 `PG_DB` 不一致。对齐库名，或清空 `./postgres/data` 后重建（会丢数据）。见 [FAQ](/deploy/faq)。
 :::
 
-::: details PG：`database "PallasBot" does not exist`
-数据卷曾用其他 `POSTGRES_DB` 初始化，与当前 `PG_DB` 不一致。对齐库名或清空 `./postgres/data` 后重建，见 [FAQ](/deploy/faq)。
+::: details `help` 样式路径不存在
+勿把空 `resource` 整目录挂到 `/app/resource`；只挂 `voices`（与官方 compose 一致）。
 :::
 
-::: details 拉取 `python:3.12-slim` 失败
-使用镜像加速或：
-
-```bash
-docker build --build-arg BASE_IMAGE=docker.m.daocloud.io/library/python:3.12-slim -t pallasbot:local .
-```
+::: details `project name must not be empty`
+仓库 compose 已设 `name: pallas-bot`。仍报错时用 `docker compose -p pallas-bot ...`，或避免特殊字符目录名。
 :::
-
-::: details Compose 服务名与 WebSocket
-协议端插件按 `pallas.toml` 的 `HOST`/`PORT` 生成 WS；**不会**自动使用 compose 服务名 `pallasbot`。自管 NapCat 且与 Bot 同网络时，可手写 `ws://pallasbot:8088/onebot/v11/ws`。
-:::
-
----
-
-## 接下来
-
-| 我想… | 文档 |
-| --- | --- |
-| 非 Docker 标准部署 | [标准部署](/deploy/deployment) |
-| 改配置项说明 | [配置要点](/deploy/config) |
-| 装官方插件 | [安装官方插件](/guide/install-extensions) |
-| 更多排错 | [FAQ](/deploy/faq) |

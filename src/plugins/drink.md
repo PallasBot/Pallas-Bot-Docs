@@ -66,5 +66,5 @@
 
 ## 相关链接
 
-- [牛牛做梦](../dream/README.md)
-- [酒后聊天](../chat/README.md)
+- [牛牛做梦](/plugins/dream)
+- [酒后聊天](/plugins/chat)

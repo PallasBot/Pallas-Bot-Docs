@@ -247,7 +247,7 @@ uv python list             # 看 uv 知道哪些 Python
 
 ### 4. Pallas-Bot 主仓常见 uv 命令
 
-直接抄主仓 [部署文档](/deploy/deployment) 和 [开发环境](/develop/environment) 里的：
+直接抄主仓 [部署文档](/deploy/deployment) 和 [开发环境](/developer/environment) 里的：
 
 ```bash
 # 在 Pallas-Bot 仓库根目录下
@@ -312,7 +312,7 @@ uv sync --extra pg
 ls .venv/         # Linux/Mac
 dir .venv\        # Windows
 
-# 6. 配置 pallas.toml(详见 [快速部署](/guide/start))
+# 6. 配置 pallas.toml(详见 [快速部署](/guide/quickstart))
 cp config/pallas.example.toml config/pallas.toml
 # 编辑 pallas.toml 填上数据库连接、超管 QQ 等
 

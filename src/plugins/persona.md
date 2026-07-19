@@ -64,7 +64,7 @@
 
 ## 相关链接
 
-- [复读插件](../repeater/README.md)
-- [`@牛牛`、复读接话与 LLM 的关系](../../guide/llm-and-repeater.md)
+- [复读插件](/plugins/repeater)
+- [`@牛牛`、复读接话与 LLM 的关系](/guide/llm-and-repeater)
 - [架构总览](/developer/architecture/overview)
 - [LLM 与 AI 运维](/maintainer/operate/llm-and-ai)

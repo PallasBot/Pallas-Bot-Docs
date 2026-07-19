@@ -61,4 +61,4 @@
 ## 相关链接
 
 - [在线统计与社区主站](/common/community_stats)
-- [Web 控制台](../pb_webui/README.md)
+- [Web 控制台](/plugins/pb_webui)
