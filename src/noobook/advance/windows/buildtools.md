@@ -121,7 +121,7 @@ pip install jieba
 # 期望:Successfully installed jieba-0.x.x
 
 # 或者直接装 bot 完整依赖
-uv sync --extra pg
+uv sync
 ```
 
 ::: tip ✅ 不报「Microsoft Visual C++ 14.0 required」了 = 装好了

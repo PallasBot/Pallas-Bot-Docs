@@ -5,7 +5,7 @@ QQ  ←→  NapCat  ←→  Pallas-Bot  ←→  数据库
 ```
 
 ::: tip
-先保证 Pallas-Bot 已经在跑，并能打开网页控制台。端口以 `pallas.toml` 的 `[bootstrap] port` 为准，默认 **8088**。
+先保证 Pallas-Bot 已经在跑，并能打开网页控制台。端口以 `pallas.toml` 的 `[bootstrap] port` 为准，默认 **8088**。账号连上后配置 [号主](bot-owner.md)。
 :::
 
 ## 1. 打开协议端管理

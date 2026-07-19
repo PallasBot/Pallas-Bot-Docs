@@ -177,16 +177,8 @@ password = "你的postgres密码"   # 第四步设的那个
 db = "PallasBot"         # 第四步建的库名
 ```
 
-::: warning ⚠️ Python 端还要装一个驱动
-默认装 bot 依赖只有 MongoDB 驱动，PG 要**额外**跑一次：
-```powershell
-# 在 bot 项目根目录、虚拟环境激活的状态下
-uv sync --extra pg
-```
-没装 `uv` 的话用：
-```powershell
-pip install "psycopg[binary]"
-```
+::: tip Python 端驱动
+PostgreSQL 驱动（`sqlalchemy` / `asyncpg`）已在主依赖里，仓库根执行 `uv sync` 即可，无需再加 `--extra pg`。
 :::
 
 ---
@@ -245,6 +237,6 @@ netstat -ano | findstr :5432
 - [ ] `psql -U postgres` **能登进去**
 - [ ] 有一个名叫 **`PallasBot`** 的数据库（UTF8 编码）
 - [ ] 知道 bot 的 `pallas.toml` 里要填什么连接信息
-- [ ] 跑过 `uv sync --extra pg`（或装了 `psycopg[binary]`）
+- [ ] 跑过 `uv sync`（PG 驱动已在主依赖）
 
 下一步 → 想 `pip install` bot 的依赖时报「**Microsoft Visual C++ 14.0 or greater is required**」？翻这页：[C++ 编译环境救命包](/noobook/advance/windows/buildtools)

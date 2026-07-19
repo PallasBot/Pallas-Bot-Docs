@@ -11,11 +11,13 @@
 
 **条件**：运行环境能跑 `git`。
 
-1. 打开 `/pallas/` → **插件商店** → **社区插件**
+1. 打开网页控制台 → **插件商店** → **社区插件**
 2. 选条目 → **安装**（或 **安装并重启**）
 3. 重启 Bot 后，在 **插件目录** 确认已加载
 
-**不走索引**：点 **从 Git 安装**，填插件 ID 与仓库地址即可。
+![插件商店 · 社区插件页签](/assets/plugin-store.png)
+
+**不走索引**：点右上角 **从 Git 安装**，填插件 ID 与仓库地址即可。
 
 安装路径：`local/plugins/<插件 ID>/`。
 
@@ -32,6 +34,10 @@ extra_plugin_dirs = ["local/plugins"]
 
 - **README**：仓库根目录 `README.md`
 - **更新日志**：优先 `CHANGELOG.md`；没有则按 git 提交标题兜底
+
+官方与社区卡片详情形态相同（示意：官方扩展 MAA）：
+
+![插件商店 · 卡片详情（README）](/assets/plugin-store-detail.png)
 
 作者约定见 [写社区插件并上架](community-plugin-author.md)。
 

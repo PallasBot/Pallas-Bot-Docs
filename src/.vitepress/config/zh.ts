@@ -68,6 +68,8 @@ function nav(): DefaultTheme.NavItem[] {
       text: '📖 使用',
       items: [
         { text: '命令与功能', link: '/guide/usage' },
+        { text: '配置从哪改', link: '/guide/config' },
+        { text: '号主', link: '/guide/bot-owner' },
         { text: '日常管理', link: '/guide/usage-admin' },
         { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
         { text: '常见问题 FAQ', link: '/deploy/faq' }
@@ -133,6 +135,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '命令与功能', link: '/guide/usage' },
+        { text: '配置从哪改', link: '/guide/config' },
+        { text: '号主', link: '/guide/bot-owner' },
         { text: '日常管理', link: '/guide/usage-admin' },
         { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
         { text: '牛是怎么拼起来的', link: '/guide/concepts' },

@@ -10,8 +10,8 @@ hero:
   tagline: |
     一套业务逻辑：复读、群玩法、Web 控制台，按需接 AI 与官方插件
   image:
-    src: /assets/logo.png
-    alt: Pallas-Bot Logo
+    src: /assets/brand-avatar.png
+    alt: Pallas-Bot
   actions:
     - theme: brand
       text: 快速开始

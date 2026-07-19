@@ -1,6 +1,6 @@
 # 配置要点（生产）
 
-启动前核对 `config/pallas.toml` 与 `data/` 持久化目录。
+启动前核对 `config/pallas.toml` 与 `data/` 持久化目录。日常「改哪」见用户向 [配置从哪改](/guide/config)。
 
 相关：[配置存储](/developer/architecture/config-storage) · [标准部署](/deploy/deployment) · [Docker](/deploy/docker) · [FAQ](/deploy/faq)
 

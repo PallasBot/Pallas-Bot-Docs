@@ -1,7 +1,7 @@
 # 快速开始
 
 ::: tip
-**源码 / Docker 二选一** 装好本体后，必须 [连接 QQ](connect-qq.md)，群里才会有反应。
+**源码 / Docker 二选一** 装好本体后，必须 [连接 QQ](connect-qq.md)，群里才会有反应。账号连上后配置 [号主](bot-owner.md)。改配置看 [配置从哪改](config.md)。
 :::
 
 ## 确认环境
@@ -31,3 +31,13 @@ docker -v && docker compose version
 | --- | --- |
 | 本机开发、习惯 `uv` | **[源码安装](install-source.md)** |
 | 不想 clone、只想拉镜像 | **[Docker 部署](/deploy/docker)** |
+
+## 装完之后
+
+按顺序做完，群里才有完整能力：
+
+1. [连接 QQ](connect-qq.md) — 协议端上线
+2. [号主](bot-owner.md) — 给这只牛配运维人
+3. [配置从哪改](config.md) — 超管、插件与业务项
+
+也可先看 [网页控制台](web-console.md) 熟悉面板。
