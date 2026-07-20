@@ -66,5 +66,4 @@
 
 - [日常管理](usage-admin.md) · [网页控制台](web-console.md)
 - [连接 QQ](connect-qq.md) · [重新上号](/plugins/relogin_bot)
-- [牛牛核心 pb_core](/plugins/pb_core)（超管：状态、重启、添加号主等）
 - [命令权限](/maintainer/operate/command-permissions) · [FAQ](/deploy/faq)

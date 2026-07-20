@@ -19,4 +19,4 @@
 
 实现：`extended_api.py` 内 OneBot 代理与 pending 读写。
 
-用户向说明：[request_handler 插件](/plugins/request_handler)。
+用户向说明：[request_handler 插件](../../../plugins/request_handler/README.md)。
