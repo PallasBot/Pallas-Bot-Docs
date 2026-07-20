@@ -24,4 +24,4 @@
 
 实现：`extended_api.py` + `src/foundation/db/`；备份脚本见 `tools/scripts/`。
 
-部署说明：[Docker 部署](../../../DockerDeployment.md) 卷挂载需包含 `data/`。
+部署说明：[Docker 部署](/deploy/docker) 卷挂载需包含 `data/`。

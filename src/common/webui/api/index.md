@@ -68,4 +68,4 @@
 uv run python tools/export_pb_webui_openapi.py
 ```
 
-协议端（NapCat/Snowluma）另有独立 HTTP API，由 `pallas_protocol` 挂载，不在 `/pallas/api` 下；见 [pallas_protocol 文档](../../../plugins/pb_protocol/README.md)。
+协议端（NapCat/Snowluma）另有独立 HTTP API，由 `pallas_protocol` 挂载，不在 `/pallas/api` 下；见 [协议端 pb_protocol](/plugins/pb_protocol)。

@@ -10,7 +10,7 @@
 | **通用配置** 各段 | 同上；部分段有专用 payload（语料联邦、联邦控制、服务网关） |
 | 合并顺序 | `pallas.toml` → 遗留 `.env` → `webui.json`（**WebUI 最高**） |
 
-命令权限说明见 [cmd_perm](/plugins/cmd_perm)。
+命令权限说明见 [cmd_perm](/common/cmd_perm)。
 
 **热重载分级**（配置 / 元数据 / 代码）：见 [Reload 与 Activation](/developer/plugin-development/reload-and-activation)。插件可在 `extra["reload_policy"]` 声明期望粒度（默认 `config_only`）。
 
@@ -93,4 +93,4 @@ get_my_config = plugin_webui.get
 
 ## API 契约（按域）
 
-REST 路径、鉴权、写操作与热重载行为见 [api/README.md](api/README.md)（与 WebUI `consoleApi.ts` / OpenAPI 对齐）。
+REST 路径、鉴权、写操作与热重载行为见 [WebUI API](/common/webui/api/)（与 WebUI `consoleApi.ts` / OpenAPI 对齐）。
