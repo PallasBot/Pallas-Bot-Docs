@@ -14,8 +14,11 @@ hero:
     alt: Pallas-Bot
   actions:
     - theme: brand
-      text: 开始部署
-      link: /noobook/index
+      text: 快速开始
+      link: /guide/quickstart
+    - theme: alt
+      text: 萌新引导
+      link: /noobook/
     - theme: alt
       text: 安装插件
       link: /guide/install-plugins
