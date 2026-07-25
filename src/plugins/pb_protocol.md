@@ -71,4 +71,4 @@
 ## 相关链接
 
 - [重新上号说明](/plugins/relogin_bot)
-- [协议端管理插件仓库](https://github.com/TogetsuDo/pallas-plugin-protocol)
+- [协议端管理插件仓库](https://github.com/PallasBot/Plugin-Protocol)

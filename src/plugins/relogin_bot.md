@@ -66,4 +66,4 @@
 
 - [命令权限说明](/common/cmd_perm)
 - [协议端管理说明](/plugins/pb_protocol)
-- [重新上号插件仓库](https://github.com/TogetsuDo/pallas-plugin-protocol)
+- [重新上号插件仓库](https://github.com/PallasBot/Plugin-Protocol)

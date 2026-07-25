@@ -96,5 +96,5 @@
 
 - [插件文档索引](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md)
 - [命令权限说明](/common/cmd_perm)
-- [MAA 插件仓库](https://github.com/TogetsuDo/pallas-plugin-maa)
+- [MAA 插件仓库](https://github.com/PallasBot/Plugin-Maa)
 - [MAA 远程控制协议](https://docs.maa.plus/zh-cn/protocol/remote-control-schema.html)

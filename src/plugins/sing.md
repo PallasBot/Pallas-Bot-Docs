@@ -73,5 +73,5 @@
 
 - [命令权限说明](/common/cmd_perm)
 - [Pallas-Bot-AI](https://github.com/PallasBot/Pallas-Bot-AI)
-- [牛牛唱歌插件仓库](https://github.com/TogetsuDo/pallas-plugin-ai-media)
+- [牛牛唱歌插件仓库](https://github.com/PallasBot/Plugin-Ai-Media)
 - [智能对话 / 酒后](/plugins/llm_chat)
