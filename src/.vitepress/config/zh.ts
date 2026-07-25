@@ -184,6 +184,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '贡献流程', link: '/developer/workflow' },
         { text: '写第一个插件', link: '/developer/plugin-development/first-plugin' },
         { text: '架构总览', link: '/developer/architecture/overview' },
+        { text: 'LLM 输出路径', link: '/developer/architecture/llm-output-path' },
         { text: 'Core 与扩展', link: '/developer/architecture/core-vs-extensions' },
         { text: 'Golden Plugin', link: '/developer/plugin-development/golden-plugin' },
         { text: '配置与 WebUI', link: '/developer/plugin-development/config-and-webui' },
