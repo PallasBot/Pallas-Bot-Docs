@@ -93,7 +93,7 @@ npm run check:console-openapi-types
 | `multiline` | 多行 textarea |
 | `ui_widget` / `ui_gateway` | 非默认控件；`provider_gateway` 渲染主备 Provider 线路面板（用 `ui_provider_gateway()` 生成） |
 
-未在 schema 声明但写入 `webui.json` 的键会在面板底部「未声明的环境键」列出；需改 Raw TOML 模式编辑。主备线路细节见 [DynamicConfigPanel](plugin-development/dynamic-config-panel.md#provider-主备线路provider_gateway)。
+未在 schema 声明但写入 `webui.json` 的键会在面板底部「未声明的环境键」列出；需改 Raw TOML 模式编辑。主备线路细节见 [DynamicConfigPanel](/developer/plugin-development/dynamic-config-panel#provider-主备线路provider_gateway)。
 
 ## 代码约定
 
