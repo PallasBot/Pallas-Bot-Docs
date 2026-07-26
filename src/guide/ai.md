@@ -4,7 +4,7 @@
 不启用 AI Runtime 时，复读、喝酒、轮盘等核心玩法照常可用。**默认 LLM 聊天**由 Bot 内核直连 Provider，**不必**安装 Pallas-Bot-AI。唱歌 / TTS 等媒体能力才需要 AI Runtime。
 :::
 
-本文按控制台点击顺序，带你把 **@ LLM 聊天** 跑通；唱歌 / TTS 见文末进阶。
+本文按控制台点击顺序配置 **@ LLM 对话**；唱歌 / TTS 的部署见文末进阶。先了解组件边界可阅读 [LLM 对话、媒体与 AI Runtime](ai-runtime-choice.md)。
 
 ## 能力对照
 
@@ -31,7 +31,7 @@
 
 ### 1. 打开控制台
 
-浏览器进入 `http://<主机>:8088/pallas/`，登录后侧栏进入 **AI 配置**。不确定缺什么时先看 **接入** 的 Provider 测通结果。
+浏览器进入 `http://<主机>:8088/pallas/`，登录后在 **AI 配置** 中打开 Provider 接入区域。先确认 Provider 测通结果。
 
 ### 2. 配置 Provider（接入）
 
@@ -41,7 +41,7 @@
 2. 填写密钥 / Base URL 与模型  
 3. **测通 Provider 并保存**（不要求 AI Runtime / `:9099` 可达）
 
-遗留路径：若显式设置 `LLM_RUNTIME=ai_service`，聊天仍走 AI 扩展，此时才需 **媒体服务** 页测通。
+`LLM_RUNTIME` 已兼容为 Bot 内核运行时；聊天无需 **媒体服务** 页测通。
 
 ### 3. 打开对话总闸
 

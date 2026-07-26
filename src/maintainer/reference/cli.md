@@ -68,14 +68,14 @@ uv run pallas plugin list
 
 ```bash
 uv run pallas ai path
-uv run pallas ai setup                 # LLM-only（不装 torch）
+uv run pallas ai setup                 # 媒体 sidecar 基础安装（不装 torch）
 uv run pallas ai setup --check-only
 uv run pallas ai setup --remote-only
 uv run pallas ai setup --with-media    # 唱歌/TTS（装 torch CPU）
 uv run pallas ai setup --with-media --gpu
 ```
 
-详见 [AI Runtime 安装](/maintainer/install/ai-runtime)。
+详见 [AI Runtime 安装](/maintainer/install/ai-runtime)。普通 LLM 聊天在 WebUI「AI 配置 → 接入」配置 Provider，不依赖本命令。
 
 ## 体检
 
@@ -111,3 +111,4 @@ uv run pallas doctor
 - [安装官方插件](/maintainer/install/official-extensions)
 - [网页控制台](/guide/web-console)
 - [分片部署](/maintainer/deploy/sharded)
+- [运维入口](/maintainer/quickstart)

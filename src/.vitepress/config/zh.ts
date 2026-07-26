@@ -72,6 +72,7 @@ function nav(): DefaultTheme.NavItem[] {
         { text: '号主', link: '/guide/bot-owner' },
         { text: '日常管理', link: '/guide/usage-admin' },
         { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
+        { text: 'LLM 对话、媒体与 AI Runtime', link: '/guide/ai-runtime-choice' },
         { text: '常见问题 FAQ', link: '/deploy/faq' }
       ]
     },
@@ -139,6 +140,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '号主', link: '/guide/bot-owner' },
         { text: '日常管理', link: '/guide/usage-admin' },
         { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
+        { text: 'LLM 对话、媒体与 AI Runtime', link: '/guide/ai-runtime-choice' },
         { text: '牛是怎么拼起来的', link: '/guide/concepts' },
         { text: '进阶查阅', link: '/guide/advanced' }
       ]
@@ -184,6 +186,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '贡献流程', link: '/developer/workflow' },
         { text: '写第一个插件', link: '/developer/plugin-development/first-plugin' },
         { text: '架构总览', link: '/developer/architecture/overview' },
+        { text: 'Bot 内置 Agent 生命周期', link: '/developer/architecture/agent-lifecycle' },
         { text: 'LLM 输出路径', link: '/developer/architecture/llm-output-path' },
         { text: 'Core 与扩展', link: '/developer/architecture/core-vs-extensions' },
         { text: 'Golden Plugin', link: '/developer/plugin-development/golden-plugin' },
@@ -215,7 +218,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: '夺舍 take_name', link: 'take_name' },
             { text: '拉黑 blacklist', link: 'blacklist' },
             { text: '申请 request_handler', link: 'request_handler' },
-            { text: '闲聊 llm_chat', link: 'llm_chat' },
+            { text: '智能对话 llm_chat', link: 'llm_chat' },
             { text: '牛格 persona', link: 'persona' },
             { text: '核心 pb_core', link: 'pb_core' },
             { text: '控制台 pb_webui', link: 'pb_webui' }
