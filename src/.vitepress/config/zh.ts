@@ -234,6 +234,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: '做梦 dream', link: 'dream' },
             { text: '画画 draw', link: 'draw' },
             { text: '唱歌 sing', link: 'sing' },
+            { text: '牛牛说 tts', link: 'tts' },
             { text: '聊天 chat', link: 'chat' },
             { text: 'MAA maa', link: 'maa' },
             { text: '协议端 pb_protocol', link: 'pb_protocol' },
