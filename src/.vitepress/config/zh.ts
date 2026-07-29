@@ -85,6 +85,7 @@ function nav(): DefaultTheme.NavItem[] {
         { text: '分片部署', link: '/maintainer/deploy/sharded' },
         { text: '升级', link: '/maintainer/deploy/upgrade' },
         { text: '排障', link: '/maintainer/operate/troubleshooting' },
+        { text: '日志', link: '/maintainer/operate/logs' },
         { text: '配置参考', link: '/maintainer/reference/config' }
       ]
     },
@@ -173,6 +174,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: 'Web 控制台', link: '/maintainer/operate/webui' },
         { text: '命令权限', link: '/maintainer/operate/command-permissions' },
         { text: '排障', link: '/maintainer/operate/troubleshooting' },
+        { text: '日志', link: '/maintainer/operate/logs' },
         { text: 'LLM 与 AI', link: '/maintainer/operate/llm-and-ai' },
         { text: '配置参考', link: '/maintainer/reference/config' }
       ]
