@@ -49,6 +49,7 @@ function nav(): DefaultTheme.NavItem[] {
       text: '🚀 快速开始',
       items: [
         { text: '快速开始', link: '/guide/quickstart' },
+        { text: '更新 Pallas-Bot', link: '/guide/update' },
         { text: '源码安装', link: '/guide/install-source' },
         { text: 'Docker 部署', link: '/deploy/docker' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
@@ -115,6 +116,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '快速开始', link: '/guide/quickstart' },
+        { text: '更新 Pallas-Bot', link: '/guide/update' },
         { text: '源码安装', link: '/guide/install-source' },
         { text: 'Docker 部署', link: '/deploy/docker' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
