@@ -246,7 +246,7 @@ uv python list             # 看 uv 知道哪些 Python
 
 ### 4. Pallas-Bot 主仓常见 uv 命令
 
-直接抄主仓 [部署文档](/deploy/deployment) 和 [开发环境](/developer/environment) 里的：
+直接抄主仓 [部署文档](/maintainer/deploy/deployment) 和 [开发环境](/developer/environment) 里的：
 
 ```bash
 # 在 Pallas-Bot 仓库根目录下
@@ -414,7 +414,7 @@ pip install -r requirements.txt
 - [ ] `pip install` / `pip list` / `pip freeze` 三件套熟练
 - [ ] **永久配好了 pip 国内源**
 - [ ] 装好了 `uv`，会用 `uv sync` / `uv add` / `uv run`
-- [ ] 能照着主仓 [部署文档](/deploy/deployment) 跑通 `uv sync` + `uv run pallas`
+- [ ] 能照着主仓 [部署文档](/maintainer/deploy/deployment) 跑通 `uv sync` + `uv run pallas`
 - [ ] 翻车时知道**先看 `which python`**——决定一切的起点
 
 ---

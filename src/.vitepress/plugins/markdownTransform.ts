@@ -11,10 +11,10 @@ export function MarkdownTransform(): Plugin {
 
       let out = code
       // 仅补「无标题」行；已有自定义标题的 ::: tip xxx 不动
-      out = out.replace(/^::: tip\s*$/gm, '::: tip 💡 提醒')
-      out = out.replace(/^::: warning\s*$/gm, '::: warning 🚨 警告')
-      out = out.replace(/^::: danger\s*$/gm, '::: danger 🔥 注意')
-      out = out.replace(/^::: info\s*$/gm, '::: info 📝 备注')
+      out = out.replace(/^::: tip\s*$/gm, '::: tip 提醒')
+      out = out.replace(/^::: warning\s*$/gm, '::: warning 注意')
+      out = out.replace(/^::: danger\s*$/gm, '::: danger 风险')
+      out = out.replace(/^::: info\s*$/gm, '::: info 说明')
       return out === code ? null : out
     },
   }

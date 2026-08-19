@@ -21,11 +21,13 @@ pnpm run docs:preview
 | 目录 | 说明 |
 | --- | --- |
 | `src/guide/` | 快速开始、功能列表、AI 扩展 |
-| `src/deploy/` | 部署、Docker、配置、FAQ |
+| `src/maintainer/` | 运维：安装、部署（含 Docker / 源码）、参考 |
 | `src/plugins/` | 各插件说明（与主仓 `docs/plugins/` 对应） |
 | `src/developer/architecture/` | 架构总览、配置、分片、治理等 |
 | `src/common/` | WebUI、命令权限、语料联邦、消息清洗等通用能力 |
 | `src/develop/` | 插件开发指南 |
+| `src/noobook/` | 萌新引导（本站独有，非同步） |
+| `src/deploy/faq.md` | 常见问题（`docs/FAQ.md` 的同步映射） |
 
 内容以主仓 [`docs/`](https://github.com/PallasBot/Pallas-Bot/tree/main/docs) 为权威来源；`src/` 下 Markdown 由主仓 Actions 工作流 [`sync-docs-to-web.yml`](https://github.com/PallasBot/Pallas-Bot/blob/main/.github/workflows/sync-docs-to-web.yml) 自动同步，请勿在此仓库手改与主仓映射相同的页面（VitePress 配置、`src/guide/` 等非同步目录除外）。
 

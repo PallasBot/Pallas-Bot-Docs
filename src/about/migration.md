@@ -2,7 +2,7 @@
 
 > 从 **3.x 升到 4.0** 请看 [从 3.x 迁到 4.0](/guide/4.0-migration)。本页仅保留 2.x → 3.0（MongoDB → PostgreSQL）步骤。
 
-> 导航：[`README`](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) · [`标准部署`](/deploy/deployment) · [`Docker 部署`](/deploy/docker) · [`FAQ`](/deploy/faq)
+> 导航：[`README`](https://github.com/PallasBot/Pallas-Bot/blob/main/README.md) · [`标准部署`](/maintainer/deploy/deployment) · [`Docker 部署`](/maintainer/deploy/docker) · [`FAQ`](/deploy/faq)
 
 ## 适用范围
 

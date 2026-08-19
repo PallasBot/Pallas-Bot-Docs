@@ -46,19 +46,19 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: '🚀 快速开始',
+      text: '快速开始',
       items: [
         { text: '快速开始', link: '/guide/quickstart' },
+        { text: '萌新引导', link: '/noobook/' },
         { text: '更新 Pallas-Bot', link: '/guide/update' },
         { text: '源码安装', link: '/guide/install-source' },
-        { text: 'Docker 部署', link: '/deploy/docker' },
+        { text: 'Docker 部署', link: '/maintainer/deploy/docker' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
-        { text: '网页控制台', link: '/guide/web-console' },
-        { text: '萌新引导', link: '/noobook/' }
+        { text: '网页控制台', link: '/guide/web-console' }
       ]
     },
     {
-      text: '🔧 安装插件',
+      text: '安装插件',
       items: [
         { text: '安装插件', link: '/guide/install-plugins' },
         { text: '插件列表', link: '/plugins/index' },
@@ -66,7 +66,7 @@ function nav(): DefaultTheme.NavItem[] {
       ]
     },
     {
-      text: '📖 使用',
+      text: '使用',
       items: [
         { text: '命令与功能', link: '/guide/usage' },
         { text: '配置从哪改', link: '/guide/config' },
@@ -78,11 +78,11 @@ function nav(): DefaultTheme.NavItem[] {
       ]
     },
     {
-      text: '🛠️ 运维',
+      text: '运维',
       items: [
         { text: '运维入口', link: '/maintainer/quickstart' },
-        { text: '标准部署', link: '/deploy/deployment' },
-        { text: '配置要点', link: '/deploy/config' },
+        { text: '标准部署', link: '/maintainer/deploy/deployment' },
+        { text: '配置要点', link: '/maintainer/reference/config-production' },
         { text: '分片部署', link: '/maintainer/deploy/sharded' },
         { text: '升级', link: '/maintainer/deploy/upgrade' },
         { text: '排障', link: '/maintainer/operate/troubleshooting' },
@@ -91,7 +91,7 @@ function nav(): DefaultTheme.NavItem[] {
       ]
     },
     {
-      text: '💻 开发',
+      text: '开发',
       items: [
         { text: '开发者入口', link: '/developer/index' },
         { text: '写第一个插件', link: '/developer/plugin-development/first-plugin' },
@@ -112,20 +112,21 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: '🚀 快速开始',
+      text: '快速开始',
       collapsed: false,
       items: [
         { text: '快速开始', link: '/guide/quickstart' },
+        { text: '萌新引导', link: '/noobook/' },
         { text: '更新 Pallas-Bot', link: '/guide/update' },
         { text: '源码安装', link: '/guide/install-source' },
-        { text: 'Docker 部署', link: '/deploy/docker' },
+        { text: 'Docker 部署', link: '/maintainer/deploy/docker' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
         { text: '网页控制台', link: '/guide/web-console' },
         { text: '完整部署核对', link: '/guide/start' }
       ]
     },
     {
-      text: '🔧 安装插件',
+      text: '安装插件',
       collapsed: false,
       items: [
         { text: '安装插件', link: '/guide/install-plugins' },
@@ -135,7 +136,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '📖 使用',
+      text: '使用',
       collapsed: false,
       items: [
         { text: '命令与功能', link: '/guide/usage' },
@@ -149,21 +150,21 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '♻️ 迁移',
+      text: '迁移',
       collapsed: true,
       items: [
         { text: '从 3.x 迁到 4.0', link: '/guide/4.0-migration' },
         { text: '从旧版 ollama 迁到 llm_chat', link: '/guide/llm-migrate-from-ollama' },
-        { text: '2.x → 3.0 数据迁移（归档）', link: '/about/migration' }
+        { text: '2.x → 3.0 数据迁移（归档）', link: '/maintainer/reference/migration-archived' }
       ]
     },
     {
-      text: '🛠️ 运维',
+      text: '运维',
       collapsed: true,
       items: [
         { text: '运维入口', link: '/maintainer/quickstart' },
-        { text: '标准部署', link: '/deploy/deployment' },
-        { text: '配置要点', link: '/deploy/config' },
+        { text: '标准部署', link: '/maintainer/deploy/deployment' },
+        { text: '配置要点', link: '/maintainer/reference/config-production' },
         { text: '本体安装', link: '/maintainer/install/bot' },
         { text: 'WebUI', link: '/maintainer/install/webui' },
         { text: '协议端', link: '/maintainer/install/protocol' },
@@ -182,7 +183,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '💻 开发',
+      text: '开发',
       collapsed: true,
       items: [
         { text: '入口', link: '/developer/index' },
@@ -205,7 +206,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '📄 插件详解',
+      text: '插件详解',
       collapsed: true,
       items: [
         { text: '插件索引', link: '/plugins/index' },
@@ -250,7 +251,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '🔍 查阅',
+      text: '查阅',
       collapsed: true,
       items: [
         { text: '常见问题 FAQ', link: '/deploy/faq' },
@@ -258,7 +259,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '🌱 萌新引导',
+      text: '萌新引导',
       base: '/noobook/',
       collapsed: true,
       items: [

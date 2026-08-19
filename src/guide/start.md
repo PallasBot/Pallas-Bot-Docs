@@ -44,7 +44,7 @@ uv sync
 cp config/pallas.example.toml config/pallas.toml
 ```
 
-至少设置 `superusers`、`db_backend`、对应数据库段。见 [配置从哪改](config.md) · [配置要点](/deploy/config#最少能跑)。
+至少设置 `superusers`、`db_backend`、对应数据库段。见 [配置从哪改](config.md) · [配置要点](/maintainer/reference/config-production#最少能跑)。
 
 ---
 
@@ -69,9 +69,9 @@ uv run pallas
 
 | 主题 | 文档 |
 | --- | --- |
-| systemd、备份、防火墙 | [标准部署](/deploy/deployment) |
-| Docker | [Docker 部署](/deploy/docker) |
-| 配置 | [配置从哪改](config.md) · [配置要点](/deploy/config) |
+| systemd、备份、防火墙 | [标准部署](/maintainer/deploy/deployment) |
+| Docker | [Docker 部署](/maintainer/deploy/docker) |
+| 配置 | [配置从哪改](config.md) · [配置要点](/maintainer/reference/config-production) |
 | 多牛分片 | [分片部署](/maintainer/deploy/sharded) |
 
 ---

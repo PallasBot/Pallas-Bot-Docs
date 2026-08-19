@@ -13,7 +13,7 @@
 
 这一页主要讲 **systemd**，顺带讲怎么**查服务器资源**（`htop` / `df` / `free`）。`screen` / `tmux` 的细节看 [4. 常用小工具](/noobook/advance/linux/tools#screentmux-关-ssh-也不掉)。
 
-> **Pallas-Bot 的具体 systemd 配置文件怎么写**？不在本页重复（避免内容打架），跳到 → [deploy/deployment.md#使用-systemd-守护-linux](/deploy/deployment#使用-systemd-守护-linux)  
+> **Pallas-Bot 的具体 systemd 配置文件怎么写**？不在本页重复（避免内容打架），跳到 → [deploy/deployment.md#使用-systemd-守护-linux](/maintainer/deploy/deployment#使用-systemd-守护-linux)  
 > 本页只讲**「是什么、怎么用、怎么查」**。
 
 ---
