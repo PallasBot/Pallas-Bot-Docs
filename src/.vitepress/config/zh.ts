@@ -50,6 +50,8 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: '快速开始', link: '/guide/quickstart' },
         { text: '萌新引导', link: '/noobook/' },
+        { text: '环境准备', link: '/guide/prepare-environment' },
+        { text: 'Release 部署包', link: '/maintainer/install/bot' },
         { text: '更新 Pallas-Bot', link: '/guide/update' },
         { text: '源码安装', link: '/guide/install-source' },
         { text: 'Docker 部署', link: '/maintainer/deploy/docker' },
@@ -71,7 +73,6 @@ function nav(): DefaultTheme.NavItem[] {
         { text: '命令与功能', link: '/guide/usage' },
         { text: '配置从哪改', link: '/guide/config' },
         { text: '号主', link: '/guide/bot-owner' },
-        { text: '日常管理', link: '/guide/usage-admin' },
         { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
         { text: 'LLM 对话、媒体与 AI Runtime', link: '/guide/ai-runtime-choice' },
         { text: '常见问题 FAQ', link: '/deploy/faq' }
@@ -117,12 +118,13 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '快速开始', link: '/guide/quickstart' },
         { text: '萌新引导', link: '/noobook/' },
+        { text: '环境准备', link: '/guide/prepare-environment' },
+        { text: 'Release 部署包', link: '/maintainer/install/bot' },
         { text: '更新 Pallas-Bot', link: '/guide/update' },
         { text: '源码安装', link: '/guide/install-source' },
         { text: 'Docker 部署', link: '/maintainer/deploy/docker' },
         { text: '连接 QQ', link: '/guide/connect-qq' },
-        { text: '网页控制台', link: '/guide/web-console' },
-        { text: '完整部署核对', link: '/guide/start' }
+        { text: '网页控制台', link: '/guide/web-console' }
       ]
     },
     {
@@ -142,7 +144,6 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '命令与功能', link: '/guide/usage' },
         { text: '配置从哪改', link: '/guide/config' },
         { text: '号主', link: '/guide/bot-owner' },
-        { text: '日常管理', link: '/guide/usage-admin' },
         { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
         { text: 'LLM 对话、媒体与 AI Runtime', link: '/guide/ai-runtime-choice' },
         { text: '牛是怎么拼起来的', link: '/guide/concepts' },
@@ -165,7 +166,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '运维入口', link: '/maintainer/quickstart' },
         { text: '标准部署', link: '/maintainer/deploy/deployment' },
         { text: '配置要点', link: '/maintainer/reference/config-production' },
-        { text: '本体安装', link: '/maintainer/install/bot' },
+        { text: 'Release 部署包', link: '/maintainer/install/bot' },
         { text: 'WebUI', link: '/maintainer/install/webui' },
         { text: '协议端', link: '/maintainer/install/protocol' },
         { text: '官方插件', link: '/maintainer/install/official-extensions' },
