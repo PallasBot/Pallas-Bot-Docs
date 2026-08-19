@@ -82,7 +82,7 @@ function nav(): DefaultTheme.NavItem[] {
       text: '运维',
       items: [
         { text: '运维入口', link: '/maintainer/quickstart' },
-        { text: '标准部署', link: '/maintainer/deploy/deployment' },
+        { text: '标准生产部署', link: '/maintainer/deploy/deployment' },
         { text: '配置要点', link: '/maintainer/reference/config-production' },
         { text: '分片部署', link: '/maintainer/deploy/sharded' },
         { text: '升级', link: '/maintainer/deploy/upgrade' },
@@ -164,7 +164,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: true,
       items: [
         { text: '运维入口', link: '/maintainer/quickstart' },
-        { text: '标准部署', link: '/maintainer/deploy/deployment' },
+        { text: '标准生产部署', link: '/maintainer/deploy/deployment' },
         { text: '配置要点', link: '/maintainer/reference/config-production' },
         { text: 'Release 部署包', link: '/maintainer/install/bot' },
         { text: 'WebUI', link: '/maintainer/install/webui' },
