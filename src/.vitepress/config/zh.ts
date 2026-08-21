@@ -104,6 +104,9 @@ function nav(): DefaultTheme.NavItem[] {
       text: '更多',
       items: [
         { text: '理解架构', link: '/developer/architecture/overview' },
+        { text: '横切能力全景', link: '/developer/architecture/cross-cutting-concerns' },
+        { text: '多牛协同面', link: '/developer/architecture/multi-bot-collaboration' },
+        { text: 'Work Aux', link: '/developer/architecture/work-aux' },
         { text: 'GitHub', link: 'https://github.com/PallasBot/Pallas-Bot' }
       ]
     }
@@ -194,7 +197,10 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '架构总览', link: '/developer/architecture/overview' },
         { text: 'Bot 内置 Agent 生命周期', link: '/developer/architecture/agent-lifecycle' },
         { text: 'LLM 输出路径', link: '/developer/architecture/llm-output-path' },
+        { text: 'LLM 输出护栏与离线评测', link: '/developer/architecture/llm-output-guardrails' },
         { text: 'Core 与扩展', link: '/developer/architecture/core-vs-extensions' },
+        { text: '多牛协同面', link: '/developer/architecture/multi-bot-collaboration' },
+        { text: 'Corpus 语料仓', link: '/developer/architecture/corpus-composite-repository' },
         { text: 'Golden Plugin', link: '/developer/plugin-development/golden-plugin' },
         { text: '配置与 WebUI', link: '/developer/plugin-development/config-and-webui' },
         { text: '命令权限 cmd_perm', link: '/common/cmd_perm' },
