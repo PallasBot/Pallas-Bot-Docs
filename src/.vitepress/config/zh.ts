@@ -196,6 +196,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '写第一个插件', link: '/developer/plugin-development/first-plugin' },
         { text: '架构总览', link: '/developer/architecture/overview' },
         { text: 'Bot 内置 Agent 生命周期', link: '/developer/architecture/agent-lifecycle' },
+        { text: 'LLM 上下文注入全景', link: '/developer/architecture/llm-context-injection' },
         { text: 'LLM 输出路径', link: '/developer/architecture/llm-output-path' },
         { text: 'LLM 输出护栏与离线评测', link: '/developer/architecture/llm-output-guardrails' },
         { text: 'Core 与扩展', link: '/developer/architecture/core-vs-extensions' },
