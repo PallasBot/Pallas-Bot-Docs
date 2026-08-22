@@ -11,6 +11,25 @@
 
 两条线最终都在 `packages/llm_chat/chat_message.py` 的 `prepare_and_submit_llm_chat_turn` 里汇合后发送。
 
+## 入口路由：一句话到说话的决策流
+
+群消息进来后先过一段「该不该说」路由，两条上下文线只对走 LLM 的分支生效：
+
+```text
+群消息
+  ├─ reply_gate 硬过滤（表情/噪声/围观/过短）   skip → 真静默
+  ├─ 冷却/失能 gate（cooldown / disabled）      冷却 → 攒消息，等下次触发
+  ├─ reply_necessity 评分（@/低价值/围观）      低于阈值 → skip 静默
+  └─ decide_current_turn（规则决策，零 LLM）
+       ├─ REPLY    → 正常对话生成 ★主路径（context 注入 + persona + 多泡）
+       ├─ TOOL     → 工具调用（需权限）
+       ├─ FOLLOW_UP → 追问
+       ├─ QUOTE    → 用户引用了最近候选消息（rule 路径加概率 + 冷却后判 QUOTE，见下节）
+       └─ PASS     → 低投入出口（见下节）：掷概率，命中则本地极短句池取 ≤12 字补泡，未命中静默
+```
+
+只有 `REPLY` 分支才走到下文的两条上下文线。
+
 ## system prompt 段结构
 
 `ChatPromptAssembler`（`pallas/product/llm/assembler/chat_prompt.py`）按固定顺序组合各段，段内每块 `sanitize_prompt_block` 清洗后再以空行连接；空或重复的段跳过。顺序即 `section_ids`：
@@ -79,6 +98,29 @@
 
 - 问候 / 昵称 / 调侃等社交动作（`social_action`），或 ≤24 字的疲惫感慨（「烦死了」「唉」等）——**跳过记忆检索**（`should_read_persistent_memory_for_turn=False`），system prompt 中记忆 / 关系 / 人物事实 / 旧话题全部为空，群环境摘录与群时间线仍保留。
 - 这类话若发生在 Bot 刚回过同一位用户之后，则只带**最近 1 对**直连对话（`should_include_recent_pair_for_turn=True`，`history_limit=2`），并同时关闭群环境摘录，避免把整段长历史塞给模型。
+
+### 低投入出口（PASS 分支）
+
+本轮决策判 `PASS`（`CurrentTurnAction.PASS`，规则来源：短社交、非 to_me 的低价值话）时，传统上是纯静默。现可走**低投入出口**（`pallas/product/llm/low_engagement.py`）：
+
+- 门控：`trace.source == "rule"` 且非 to_me（不依赖 `llm_current_turn_decision_enabled`，规则 PASS 在开关开/关时都免费产生）。
+- 掷概率（按最近 Bot 回复数：0→0.35、1–2→0.20、3–4→0.10、≥5→0.05），未命中仍静默。
+- 命中则从本地极短句池取 ≤12 字 soft 短句（群表达 active + 内置池 + emoji 兜底，`_last_used_cache` 防连续重复），`send` 一条后记录 `current_turn_low_engagement`，**不调用 LLM**。
+
+**分场景取句**：入口把触发文本（`focus_text`）传给 `dispatch_low_engagement`。触发文本带情绪词（难绷/破防/麻了/emo/烦/累/哭/气死等，`_EMOTION_TRIGGER_KEYWORDS`）时，从「梗型跳脱池」（`_EMOTION_TANGENT_POOL`，如「阴完了」「没绷住」「休息会」，真实语料提炼的干净单句冷转移）取句；否则仍走通用乖巧 soft 池。脏样本（攻击性/脏话）不进池。
+
+- 目的：给「不值得完整回复但不该静默」的消息一个低成本带角色回应，缓解 bot 在低价值消息上的持续沉默。
+
+### 引用的原生引用（QUOTE 决策）
+
+用户引用某条最近消息时（OneBot 引用段，`extract_reply_id_from_raw_message` 从 `raw_message` 解析），rule 路径可能判 `QUOTE` 而非普通回复：
+
+- 仅当引用目标在**本群最近候选**（`reply_target_candidates`，deque maxlen 6）内时，rule 才可能判 `QUOTE`——引用未知/过期消息退化为普通 `PLAIN` 回复。
+- 群级节流：每群冷却 `_QUOTE_COOLDOWN_SEC`（默认 120s）+ 命中概率 `_QUOTE_EMIT_PROBABILITY`（默认 0.25），避免连珠炮式的引用（「一次对话不会每条都 quote」）。
+- 决策在 `CurrentTurnDecisionInput.reply_to_message_id` 传入、`decide_current_turn_by_rule` 产出 `QUOTE + reply_message_id`（`source="rule"`，reason `rule_reply_quote`），零 LLM。
+- 发送侧 `delivery.py:_resolve_quote_reply_target` 只对所引用 id 在 `reply_candidate_ids` 内时才真正带引用，否则降级为纯文本。
+
+来源：审计发现 `delivery_style=QUOTE` 实际从未决出—— rule 路径原本不产 QUOTE、且 model 判定被 `llm_current_turn_decision_enabled=False` 掐死。本机制不新建配置、不增加 LLM 调用。
 
 ### 长会话压缩
 
