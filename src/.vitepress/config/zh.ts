@@ -75,6 +75,7 @@ function nav(): DefaultTheme.NavItem[] {
         { text: '号主', link: '/guide/bot-owner' },
         { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
         { text: 'LLM 对话、媒体与 AI Runtime', link: '/guide/ai-runtime-choice' },
+        { text: '上下文与回复护栏', link: '/guide/llm-context-and-guardrails' },
         { text: '常见问题 FAQ', link: '/deploy/faq' }
       ]
     },
@@ -149,6 +150,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '号主', link: '/guide/bot-owner' },
         { text: '@牛牛与复读', link: '/guide/llm-and-repeater' },
         { text: 'LLM 对话、媒体与 AI Runtime', link: '/guide/ai-runtime-choice' },
+        { text: '上下文与回复护栏', link: '/guide/llm-context-and-guardrails' },
         { text: '牛是怎么拼起来的', link: '/guide/concepts' },
         { text: '进阶查阅', link: '/guide/advanced' }
       ]
