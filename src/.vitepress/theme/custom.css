@@ -132,19 +132,17 @@
   }
 }
 
-/* mermaid 流程图：缩略图尺寸（280px），点击触发灯箱放大（见 mermaidLightbox.ts） */
+/* mermaid 流程图：按图自身尺寸渲染，最宽到版心（不再压缩到 280px 缩略图）；
+   复杂图仍可点击灯箱放大（见 mermaidLightbox.ts） */
 .mermaid {
   margin: 1.5rem auto;       /* 居中 */
   text-align: center;
   position: relative;
   cursor: zoom-in;
-  max-width: 280px;
 }
 
 .mermaid svg {
   display: inline-block;
-  width: 100%;
-  max-width: 280px;          /* 缩略图尺寸；点图触发灯箱看大图 */
   height: auto;
 }
 
@@ -294,6 +292,29 @@ body.dark #__mermaid_lightbox_overlay__ .mermaid-lightbox__stage svg {
   border-radius: 50%;
   border: 1px solid var(--vp-c-divider);
   box-shadow: 0 12px 40px rgba(124, 58, 237, 0.12);
+}
+
+/* 表格：整体略收敛字号；超宽表格横向滚动而不是撑破版心；长配置键可断行 */
+.vp-doc table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  font-size: 0.92em;
+}
+
+.vp-doc th,
+.vp-doc td {
+  padding: 8px 14px;
+  /* break-word：仅在单个长 token 放不下时才折行，且不影响列宽计算；
+     避免 anywhere 把代码标识符从中间碾断 —— 宽表改为横向滚动 */
+  overflow-wrap: break-word;
+}
+
+/* 宽屏（≥1440px）下正文从 688px 放宽到 784px，密表格多留一点呼吸空间 */
+@media (min-width: 1440px) {
+  .VPDoc.has-aside .content-container {
+    max-width: 784px;
+  }
 }
 
 /* 正文：标题后间距更紧凑，步骤感更强 */
