@@ -37,7 +37,7 @@
 | 短气泡兜底拆分 | `reply_postprocess.py` `split_short_reply_segments` | short 取向但只有单段时，按句末标点 / 换行拆成多气泡 |
 | 轻量后处理 | `apply_reply_postprocess` | 错别字、句尾句号 |
 | 多气泡投递 | `delivery.py` `deliver_llm_callback_success` | 逐条发送，气泡间按上句长度叠加随机抖动（0.5~3.5s，模拟真人节奏） |
-| 学习回写 | 会话 / `behavior_store` / `expression_learn` / `repeater_feedback` / `auto_episode` | 投递成功后写历史、行为与表达 |
+| 学习回写 | 会话 / `behavior_store` / `repeater_feedback` / `auto_episode` | 投递成功后写历史、行为与表达 |
 
 ## LLM turn telemetry
 
@@ -65,11 +65,13 @@ at-chat 系统提示词 `pallas/product/persona/at_chat_system_prompt.txt` 只�
 | 步骤 | 位置 |
 | --- | --- |
 | Repeater 候选与投递 | `packages/repeater/responder.py`、`packages/repeater/handlers/message.py` |
-| LLM 群级表达指导 | `pallas/product/llm/repeater_semantic_style.py` |
+| LLM 群级表达指导 | `pallas/product/llm/repeater_semantic_style.py`（注入消费）；`pallas/product/llm/group_insight_processor.py`（从 message 表重建成对样本，批量标注落盘） |
 | 表达库存取 / 学习 | `pallas/product/persona/expression_*.py` |
 | 进程内投递 | `pallas/product/llm/delivery.py`（`deliver_llm_chat_result`）；`kernel_runner.py` 调用 delivery |
 | 媒体 / HTTP callback 壳 | `pallas/core/platform/ai_callback/runner.py`（薄壳，复用 delivery） |
 | 配置键 | `pallas/product/llm/config.py`；WebUI 段见 `env_sections.py`（侧栏 **AI 配置**） |
+
+群洞察的调度、8 个候选对的批量含义、持久化游标、预算和记忆层批量边界见[群洞察与语义风格指导器](group-insight-semantic-style.md)。
 
 ## 约束
 
