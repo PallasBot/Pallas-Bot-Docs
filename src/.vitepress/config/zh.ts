@@ -201,6 +201,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: 'LLM 上下文注入全景', link: '/developer/architecture/llm-context-injection' },
         { text: 'LLM 输出路径', link: '/developer/architecture/llm-output-path' },
         { text: 'LLM 输出护栏与离线评测', link: '/developer/architecture/llm-output-guardrails' },
+        { text: '群洞察与语义风格指导器', link: '/developer/architecture/group-insight-semantic-style' },
         { text: 'Core 与扩展', link: '/developer/architecture/core-vs-extensions' },
         { text: '多牛协同面', link: '/developer/architecture/multi-bot-collaboration' },
         { text: 'Corpus 语料仓', link: '/developer/architecture/corpus-composite-repository' },
