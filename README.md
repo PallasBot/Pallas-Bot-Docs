@@ -16,6 +16,8 @@ pnpm run docs:build
 pnpm run docs:preview
 ```
 
+依赖以 `pnpm-lock.yaml` 为唯一规范锁（CI 亦仅用 pnpm）；仓库不再维护 `package-lock.json`，避免出现与 pnpm 树矛盾的部署依据。
+
 ## 文档结构
 
 | 目录 | 说明 |
