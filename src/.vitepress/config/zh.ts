@@ -253,8 +253,6 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: '牛牛说 tts', link: 'tts' },
             { text: '聊天 chat', link: 'chat' },
             { text: 'MAA maa', link: 'maa' },
-            { text: '协议端 pb_protocol', link: 'pb_protocol' },
-            { text: '上号 relogin_bot', link: 'relogin_bot' },
             { text: '状态 bot_status', link: 'bot_status' },
             { text: '社区统计 pb_stats', link: 'pb_stats' }
           ]
