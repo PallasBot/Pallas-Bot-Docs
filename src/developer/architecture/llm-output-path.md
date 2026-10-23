@@ -29,6 +29,8 @@ Repeater 回放入站消息时优先将 OneBot `original_message`（入站结构
 
 显式查询超过 3 秒且已经开始实际工具调用时，kernel 最多发送一次“我查一下。”进度气泡；发送前重新检查 live 开关。该气泡不写入会话历史、表达学习或最终答案上下文。
 
+普通 `llm_chat` 单轮生成共享一个预算对象（`pallas/product/llm/turn_budget.py`）：从 kernel 开始生成计时（deadline 锚在 job 起始，不在首次 provider 调用另起时钟），限制墙钟时长与真实 HTTP 尝试次数（`llm_chat_turn_timeout_sec`、`llm_chat_turn_max_http_attempts`）。候选准备、provider 补全、工具续轮、final、persona retry 与内联工具（如 `chat.recent_summary` 的工具内模型调用，经 `ToolInvokeContext` 运行期透传）都经同一对象计数，换密钥 / 换 provider / required→auto 不重置；provider 每个协议在真正 `client.post` 前领取一次并把 httpx 分阶段超时钳到剩余。预算耗尽时不再发起新请求：deadline 前已启动的工具允许正常收尾并保留结果，门禁或 provider 等待期间到期的工具不会被启动；只有当本 turn 动作全部成功完成且无截断时，才复用已取得的 `chat.reply`，否则诚实静默，persona firewall 不再触发重试。未开放 / 被拒 / 失败的动作，以及后台受理（queued、尚未真正执行）都不算完成，会保守地抑制既有完成话术；后台受理结果与既有 durable 续行机制保留，不被取消。该时限不是整轮硬墙钟上限，工具收尾与取消清理可以超过，不计入队列、前置上下文与投递；后台 durable 记忆等独立异步任务不继承该预算、也不被父轮停止取消。
+
 ## LLM 输出管线
 
 ![LLM 输出管线与表达数据粒度](/assets/llm-output-path.svg)
@@ -108,6 +110,17 @@ provider.task_models[task] / default_model → 该提供方下的具体模型
 | 配置键 | `pallas/product/llm/config.py`；WebUI 段见 `env_sections.py`（侧栏 **AI 配置**） |
 
 群洞察的调度、8 个候选对的批量含义、持久化游标、预算和记忆层批量边界见[群洞察与语义风格指导器](group-insight-semantic-style.md)。
+
+## AI 回调与内部 IPC 鉴权边界
+
+- **服务身份**：AI→Bot 的 `/callback/*` 与受信工具入口 `/pallas/api/internal/llm/tools/execute` 复用同一 AI Bearer（`ai_extension.json` 的 token，或 `PALLAS_AI_API_TOKEN` / `TTS_API_TOKEN`）；空配置拒绝、常量时间比较。工具入口也接受维护者 `X-Pallas-Api-Key`。见 `pallas/core/platform/ai_callback/ai_bearer.py`。
+- **任务身份绑定**：工具执行只允许在已登记的 LLM 任务上下文内进行；`request_id` 必填且有界，上下文主体（bot/group/user/source_segments）一律由任务登记构造，body 身份仅作兼容断言，不一致拒绝；不接受 body 自授 `approved_tools`；工具名先经 registry 规范化再禁 `social.*`。
+- **内部 IPC**：work aux→Bot 的任务登记/删除（`/pallas/api/internal/ai/tasks*`）强制 `X-Pallas-Internal-Token`，由共享根密钥 `data/pallas_console/session_secret.bin` 按固定用途标签 HMAC-SHA256 派生（`internal_auth.py`），根密钥不下发 AI/浏览器；loopback 仅纵深防御。
+- **解析前有界**：`boundary_guard.py` 对上述入口先 header 鉴权、再按实际 ASGI receive 字节累计，超限 413（Content-Length 仅快速拒绝，chunked 同样有界）；JSON 2MiB、回调单文件 64MiB、字段/文本/trace/history 另有限额，初值可用 repo 设置覆盖。鉴权相关 header（`Authorization` / `X-Pallas-Internal-Token` / `X-Pallas-Api-Key`）重复出现视为歧义直接 400；畸形或超长 Content-Length 记 400/413，不做无界 `int()`。
+- **原子领取与终态**：有 Redis 协调时，登记、领取、取消各自用单个短 Lua 脚本原子完成——登记在同一次调用内检查终态、比较不可变绑定与受保护内容（`song_id`/来源消息段）后创建；领取一次完成取记录、删键与写终态（无独立门，空记录不触碰键）；取消写终态并删键。同一 ID 至多领取一次、终态在 TTL 内不得复活；协调已启用但不可用（client 缺失/读写异常）统一抛 `AiTaskRedisError` 映射 503，不静默降级。无协调 unified 仍在本地锁内领取并即落终态。
+- **协调意图与健康分离**：任务路径以配置意图判定是否必须走 Redis（`coord_redis_configured`：mode 非 `false` 且有 URL），ping 健康（`coord_redis_enabled`）只决定该次调用能否成功，不用它决定本地权威；要求协调而不可用时登记/领取/取消一律失败关闭，本地已有记录也不获胜。其他 coord 消费者仍按「配置 + ping」做可用性降级。
+- **pending 查询纯读**：待处理任务查询（song 绑定 peek、hub 路由、tools 上下文）缺失或过期返回「未找到」，不写终态、不取消该 ID；读取故障抛 `AiTaskRedisError`，在 song peek / hub / tools 边界映射 503（不降级为 404/500），且不产生写。取消只有在共享终态提交成功后才确认成功（DELETE 失败映射 503），失败后本地不落终态。
+- **hub→worker 转发**：hub 先认证/校验/限字节再转发，只构造必需 auth header、不转 Cookie/Forwarded，`trust_env=False` 且不跟随重定向；worker 侧同样校验 AI Bearer，保留 413 等不可重试状态。
 
 ## 约束
 

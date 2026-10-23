@@ -110,11 +110,16 @@
 `assemble_direct_chat_context`（`assembler/context.py`）只负责检索，不决定拼装顺序：
 
 1. `enrich_system_with_memory_context`：记忆检索（群记忆、事件、IP 知识、教导，按各自块出现）。
-2. `enrich_system_with_knowledge_sources`：知识源检索。
+2. `enrich_system_with_knowledge_sources`：知识源检索，gate 与检索共用同一 resolved query（`looks_like_knowledge_query`）。
+   - **当前句是明确指向本牛的邀群 / 邀请 / 加好友操作**（`looks_like_invite_topic`）：直接用原 query 检索，不承接历史。
+   - **当前句是严格短追问**（`looks_like_invite_followup`）时，才用 `resolve_knowledge_query` 承接：仅当最近 ≤2 条同 bot×群×用户 `user` 回合（每条 ≤60 字、600s 内）整体新鲜短有效且含明确邀请，才并入邀请语境；换题、无效时间、过长或合成摘要（【此前对话摘要】）任一出现即整窗 fail-close，不倒退另找。命中记 `context_carry=true`。
+   - 仅「邀请牛牛进群」这一 chunk 在非邀请语境下被过滤，其它 FAQ / 知识源照常检索。
+   - 保守软启发式：只缓解可见混合窗口，不保证更早未落盘入站的严格顺序；知识块只作参考，不授权任何审批动作。
+   - 作用域仅清醒 `llm_chat`：醉酒轮无本源会话历史，独立 preview 探测不载入实时用户历史，二者均不在承接范围内。
 3. 群聊且用户有效时：`enrich_system_with_relationship_context`（关系便签；`include_fallback` 取决于本轮是否允许持久记忆）。
 4. 允许持久记忆时：`enrich_system_with_person_facts` + `recall_mid_term_block`。
 
-每一步记录耗时 `stage_durations_ms` 与检索 trace，汇入 `ChatContextBundle`。「短社交话」（无实质内容，见下）不再关闭检索——`should_read_persistent_memory_for_turn` 恒为 True，关系 / 人物事实 / 旧话题与用户历史每轮照常注入。
+每一步记录耗时 `stage_durations_ms` 与检索 trace，汇入 `ChatContextBundle`。「短社交话」（无实质内容，见下）不再关闭检索——`should_read_persistent_memory_for_turn` 恒为 True，关系 / 人物事实 / 旧话题与用户历史每轮照常注入。记忆 / 关系 / 人物事实的检索 query 仍是当前句本身，不受知识语境承接影响。
 
 ## 群聊相邻语境（走 system prompt）
 
@@ -182,7 +187,7 @@ Provider 已显式声明 `image` 时，`vision_messages` 在请求前下载这�
 
 ### 长会话压缩
 
-会话太长时先压再注入（`session_summary.py`）：当该用户消息数 ≥ `llm_session_summary_threshold`（默认 24）且距上次压缩超过冷却期（默认 600s），用低成本模型把窗口外历史压成 ≤120 字中文，写入一条 `user` 记录的【此前对话摘要】，并只保留最近 `llm_session_summary_keep_messages`（默认 16）条。**读取时摘要始终保留在窗口内**——若摘要滑出当前窗口，会弹出它、保留最近 `N-1` 条、把摘要放回最前。压缩发生在投递成功后异步执行。
+会话太长时先压再注入（`session_summary.py`）：当该用户普通 user 消息数 ≥ `llm_session_summary_threshold`（默认 24）且距上次压缩超过冷却期（默认 600s），用低成本模型把窗口外历史压成 ≤120 字中文，写入一条 `user` 记录的【此前对话摘要】，并只保留最近 `llm_session_summary_keep_messages`（默认 16）条普通原文。自动压缩先读取同 TTL 的存储窗口快照（稳定排序；W+1 即本轮放弃、不改历史），摘要来源是快照去掉冻结 keep 后的精确 ID 集合（旧摘要不占 keep），时间锚取 keep 最早 `created_at - 1`；仅自动路径按来源 ID 提交，手工/回调 compact 仍沿用原语义。**读取时摘要始终保留在窗口内**——若摘要滑出当前窗口，会弹出它、保留最近 `N-1` 条、把摘要放回最前。压缩发生在投递成功后异步执行。
 
 **图片进历史的延迟识别**：含 `[CQ:image]` 的 user 消息进会话历史时，不立即调用视觉模型识别（避免每张图都产生一次 LLM 成本），而是存成 `[图片]:url=X` 占位符（`vision_content.placeholder_with_image_urls`），保留图片 URL。到会话摘要压缩需要理解历史图时，`session_summary._summary_messages` 才从占位符提取 URL、查图片缓存并对占位符段做一次视觉描述（`vision_messages.describe_placeholder_images`），占位符外的文字保留。开关 `llm_session_vision_describe_enabled` 控制此行为；关闭时直接退化为纯 `[图片]` 占位（丢 URL）。
 
