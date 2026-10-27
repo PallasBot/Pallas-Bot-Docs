@@ -3,6 +3,7 @@
   "src/common/command_limits.md",
   "src/common/community_stats.md",
   "src/common/corpus.md",
+  "src/common/mcp/index.md",
   "src/common/message_scrub.md",
   "src/common/webui.md",
   "src/common/webui/api/01-auth-health.md",
