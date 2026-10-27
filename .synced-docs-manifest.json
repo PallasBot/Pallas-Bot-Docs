@@ -17,6 +17,7 @@
   "src/common/webui/api/index.md",
   "src/deploy/faq.md",
   "src/developer/architecture/agent-lifecycle.md",
+  "src/developer/architecture/arknights-mcp.md",
   "src/developer/architecture/config-storage.md",
   "src/developer/architecture/core-vs-extensions.md",
   "src/developer/architecture/corpus-composite-repository.md",
